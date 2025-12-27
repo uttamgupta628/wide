@@ -1,68 +1,76 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
+  const navItem =
+    "text-black transition-transform duration-200 hover:scale-110";
+
   return (
-    <>
-      
+    <header className="bg-[#FFDA00] px-4 sm:px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
 
-      {/* Header */}
-      <header className="bg-yellow-400 px-4 sm:px-6 py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            <div className="text-xl sm:text-2xl font-black leading-none text-white">
-              WIDE
-            </div>
-            <div className="text-[10px] sm:text-xs font-bold tracking-[0.3em] text-white">
-              HORIZONS
-            </div>
-          </div>
+        {/* Logo */}
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Wide Horizons Logo"
+            className="h-10 sm:h-12 w-auto hover:scale-105 transition-transform duration-200"
+          />
+        </Link>
 
-          <nav className="hidden lg:flex space-x-6 xl:space-x-8 text-sm font-medium">
-           <Link to="/" className="text-blue-600">Home</Link>
-<Link to="/about" className="text-blue-600">About</Link>
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex space-x-6 xl:space-x-8 text-sm font-medium items-center">
+          <Link to="/" className={navItem}>Home</Link>
+          <Link to="/about" className={navItem}>About</Link>
+          <Link to="/services" className={navItem}>Services</Link>
+          <Link to="/portfolio" className={navItem}>Portfolio</Link>
+          <Link to="/process" className={navItem}>Process</Link>
+          <Link to="/Testimonials" className={navItem}>Testimonials</Link>
+          {/* <Link to="/blog" className={navItem}>Blog</Link> */}
+          <Link to="/contact-us" className={navItem}>Contact</Link>
+          {/* <Link to="/Request Quote" className={navItem}>Request Quote</Link> */}
+        </nav>
 
-            <a href="#services" className="text-blue-600 hover:text-blue-800">
-              Services
-            </a>
-            <a href="#portfolio" className="text-blue-600 hover:text-blue-800">
-              Portfolio
-            </a>
-            <a href="#process" className="text-blue-600 hover:text-blue-800">
-              Process
-            </a>
-            <a href="#contact" className="text-blue-600 hover:text-blue-800">
-              Contact
-            </a>
-          </nav>
+        {/* CTA Button */}
+        <Link
+          to="/request-quote"
+          className="hidden lg:block bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform duration-200"
+        >
+          Contact Us
+        </Link>
 
-          <button className="hidden lg:block bg-gray-900 text-white px-5 py-2 rounded text-sm font-medium hover:bg-gray-800">
-            Contact us
-          </button>
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-gray-900 p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-          <button
-            className="lg:hidden text-gray-900 p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      {/* Mobile Nav */}
+      {mobileMenuOpen && (
+        <nav className="lg:hidden mt-4 pb-4 flex flex-col space-y-3 text-sm font-medium">
+          <Link to="/" className={navItem} onClick={() => setMobileMenuOpen(false)}>Home</Link>
+          <Link to="/about" className={navItem} onClick={() => setMobileMenuOpen(false)}>About</Link>
+          <Link to="/services" className={navItem} onClick={() => setMobileMenuOpen(false)}>Services</Link>
+          <Link to="/portfolio" className={navItem} onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
+          <Link to="/process" className={navItem} onClick={() => setMobileMenuOpen(false)}>Process</Link>
+          <Link to="/blog" className={navItem} onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+          <Link to="/contact-us" className={navItem} onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <Link
+            to="/request-quote"
+            className="bg-gray-900 text-white px-4 py-2 rounded-md w-fit hover:scale-105 transition-transform duration-200"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 flex flex-col space-y-3">
-            <a href="#" className="text-black">Home</a>
-            <a href="#about" className="text-black">About</a>
-            <a href="#services" className="text-black">Services</a>
-            <a href="#portfolio" className="text-black">Portfolio</a>
-            <a href="#process" className="text-black">Process</a>
-            <a href="#contact" className="text-black">Contact</a>
-          </nav>
-        )}
-      </header>
-    </>
+            Request Quote
+          </Link>
+        </nav>
+      )}
+    </header>
   );
 };
