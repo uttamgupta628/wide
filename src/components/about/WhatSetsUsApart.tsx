@@ -34,7 +34,7 @@ export const WhatSetsUsApart = () => {
         {items.map((item, i) => {
           const Icon = item.icon;
           return (
-            <div key={i} className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-4 h-20">
+            <div key={i} className="bg-white p-6 rounded-xl shadow-sm flex items-center  gap-4 h-35">
               <div className="bg-gray-100 p-3 rounded-lg">
                 <Icon className="h-6 w-6 text-black" />
               </div>

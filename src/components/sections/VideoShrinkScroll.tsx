@@ -148,7 +148,7 @@ const VideoShrinkScroll = () => {
       <div className="video-section" ref={videoSectionRef}>
         <div className="sticky-container">
           <div className="video-wrapper" ref={videoWrapperRef}>
-            <video autoPlay loop muted playsInline>
+            <video autoPlay loop  playsInline>
               <source
                 src={video}
                 type="video/mp4"

@@ -1,21 +1,33 @@
-import event from '../../assets/event1.png';
+import about2 from "../../assets/about2.png";
+import about3 from "../../assets/about3.png";
 
 export const AboutCTA = () => {
   return (
-    <section className="bg-[#FFF1A8] px-6 py-16">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h3 className="text-2xl font-bold mb-4">
-            Let’s Get Your Brand Notice
-          </h3>
-          <button className="bg-black text-yellow-400 px-6 py-3 rounded">
-            Contact us
-          </button>
+    <section className="bg-linear-to-r from-[#FFEB77] to-[#FFFBE2] px-2 py-20 lg:py-24  mb-7">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-center">
+        {/* Left Content */}
+        <div className="relative lg:pl-12">
+          <div className="bg-[#FFEB77] rounded-full w-80 h-80 flex flex-col justify-center items-start pl-12">
+            <h3 className="text-4xl font-extrabold leading-tight mb-4 whitespace-nowrap">
+              Let’s Get Your Brand Notice
+            </h3>
+            <button className="underline font-bold text-lg">Contact us</button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <img src={event} className="rounded-lg" />
-          <img src={event} className="rounded-lg" />
+        {/* Right Images */}
+        <div className="relative flex justify-end items-center">
+          {/* Overlapping Image */}
+          <img
+            src={about2}
+            className="w-72 h-96 object-cover absolute right-48 z-10 shadow-xl"
+          />
+
+          {/* Base Image */}
+          <img
+            src={about3}
+            className="w-72 h-96 object-cover shadow-xl"
+          />
         </div>
       </div>
     </section>
