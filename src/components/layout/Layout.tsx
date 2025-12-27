@@ -1,0 +1,14 @@
+import React from 'react';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import type { LayoutProps } from '../../types';
+
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+};
