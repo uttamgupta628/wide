@@ -21,7 +21,11 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#FAF7F5] py-20 px-4">
+    <section className="bg-[#FAF7F5]  pb-4">
+      <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  Home &gt; Contact Us
+</div>
+
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}

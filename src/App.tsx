@@ -8,6 +8,8 @@ import { OOHAdvertising } from './components/service/OOH';
 import { Layout } from './components/layout/Layout';
 import { Corporate } from './components/service/corporate';
 import { Branding } from './components/service/brand-activation';
+import { Management } from './components/service/celebrity-management';
+import { Pr } from './components/service/pr';
 
 
 function App() {
@@ -23,7 +25,8 @@ function App() {
           <Route path="/services/ooh" element={<OOHAdvertising />} />
           <Route path="/services/corporate" element={<Corporate />} />
           <Route path="/services/branding" element={<Branding />} />
-
+          <Route path="/services/management" element={<Management/>} />
+          <Route path="/services/pr" element={<Pr/>} />
         </Route>
       </Routes>
     </BrowserRouter>

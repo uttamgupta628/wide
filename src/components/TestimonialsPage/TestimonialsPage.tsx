@@ -102,7 +102,11 @@ const TestimonialsPage: React.FC = () => {
   return (
     <div className="w-full bg-white">
       {/* ================= HEADER ================= */}
-      <section className="bg-gradient-to-r from-[#FFDA00] to-white py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#FFDA00] to-white pb-16 relative overflow-hidden">
+        <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  Home &gt; Testimonials
+</div>
+
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 items-center">
           <div className="hidden lg:block" />
 
