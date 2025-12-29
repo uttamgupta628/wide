@@ -12,7 +12,6 @@ import VideoShrinkScroll from '../components/sections/VideoShrinkScroll';
 
 import { clients } from '../data/clientsData';
 
-import heroImg from '../assets/hero.png';
 import man1 from '../assets/man.png';
 import event1 from '../assets/event1.png';
 
@@ -22,7 +21,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <HeroSection heroImg={heroImg} />
+      <HeroSection  />
       <VideoShrinkScroll/>
       <ServicesSection />
       <ProcessSection />
