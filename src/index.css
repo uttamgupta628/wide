@@ -22,3 +22,11 @@
   gap: 2rem; /* space between cards */
 }
 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
