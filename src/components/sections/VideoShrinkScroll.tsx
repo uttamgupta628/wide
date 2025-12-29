@@ -1,15 +1,19 @@
 import { useEffect, useRef } from "react";
-import video from '../../assets/Wide Horizons- intro.mp4'
+import video from "../../assets/Wide Horizons- intro.mp4";
 
 const VideoShrinkScroll = () => {
   const videoSectionRef = useRef<HTMLDivElement | null>(null);
   const videoWrapperRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const scrollProgress = useRef(0);
   const targetScrollProgress = useRef(0);
   const isMobile = useRef(false);
   const animationFrame = useRef<number | null>(null);
 
+  /* ---------------------------
+     Inject styles (unchanged)
+  ---------------------------- */
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = `
@@ -55,6 +59,9 @@ const VideoShrinkScroll = () => {
     };
   }, []);
 
+  /* ---------------------------
+     Helpers
+  ---------------------------- */
   const checkMobile = () => {
     isMobile.current = window.innerWidth < 768;
   };
@@ -62,6 +69,9 @@ const VideoShrinkScroll = () => {
   const lerp = (start: number, end: number, factor: number) =>
     start + (end - start) * factor;
 
+  /* ---------------------------
+     Scroll logic (unchanged)
+  ---------------------------- */
   const handleScroll = () => {
     if (!videoSectionRef.current) return;
 
@@ -76,7 +86,9 @@ const VideoShrinkScroll = () => {
 
       const animationDuration = 0.7;
       targetScrollProgress.current =
-        rawProgress <= animationDuration ? rawProgress / animationDuration : 1;
+        rawProgress <= animationDuration
+          ? rawProgress / animationDuration
+          : 1;
     } else if (rect.top > 0) {
       targetScrollProgress.current = 0;
     } else {
@@ -84,6 +96,9 @@ const VideoShrinkScroll = () => {
     }
   };
 
+  /* ---------------------------
+     Animation loop (unchanged)
+  ---------------------------- */
   const animate = () => {
     scrollProgress.current = lerp(
       scrollProgress.current,
@@ -124,6 +139,31 @@ const VideoShrinkScroll = () => {
   };
 
   /* ---------------------------
+     Intersection Observer
+     (play/pause only)
+  ---------------------------- */
+  useEffect(() => {
+    if (!videoRef.current || !videoSectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current
+            ?.play()
+            .catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoSectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* ---------------------------
      Lifecycle
   ---------------------------- */
   useEffect(() => {
@@ -143,16 +183,21 @@ const VideoShrinkScroll = () => {
     };
   }, []);
 
+  /* ---------------------------
+     JSX
+  ---------------------------- */
   return (
     <div className="bg-white">
       <div className="video-section" ref={videoSectionRef}>
         <div className="sticky-container">
           <div className="video-wrapper" ref={videoWrapperRef}>
-            <video autoPlay loop  playsInline>
-              <source
-                src={video}
-                type="video/mp4"
-              />
+            <video
+              ref={videoRef}
+              loop
+              playsInline
+              
+            >
+              <source src={video} type="video/mp4" />
             </video>
           </div>
         </div>
