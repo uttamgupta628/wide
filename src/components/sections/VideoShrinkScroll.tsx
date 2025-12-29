@@ -25,7 +25,7 @@ const VideoShrinkScroll = () => {
 
       .video-section {
         position: relative;
-        height: 200vh;
+        height: 100vh;
       }
 
       .sticky-container {
@@ -86,9 +86,7 @@ const VideoShrinkScroll = () => {
 
       const animationDuration = 0.7;
       targetScrollProgress.current =
-        rawProgress <= animationDuration
-          ? rawProgress / animationDuration
-          : 1;
+        rawProgress <= animationDuration ? rawProgress / animationDuration : 1;
     } else if (rect.top > 0) {
       targetScrollProgress.current = 0;
     } else {
@@ -148,9 +146,7 @@ const VideoShrinkScroll = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoRef.current
-            ?.play()
-            .catch(() => {});
+          videoRef.current?.play().catch(() => {});
         } else {
           videoRef.current?.pause();
         }
@@ -191,12 +187,7 @@ const VideoShrinkScroll = () => {
       <div className="video-section" ref={videoSectionRef}>
         <div className="sticky-container">
           <div className="video-wrapper" ref={videoWrapperRef}>
-            <video
-              ref={videoRef}
-              loop
-              playsInline
-              
-            >
+            <video ref={videoRef} loop playsInline>
               <source src={video} type="video/mp4" />
             </video>
           </div>
