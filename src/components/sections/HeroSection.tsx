@@ -99,52 +99,52 @@
 // };
 
 
-
 import React from 'react';
-
-// replace with your images
 import bg1 from '../../assets/Banner.png';
 import bg2 from '../../assets/Banner.png';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden w-full h-screen">
+    <section className="relative w-full h-screen overflow-hidden">
 
-      {/* 🔁 MOVING BACKGROUND */}
+      {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 flex animate-bg-scroll">
-          <img src={bg1} className="w-screen h-full object-cover shrink-0" />
-          <img src={bg2} className="w-screen h-full object-cover shrink-0" />
-          <img src={bg1} className="w-screen h-full object-cover shrink-0" />
-          <img src={bg2} className="w-screen h-full object-cover shrink-0" />
-        </div>
+        <img
+          src={bg1}
+          className="absolute inset-0 w-full h-full object-cover animate-slide1"
+        />
+        <img
+          src={bg2}
+          className="absolute inset-0 w-full h-full object-cover animate-slide2"
+        />
       </div>
 
-      {/* 🟡 YELLOW OVERLAY */}
-      {/*
-      <div className="absolute inset-0 z-10"></div>
-      */}
-
-      {/* 🌟 CONTENT */}
-      {/*
-      <div className="relative z-20 px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto">
-          ...
-        </div>
-      </div>
-      */}
-
-      {/* 🎞️ CSS ANIMATION */}
+      {/* CSS */}
       <style>
         {`
-          @keyframes bg-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+          /* Image 1 */
+          @keyframes slide1 {
+            0% { transform: translateX(0); opacity: 1; }
+            40% { transform: translateX(0); opacity: 1; } /* stay 2s */
+            50% { transform: translateX(-100%); opacity: 0; } /* slide out fast */
+            100% { transform: translateX(-100%); opacity: 0; }
           }
 
-          .animate-bg-scroll {
-            width: 200%;
-            animation: bg-scroll 45s linear infinite;
+          /* Image 2 */
+          @keyframes slide2 {
+            0% { transform: translateX(100%); opacity: 0; }
+            40% { transform: translateX(100%); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; } /* slide in fast */
+            90% { transform: translateX(0); opacity: 1; } /* stay */
+            100% { transform: translateX(-100%); opacity: 0; }
+          }
+
+          .animate-slide1 {
+            animation: slide1 6s infinite ease-in-out;
+          }
+
+          .animate-slide2 {
+            animation: slide2 6s infinite ease-in-out;
           }
         `}
       </style>
@@ -152,4 +152,3 @@ export const HeroSection: React.FC = () => {
     </section>
   );
 };
-
