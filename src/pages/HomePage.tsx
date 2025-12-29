@@ -1,4 +1,3 @@
-import { Layout } from '../components/layout/Layout';
 import { HeroSection } from '../components/sections/HeroSection';
 import { ServicesSection } from '../components/sections/ServicesSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
@@ -20,9 +19,9 @@ const HomePage = () => {
   const eventImages = [event1, event1, event1, event1, event1];
 
   return (
-    <Layout>
-      <HeroSection  />
-      <VideoShrinkScroll/>
+    <>
+      <HeroSection />
+      <VideoShrinkScroll />
       <ServicesSection />
       <ProcessSection />
       <ClientsSection clients={clients} />
@@ -31,7 +30,7 @@ const HomePage = () => {
       <EventsSection images={eventImages} />
       <CommitmentSection />
       <CTASection />
-    </Layout>
+    </>
   );
 };
 

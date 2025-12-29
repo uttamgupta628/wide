@@ -1,6 +1,23 @@
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
 import footerlogo from "../../assets/footerLogo.jpeg";
+import { Link } from "react-router-dom";
+
+
+const pages = [
+  { name: "Home", path: "/" },
+  { name: "About us", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Portfolio", path: "/portfolio" },
+  { name: "Process", path: "/process" },
+];
+const quickLinks = [
+  { name: "Contact us", path: "/contact-us" },
+  { name: "Privacy Policy", path: "/privacy-policy" },
+  { name: "Terms & Condition", path: "/terms-condition" },
+];
+
+
 
 export const Footer: React.FC = () => {
   return (
@@ -25,38 +42,43 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Pages */}
+       
         <div>
-          <h4 className="text-white font-semibold mb-4">Pages</h4>
-          <ul className="space-y-2 text-sm">
-            {["Home", "About us", "Services", "Portfolio", "Process"].map(
-              (item) => (
-                <li
-                  key={item}
-                  className="text-gray-300 hover:text-white transition cursor-pointer"
-                >
-                  {item}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
+  <h4 className="text-white font-semibold mb-4">Pages</h4>
+
+  <ul className="space-y-2 text-sm">
+    {pages.map((item) => (
+      <li key={item.name}>
+        <Link
+          to={item.path}
+          className="text-gray-300 hover:text-white transition cursor-pointer"
+        >
+          {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-sm">
-            {["Contact us", "Privacy Policy", "Terms & Condition"].map(
-              (item) => (
-                <li
-                  key={item}
-                  className="text-gray-400 hover:text-white transition cursor-pointer"
-                >
-                  {item}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
+  <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+
+  <ul className="space-y-2 text-sm">
+    {quickLinks.map((item) => (
+      <li key={item.name}>
+        <Link
+          to={item.path}
+          className="text-gray-400 hover:text-white transition cursor-pointer"
+        >
+          {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
         {/* Contact */}
         <div>

@@ -30,15 +30,13 @@ export const Header: React.FC = () => {
           <Link to="/portfolio" className={navItem}>Portfolio</Link>
           <Link to="/process" className={navItem}>Process</Link>
           <Link to="/Testimonials" className={navItem}>Testimonials</Link>
-          {/* <Link to="/blog" className={navItem}>Blog</Link> */}
           <Link to="/contact-us" className={navItem}>Contact</Link>
-          {/* <Link to="/Request Quote" className={navItem}>Request Quote</Link> */}
         </nav>
 
         {/* CTA Button */}
         <Link
-          to="/request-quote"
-          className="hidden lg:block bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform duration-200"
+          to="/contact-us"
+          className="hidden lg:block bg-gray-900 text-white px-5 py-2 rounded-md text-sm font-medium hover:scale-105 transition-transform duration-200"
         >
           Contact Us
         </Link>

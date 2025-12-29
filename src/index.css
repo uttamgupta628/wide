@@ -5,3 +5,20 @@
   font-weight: 400;
   font-style: normal;
 }
+
+
+@keyframes move-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.move-left {
+  animation: move-left 20s linear infinite;
+  display: flex;
+  gap: 2rem; /* space between cards */
+}
+

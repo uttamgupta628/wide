@@ -1,13 +1,15 @@
 import React from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import type { LayoutProps } from '../../types';
+import { Outlet } from 'react-router-dom';
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main>{children}</main>
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

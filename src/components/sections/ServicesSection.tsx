@@ -15,18 +15,26 @@ export const ServicesSection = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">WHAT WE DO</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {services.map((s, i) => (
-            <div key={i} className="bg-white p-8 sm:p-10 rounded-2xl shadow-sm hover:shadow-lg transition text-center group">
-              <div className="flex justify-center mb-4 sm:mb-6 text-gray-800 group-hover:text-yellow-500">
-                {s.icon}
-              </div>
-              <h3 className="font-semibold text-base sm:text-lg">
-                {s.title}
-                {s.sub && <><br />{s.sub}</>}
-              </h3>
-            </div>
-          ))}
-        </div>
+  {services.map((s, i) => (
+    <div
+      key={i}
+      className="bg-white p-8 sm:p-10 rounded-2xl shadow-sm 
+                 hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.3)] 
+                 hover:scale-105 
+                 transition-transform transition-shadow duration-500 ease-in-out 
+                 text-center group"
+    >
+      <div className="flex justify-center mb-4 sm:mb-6 text-gray-800 group-hover:text-yellow-500">
+        {s.icon}
+      </div>
+      <h3 className="font-semibold text-base sm:text-lg">
+        {s.title}
+        {s.sub && <><br />{s.sub}</>}
+      </h3>
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   );
