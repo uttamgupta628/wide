@@ -1,198 +1,156 @@
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import video from "../../assets/Wide Horizons- intro.mp4";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const VideoShrinkScroll = () => {
-  const videoSectionRef = useRef<HTMLDivElement | null>(null);
-  const videoWrapperRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const scrollProgress = useRef(0);
-  const targetScrollProgress = useRef(0);
-  const isMobile = useRef(false);
-  const animationFrame = useRef<number | null>(null);
+  const audioUnlocked = useRef(false);
 
-  /* ---------------------------
-     Inject styles (unchanged)
-  ---------------------------- */
   useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = `
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: white;
-      }
+    if (!sectionRef.current || !wrapperRef.current || !videoRef.current) return;
 
-      .video-section {
-        position: relative;
-        height: 100vh;
-      }
+    const video = videoRef.current;
 
-      .sticky-container {
-        position: sticky;
-        top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        overflow: hidden;
-        height: 100vh;
-        width: 100%;
-      }
+    /* --------------------------------
+       AUDIO UNLOCK (ONE TIME)
+    --------------------------------- */
+    const unlockAudio = () => {
+      if (audioUnlocked.current) return;
+      audioUnlocked.current = true;
+      video.muted = false;
+      video.volume = 1;
 
-      .video-wrapper {
-        position: relative;
-        overflow: hidden;
-        will-change: transform;
-      }
+      window.removeEventListener("click", unlockAudio);
+      window.removeEventListener("touchstart", unlockAudio);
+      window.removeEventListener("wheel", unlockAudio);
+    };
 
-      .video-wrapper video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    `;
-    document.head.appendChild(style);
+    window.addEventListener("click", unlockAudio);
+    window.addEventListener("touchstart", unlockAudio);
+    window.addEventListener("wheel", unlockAudio);
+
+    /* --------------------------------
+       SMALL SIZE (RESPONSIVE)
+    --------------------------------- */
+    const getSmallSize = () => {
+      const isMobile = window.innerWidth < 768;
+
+      return {
+        width: isMobile ? 280 : window.innerWidth < 1024 ? 400 : 320,
+        height: isMobile ? 500 : window.innerWidth < 1024 ? 600 : 580,
+        radius: isMobile ? 32 : 40,
+      };
+    };
+
+    const ctx = gsap.context(() => {
+      const small = getSmallSize();
+
+      gsap.set(wrapperRef.current, {
+        width: small.width,
+        height: small.height,
+        borderRadius: small.radius,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=200%",
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+          invalidateOnRefresh: true, // 🔥 IMPORTANT
+
+          onEnter: () => {
+            video.play().catch(() => {});
+            video.muted = !audioUnlocked.current;
+          },
+          onEnterBack: () => {
+            video.play().catch(() => {});
+            video.muted = !audioUnlocked.current;
+          },
+          onLeave: () => {
+            video.pause();
+            video.muted = true;
+          },
+          onLeaveBack: () => {
+            video.pause();
+            video.muted = true;
+          },
+        },
+      });
+
+      // EXPAND → ALWAYS FULL SCREEN
+      tl.to(wrapperRef.current, {
+        width: "100vw", // 🔥 FIX
+        height: "100vh", // 🔥 FIX
+        borderRadius: 0,
+        ease: "none",
+        duration: 1,
+      });
+
+      // SHRINK → RECALCULATED SMALL SIZE
+      tl.to(wrapperRef.current, {
+        width: () => getSmallSize().width,
+        height: () => getSmallSize().height,
+        borderRadius: () => getSmallSize().radius,
+        ease: "none",
+        duration: 1,
+      });
+    });
+
+    // 🔥 REFRESH ON RESIZE
+    const onResize = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", onResize);
 
     return () => {
-      document.head.removeChild(style);
+      window.removeEventListener("resize", onResize);
+      ctx.revert();
     };
   }, []);
 
-  /* ---------------------------
-     Helpers
-  ---------------------------- */
-  const checkMobile = () => {
-    isMobile.current = window.innerWidth < 768;
-  };
-
-  const lerp = (start: number, end: number, factor: number) =>
-    start + (end - start) * factor;
-
-  /* ---------------------------
-     Scroll logic (unchanged)
-  ---------------------------- */
-  const handleScroll = () => {
-    if (!videoSectionRef.current) return;
-
-    const rect = videoSectionRef.current.getBoundingClientRect();
-    const sectionHeight = videoSectionRef.current.offsetHeight;
-    const windowHeight = window.innerHeight;
-
-    if (rect.top <= 0 && rect.bottom >= windowHeight) {
-      const scrolled = Math.abs(rect.top);
-      const maxScroll = sectionHeight - windowHeight;
-      const rawProgress = Math.min(scrolled / maxScroll, 1);
-
-      const animationDuration = 0.7;
-      targetScrollProgress.current =
-        rawProgress <= animationDuration ? rawProgress / animationDuration : 1;
-    } else if (rect.top > 0) {
-      targetScrollProgress.current = 0;
-    } else {
-      targetScrollProgress.current = 1;
-    }
-  };
-
-  /* ---------------------------
-     Animation loop (unchanged)
-  ---------------------------- */
-  const animate = () => {
-    scrollProgress.current = lerp(
-      scrollProgress.current,
-      targetScrollProgress.current,
-      0.1
-    );
-
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-
-    let videoWidth: number;
-    let videoHeight: number;
-    let borderRadius: number;
-
-    if (isMobile.current) {
-      const targetWidth = 280;
-      const targetHeight = 500;
-
-      videoWidth = w - scrollProgress.current * (w - targetWidth);
-      videoHeight = h - scrollProgress.current * (h - targetHeight);
-      borderRadius = scrollProgress.current * 32;
-    } else {
-      const targetWidth = w < 1024 ? 400 : 320;
-      const targetHeight = w < 1024 ? 600 : 580;
-
-      videoWidth = w - scrollProgress.current * (w - targetWidth);
-      videoHeight = h - scrollProgress.current * (h - targetHeight);
-      borderRadius = scrollProgress.current * 40;
-    }
-
-    if (videoWrapperRef.current) {
-      videoWrapperRef.current.style.width = `${videoWidth}px`;
-      videoWrapperRef.current.style.height = `${videoHeight}px`;
-      videoWrapperRef.current.style.borderRadius = `${borderRadius}px`;
-    }
-
-    animationFrame.current = requestAnimationFrame(animate);
-  };
-
-  /* ---------------------------
-     Intersection Observer
-     (play/pause only)
-  ---------------------------- */
-  useEffect(() => {
-    if (!videoRef.current || !videoSectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          videoRef.current?.play().catch(() => {});
-        } else {
-          videoRef.current?.pause();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(videoSectionRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  /* ---------------------------
-     Lifecycle
-  ---------------------------- */
-  useEffect(() => {
-    checkMobile();
-    handleScroll();
-    animate();
-
-    window.addEventListener("resize", checkMobile);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-      window.removeEventListener("scroll", handleScroll);
-      if (animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current);
-      }
-    };
-  }, []);
-
-  /* ---------------------------
-     JSX
-  ---------------------------- */
   return (
     <div className="bg-white">
-      <div className="video-section" ref={videoSectionRef}>
-        <div className="sticky-container">
-          <div className="video-wrapper" ref={videoWrapperRef}>
-            <video ref={videoRef} loop playsInline>
+      <section
+        ref={sectionRef}
+        style={{
+          height: "300vh",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div ref={wrapperRef} style={{ overflow: "hidden" }}>
+            <video
+              ref={videoRef}
+              loop
+              playsInline
+              preload="auto"
+              muted
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            >
               <source src={video} type="video/mp4" />
             </video>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
