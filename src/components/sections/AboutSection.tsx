@@ -51,7 +51,7 @@ export const AboutSection = () => {
       },
       {
         threshold: [0.3, 0.5, 0.7],
-        rootMargin: "-50px",
+        rootMargin: "0px",
       }
     );
 
