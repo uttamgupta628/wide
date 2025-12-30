@@ -12,9 +12,12 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.18",
+    "framer-motion": "^12.23.26",
+    "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-fast-marquee": "^1.6.5",
     "react-router-dom": "^6.30.2",
     "tailwindcss": "^4.1.18"
   },

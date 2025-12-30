@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
 @import "tailwindcss";
 .rakkas-regular {
   font-family: "Rakkas", serif;
@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
 
 @keyframes move-left {
   0% {
@@ -20,13 +24,4 @@
   animation: move-left 20s linear infinite;
   display: flex;
   gap: 2rem; /* space between cards */
-}
-
-@keyframes orbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

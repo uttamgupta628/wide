@@ -72,8 +72,8 @@ export const TeamsSection: React.FC<TeamsSectionProps> = ({ images }) => {
                   <img
                     src={img}
                     alt={`Team ${i + 1}`}
-                    className="w-full h-full object-contain rounded-2xl"
-                    style={{ clipPath: "inset(0 round 32px)" }}
+                    className="w-full h-full object-cover rounded-2xl"
+                    // style={{ clipPath: "inset(0 round 32px)" }}
                   />
                 </div>
               </div>
