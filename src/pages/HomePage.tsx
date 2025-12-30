@@ -19,6 +19,10 @@ import team2 from "../assets/team2.png";
 import team3 from "../assets/team3.png";
 import team4 from "../assets/team4.png";
 import team5 from "../assets/team5.png";
+import event2 from "../assets/event2.png";
+import event3 from "../assets/event3.png";
+import event4 from "../assets/event4.png";
+import event5 from "../assets/event5.png";
 
 const HomePage = () => {
   const teamImages = [
@@ -31,7 +35,7 @@ const HomePage = () => {
 ];
 
 
-  const eventImages = [event1, event1, event1, event1, event1];
+  const eventImages = [event1, event2, event3, event4, event5];
 
   return (
     <>

@@ -25,3 +25,19 @@ html {
   display: flex;
   gap: 2rem; /* space between cards */
 }
+
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-600px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.8s ease-out forwards;
+}
