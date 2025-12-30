@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
           <Link to="/services" className={navItem}>Services</Link>
           <Link to="/portfolio" className={navItem}>Portfolio</Link>
           <Link to="/process" className={navItem}>Process</Link>
-          <Link to="/Testimonials" className={navItem}>Testimonials</Link>
+          <Link to="/testimonials" className={navItem}>Testimonials</Link>
           <Link to="/contact-us" className={navItem}>Contact</Link>
         </nav>
 
