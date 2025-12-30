@@ -14,9 +14,23 @@ import { clients } from "../data/clientsData";
 import man1 from "../assets/man1.png";
 import event1 from "../assets/event1.png";
 import Banner from "../components/sections/Banner";
+import team1 from "../assets/team1.png";
+import team2 from "../assets/team2.png";
+import team3 from "../assets/team3.png";
+import team4 from "../assets/team4.png";
+import team5 from "../assets/team5.png";
 
 const HomePage = () => {
-  const teamImages = [man1, man1, man1, man1, man1];
+  const teamImages = [
+  { src: man1, name: "Nirmalya Basu", role: "Founder & CEO" },
+  { src: team1, name: "Sweta Bhattacharya", role: "Founder & COO" },
+  { src: team2, name: "Asif Khan", role: "PR Manager" },
+  { src: team3, name: "Biswanath Sarkar", role: "Accounts" },
+  { src: team4, name: "Pritam Suin", role: "Operations" },
+  { src: team5, name: "Titas Basu", role: "Account Manager" },
+];
+
+
   const eventImages = [event1, event1, event1, event1, event1];
 
   return (

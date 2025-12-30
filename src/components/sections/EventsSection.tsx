@@ -3,13 +3,14 @@ import type { EventsSectionProps } from '../../types';
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
   return (
-    <section className="bg-white px-4 sm:px-6 py-10">
+    <section className="bg-white px-4 sm:px-20 py-10">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
           Our beloved events
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-4">
+
           {/* LEFT COLUMN – 2 images */}
           <div className="grid grid-rows-2 gap-4 h-80 lg:h-150">
             {images.slice(0, 2).map((img, i) => (

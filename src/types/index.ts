@@ -12,8 +12,13 @@ export interface ClientsSectionProps {
 }
 
 export interface TeamsSectionProps {
-  images: string[];
+  images: {
+    src: string;
+    name: string;
+    role: string;
+  }[];
 }
+
 
 export interface EventsSectionProps {
   images: string[];
