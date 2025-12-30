@@ -18,10 +18,11 @@ const VideoShrinkScroll = () => {
     const video = videoRef.current;
 
     /* --------------------------------
-       AUDIO UNLOCK (ONE TIME)
+       AUDIO UNLOCK (SAFE)
     --------------------------------- */
     const unlockAudio = () => {
       if (audioUnlocked.current) return;
+
       audioUnlocked.current = true;
       video.muted = false;
       video.volume = 1;
@@ -31,26 +32,26 @@ const VideoShrinkScroll = () => {
       window.removeEventListener("wheel", unlockAudio);
     };
 
-    window.addEventListener("click", unlockAudio);
-    window.addEventListener("touchstart", unlockAudio);
-    window.addEventListener("wheel", unlockAudio);
+    window.addEventListener("click", unlockAudio, { once: true });
+    window.addEventListener("touchstart", unlockAudio, { once: true });
+    window.addEventListener("wheel", unlockAudio, { once: true });
 
     /* --------------------------------
-       SMALL SIZE (RESPONSIVE)
+       RESPONSIVE SMALL SIZE
     --------------------------------- */
     const getSmallSize = () => {
       const isMobile = window.innerWidth < 768;
-
       return {
-        width: isMobile ? 280 : window.innerWidth < 1024 ? 400 : 320,
-        height: isMobile ? 500 : window.innerWidth < 1024 ? 600 : 580,
-        radius: isMobile ? 32 : 40,
+        width: isMobile ? 280 : 360,
+        height: isMobile ? 500 : 580,
+        radius: isMobile ? 28 : 36,
       };
     };
 
     const ctx = gsap.context(() => {
       const small = getSmallSize();
 
+      // START SMALL
       gsap.set(wrapperRef.current, {
         width: small.width,
         height: small.height,
@@ -65,20 +66,24 @@ const VideoShrinkScroll = () => {
           scrub: true,
           pin: true,
           pinSpacing: false,
-          invalidateOnRefresh: true, // 🔥 IMPORTANT
+          invalidateOnRefresh: true,
 
+          // ✅ ALWAYS PLAY MUTED
           onEnter: () => {
+            video.muted = true;
             video.play().catch(() => {});
-            video.muted = !audioUnlocked.current;
           },
+
           onEnterBack: () => {
+            video.muted = true;
             video.play().catch(() => {});
-            video.muted = !audioUnlocked.current;
           },
+
           onLeave: () => {
             video.pause();
             video.muted = true;
           },
+
           onLeaveBack: () => {
             video.pause();
             video.muted = true;
@@ -86,16 +91,16 @@ const VideoShrinkScroll = () => {
         },
       });
 
-      // EXPAND → ALWAYS FULL SCREEN
+      // EXPAND (ALWAYS FULL WIDTH)
       tl.to(wrapperRef.current, {
-        width: "100vw", // 🔥 FIX
-        height: "100vh", // 🔥 FIX
+        width: "100vw",
+        height: "100vh",
         borderRadius: 0,
         ease: "none",
         duration: 1,
       });
 
-      // SHRINK → RECALCULATED SMALL SIZE
+      // SHRINK BACK
       tl.to(wrapperRef.current, {
         width: () => getSmallSize().width,
         height: () => getSmallSize().height,
@@ -105,7 +110,6 @@ const VideoShrinkScroll = () => {
       });
     });
 
-    // 🔥 REFRESH ON RESIZE
     const onResize = () => ScrollTrigger.refresh();
     window.addEventListener("resize", onResize);
 
@@ -139,7 +143,7 @@ const VideoShrinkScroll = () => {
               loop
               playsInline
               preload="auto"
-              muted
+              muted // 🔑 MUST start muted
               style={{
                 width: "100%",
                 height: "100%",
