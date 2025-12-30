@@ -1,104 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Shield, DollarSign, Target, Clock, FileText } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const FeatureCard = ({
-  feature,
-}: {
-  feature: { icon: React.ReactNode; title: string; desc: string };
-  index: number;
-}) => {
-  const cardRef = useRef(null);
-  const iconRef = useRef(null);
-  const textRef = useRef(null);
-
-  useEffect(() => {
-    const card = cardRef.current;
-    const icon = iconRef.current;
-    const text = textRef.current;
-
-    // Set initial state
-    gsap.set(card, {
-      opacity: 0,
-      x: -700,
-      scale: 0.5,
-    });
-
-    gsap.set(icon, {
-      rotation: -360,
-      scale: 0,
-    });
-
-    gsap.set(text, {
-      opacity: 0,
-      y: 30,
-    });
-
-    // Create timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-        end: "top 20%",
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
-
-    // Animate card entrance
-    tl.to(card, {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      duration: 1.8,
-      ease: "power3.out",
-    })
-      // Animate icon
-      .to(
-        icon,
-        {
-          rotation: 0,
-          scale: 1,
-          duration: 1.4,
-          ease: "back.out(1.7)",
-        },
-        "-=1.4"
-      )
-      // Animate text
-      .to(
-        text,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.0,
-          ease: "power3.out",
-        },
-        "-=1.0"
-      );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
-  return (
-    <div
-      ref={cardRef}
-      className="bg-white rounded-xl p-6 shadow-md flex items-start gap-4"
-    >
-      <div ref={iconRef}>{feature.icon}</div>
-      <div ref={textRef}>
-        <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-        <p className="text-gray-600 text-sm">{feature.desc}</p>
-      </div>
-    </div>
-  );
-};
 
 export const AboutSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
   const features = [
     {
       icon: <Shield className="w-12 h-12 text-yellow-500 shrink-0" />,
@@ -127,8 +34,41 @@ export const AboutSection = () => {
     },
   ];
 
+  // Intersection Observer for animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.5 &&
+            !hasAnimated.current
+          ) {
+            setIsVisible(true);
+            hasAnimated.current = true;
+          }
+        });
+      },
+      {
+        threshold: [0.3, 0.5, 0.7],
+        rootMargin: "-50px",
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="bg-gray-100 px-4 sm:px-6 py-16 sm:py-20 overflow-hidden"
     >
@@ -140,12 +80,50 @@ export const AboutSection = () => {
             us apart
           </h2>
         </div>
-        <div className="space-y-4 relative">
+        <div className="grid grid-cols-1 gap-4 auto-rows-fr">
           {features.map((f, i) => (
-            <FeatureCard key={i} feature={f} index={i} />
+            <div
+              key={i}
+              className={`bg-white rounded-xl p-6 shadow-md flex items-start gap-4 transition-all duration-[1600ms] ease-out ${
+                isVisible
+                  ? "opacity-100 translate-x-0 scale-100"
+                  : "opacity-0 -translate-x-[700px] scale-50"
+              }`}
+              style={{
+                transitionDelay: isVisible ? `${i * 400}ms` : "0ms",
+              }}
+            >
+              <div
+                className={`transition-all duration-[1400ms] ease-out ${
+                  isVisible ? "rotate-0 scale-100" : "-rotate-[360deg] scale-0"
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${i * 400 + 200}ms` : "0ms",
+                  transitionTimingFunction:
+                    "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+                }}
+              >
+                {f.icon}
+              </div>
+              <div
+                className={`transition-all duration-[1200ms] ease-out ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${i * 400 + 300}ms` : "0ms",
+                }}
+              >
+                <h3 className="font-bold text-lg mb-2">{f.title}</h3>
+                <p className="text-gray-600 text-sm">{f.desc}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 };
+
+export default AboutSection;
