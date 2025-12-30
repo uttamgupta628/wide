@@ -1,6 +1,50 @@
-import man from "../../assets/man1.png";
+import { useEffect, useRef } from "react";
+import aboutUsAnimation from "../../assets/About Us Team.json";
 
 function AboutIntroSection() {
+  const lottieContainer = useRef<HTMLDivElement>(null);
+  const animationInstance = useRef<any>(null);
+
+  useEffect(() => {
+    // Dynamically load the Lottie player script
+    const script = document.createElement("script");
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js";
+    script.async = true;
+
+    script.onload = () => {
+      if (
+        lottieContainer.current &&
+        window.lottie &&
+        !animationInstance.current
+      ) {
+        animationInstance.current = window.lottie.loadAnimation({
+          container: lottieContainer.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: aboutUsAnimation,
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid meet",
+          },
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      // Destroy the animation instance on cleanup
+      if (animationInstance.current) {
+        animationInstance.current.destroy();
+        animationInstance.current = null;
+      }
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <section className="w-full bg-[#F8F3F3] py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -36,17 +80,20 @@ function AboutIntroSection() {
           </button>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="flex justify-center md:justify-end">
-          <img
-            src={man} // change path if needed
-            alt="About"
-            className="w-[320px] md:w-[390px] object-cover"
-          />
+        {/* RIGHT LOTTIE ANIMATION */}
+        <div className="flex justify-center md:justify-end w-full h-auto">
+          <div ref={lottieContainer} className="w-full h-full aspect-auto" />
         </div>
       </div>
     </section>
   );
+}
+
+// Type declaration for lottie
+declare global {
+  interface Window {
+    lottie: any;
+  }
 }
 
 export default AboutIntroSection;
