@@ -2,7 +2,11 @@ import heroIllustration from '../../assets/about1.png';
 
 export const AboutHero = () => {
   return (
-    <section className="bg-[#FBF7F5] px-6 py-20 font-['Outfit']">
+    <section className="bg-[#FBF7F5] px-6 pb-20 font-['Outfit']">
+      <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  Home &gt; About
+</div>
+
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h1 className="text-4xl font-bold mb-4">

@@ -2,19 +2,19 @@ import React from "react";
 import oohImage from "../../assets/Ohh.png";
 import billboardImage from "../../assets/ooh1.jpg";
 
-export const Branding: React.FC = () => {
+export const Management: React.FC = () => {
   return (
     <div className="bg-[#F8F6F5] min-h-screen">
       {/* Breadcrumb */}
       <div className="bg-[#3C3533] text-white text-sm px-6 py-2">
-        Home &gt; Services &gt; Branding
+        Home &gt; Services &gt; Celebrity management
       </div>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Brand Activations</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Celebrity management</h1>
         <p className="text-gray-700 mb-6">
-          Engaging and experimental campaigns designed to bring  your brand to life and contact with your audience 
+          Expert management of celebrity partnerships and appearances to boost your brand is impact and visibility  
         </p>
 
         <div className="w-full h-64 bg-gray-300 rounded-lg mb-12">
@@ -30,11 +30,11 @@ export const Branding: React.FC = () => {
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
         <h2 className="text-2xl sm:text-5xl font-bold mb-4">
-          Ignite Excitement around your brand
+          Leverage the power of Celebrity Influence
         </h2>
         <p className="text-gray-700 mb-8 sm:text-2xl ">
-          Brand activations are powerful in creating immersive, memorable experiences that allow consumers to connect with
-your brand in uniques and exciting ways
+          Celebrity endorsement can elevate your brand’s profile and connect you with  a broader audience . We handle massively
+acpect of celebrity engagement to ensure impact at partnerships
         </p>
 
         <div className="flex flex-col lg:flex-row gap-8">
@@ -46,27 +46,27 @@ your brand in uniques and exciting ways
             />
           </div>
           <div className="lg:w-1/2 flex flex-col justify-start gap-8">
-            <h3 className="text-2xl font-semibold">Our brand activation services</h3>
+            <h3 className="text-2xl font-semibold">Our brand Celebrity management services</h3>
 
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Product Sampling </span>
+                <span>Celebrity Endorsements  </span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Experimental Marketing</span>
+                <span>Brand Ambassadorships</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Pop up events</span>
+                <span>Event appearances</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Event sponshership</span>
+                <span>Product launches</span>
               </li>
             </ul>
           </div>
