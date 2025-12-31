@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import back from "../../assets/background.png";
+import back from "../../assets/testiBg.png";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Rohit from "../../assets/rohit.png";
 import Breadcrumb from "../Global/Breadcrumb";
 import { ClientsSection } from "../sections/ClientsSection";
 import { clients } from "../../data/clientsData";
+import Testimonials from "../../assets/TestimonialsPage.png";
 
 type Category = "ALL" | "OUTDOOR ADVERTISING" | "PR & EVENTS" | "BRANDING";
 
@@ -15,13 +16,6 @@ type Testimonial = {
   message: string;
   category: Category;
 };
-
-const categories: Category[] = [
-  "ALL",
-  "OUTDOOR ADVERTISING",
-  "PR & EVENTS",
-  "BRANDING",
-];
 
 const testimonials: Testimonial[] = [
   {
@@ -91,7 +85,7 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialsPage: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("ALL");
+  const [activeCategory] = useState<Category>("ALL");
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const filteredTestimonials =
@@ -99,38 +93,63 @@ const TestimonialsPage: React.FC = () => {
       ? testimonials
       : testimonials.filter((t) => t.category === activeCategory);
 
-  // Autoplay testimonials carousel
+  // Autoplay testimonials carousel - scroll by 3 cards (1104px = 360px * 3 + 24px gap * 2)
+  const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
-    const autoScroll = setInterval(() => {
-      if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-        slider.scrollLeft = 0;
-      } else {
-        slider.scrollBy({ left: 380, behavior: "smooth" });
-      }
-    }, 3000); // Scroll every 3 seconds
+    const cardWidth = 360;
+    const gap = 24;
 
-    return () => clearInterval(autoScroll);
-  }, [filteredTestimonials]);
+    const startAutoplay = () => {
+      // Clear existing interval (safety)
+      if (autoScrollRef.current) {
+        clearInterval(autoScrollRef.current);
+      }
+
+      autoScrollRef.current = setInterval(() => {
+        const scrollAmount = (cardWidth + gap) * 3;
+
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+          slider.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }, 3000);
+    };
+
+    startAutoplay();
+
+    return () => {
+      if (autoScrollRef.current) {
+        clearInterval(autoScrollRef.current);
+        autoScrollRef.current = null;
+      }
+    };
+  }, [activeCategory]); // ✅ ONLY restart when category changes
 
   const scrollRight = () => {
-    sliderRef.current?.scrollBy({ left: 380, behavior: "smooth" });
+    const cardWidth = 360;
+    const gap = 24;
+    const scrollAmount = (cardWidth + gap) * 3; // Scroll by 3 cards
+    sliderRef.current?.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
 
   const scrollLeft = () => {
-    sliderRef.current?.scrollBy({ left: -380, behavior: "smooth" });
+    const cardWidth = 360;
+    const gap = 24;
+    const scrollAmount = (cardWidth + gap) * 3; // Scroll by 3 cards
+    sliderRef.current?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className=" w-full bg-white">
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
       />
-      {/* ================= HEADER ================= */}
-      {/* <section className="bg-gradient-to-r from-[#FFDA00] to-white pb-16 relative overflow-hidden">
-        
+      <section className="bg-gradient-to-r from-[#FFDA00] to-white pb-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 items-center">
           <div className="hidden lg:block" />
 
@@ -138,7 +157,7 @@ const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
             <h2 className="text-3xl md:text-4xl font-bold uppercase whitespace-nowrap text-white">
-              WHAT OUR <span className="text-black">CLIENTS SAY</span>
+              Happy <span className="text-black">CLIENTS TAIL</span>
             </h2>
 
             <p className="mt-4 text-sm md:text-base">
@@ -156,10 +175,10 @@ const TestimonialsPage: React.FC = () => {
             />
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* ================= FILTER ================= */}
-      <section className="py-10 text-center">
+      <section className="py-10 text-center max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto">
           <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
@@ -172,30 +191,6 @@ const TestimonialsPage: React.FC = () => {
             Here's what they have to say about partnering with us to boost their
             brand visibility and achieve their marketing goals.
           </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
-          {categories.map((cat, index) => (
-            <React.Fragment key={cat}>
-              <button
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 text-sm font-semibold cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-[#FFDA00] text-black rounded-lg"
-                    : "bg-white text-black"
-                }`}
-              >
-                {cat}
-              </button>
-
-              {/* Separator */}
-              {index !== categories.length - 1 && (
-                <span className="text-gray-400 font-semibold select-none">
-                  |
-                </span>
-              )}
-            </React.Fragment>
-          ))}
         </div>
       </section>
 
@@ -211,7 +206,7 @@ const TestimonialsPage: React.FC = () => {
       >
         <div
           ref={sliderRef}
-          className="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-hidden scroll-smooth"
+          className="max-w-[1175px] mx-auto px-6 flex gap-6 overflow-x-hidden scroll-smooth"
         >
           {filteredTestimonials.map((item, index) => (
             <div
