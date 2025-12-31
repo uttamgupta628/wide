@@ -1,14 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cardImage from "../../assets/service.png";
+import oohImg from "../../assets/Ohh.png";
+import corporateImg from "../../assets/corporate.png";
+import brandingImg from "../../assets/pandal.png";
+import managementImg from "../../assets/management.png";
+import prImg from "../../assets/pr.png";
 
-const services = [
-  { title: "OOH Event services", path: "/services/ooh" },
-  { title: "Corporate Events", path: "/services/corporate" },
-  { title: "Brand Activation", path: "/services/Branding" },
-  { title: "Celebrity Management", path: "/services/Management" },
-  { title: "Public Relations (PR)", path: "/services/Pr" },
-  { title: "Branding", path: "/services/Branding" },
+type Service = {
+  title: string;
+  path: string;
+  image: string;
+};
+
+const services: Service[] = [
+  { title: "OOH Event services", path: "/services/ooh", image: oohImg },
+  { title: "Corporate Events", path: "/services/corporate", image: corporateImg },
+  { title: "Brand Activation", path: "/services/branding", image: brandingImg },
+  { title: "Celebrity Management", path: "/services/management", image: managementImg },
+  { title: "Public Relations (PR)", path: "/services/pr", image: prImg },
+  { title: "Branding", path: "/services/branding", image: brandingImg },
 ];
 
 export const ServicesGrid: React.FC = () => {
@@ -16,9 +26,8 @@ export const ServicesGrid: React.FC = () => {
     <section className="px-0 sm:px-6 pb-10 bg-[#faf7f5]">
       {/* Breadcrumb */}
       <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-  Home &gt; Services 
-</div>
-
+        Home &gt; Services
+      </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10">
         {services.map((service, index) => (
@@ -29,7 +38,7 @@ export const ServicesGrid: React.FC = () => {
             {/* IMAGE */}
             <div className="h-72 sm:h-80 lg:h-96 w-full overflow-hidden">
               <img
-                src={cardImage}
+                src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />

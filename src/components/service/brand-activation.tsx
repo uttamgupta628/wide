@@ -1,6 +1,6 @@
 import React from "react";
-import oohImage from "../../assets/Ohh.png";
-import billboardImage from "../../assets/ooh1.jpg";
+import oohImage from "../../assets/pandal2.png";
+import billboardImage from "../../assets/pandal.png";
 
 export const Branding: React.FC = () => {
   return (
