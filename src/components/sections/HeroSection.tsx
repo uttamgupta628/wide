@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
   return (
     <section
-      className="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 relative overflow-hidden"
+      className="  relative overflow-hidden"
       style={{ backgroundColor: "#FFDA00" }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-12">
         <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12">
           <div className="w-full lg:w-1/2">
             <img
@@ -53,38 +53,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="relative w-full overflow-hidden min-h-[450px] sm:min-h-[450px]">
+        {/* Background Image */}
+        <img
+          src={heroImg}
+          alt="Hero background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <div className="relative w-full mt-16 sm:mt-24 overflow-hidden min-h-70 sm:min-h-85">
-          {/* Background Image */}
-          <img
-            src={heroImg}
-            alt="Hero background"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        {/* Yellow Overlay */}
+        <div className="absolute inset-0 bg-[#FFDA00]/75"></div>
 
-          {/* Yellow Overlay */}
-          <div className="absolute inset-0 bg-[#FFDA00]/15"></div>
+        {/* Content - Centered */}
+        <div className="relative h-full min-h-[450px] flex items-center justify-center px-6 sm:px-12">
+          {/* Opening Quote */}
+          <span className="absolute left-6 top-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
+            "
+          </span>
 
-          {/* Content */}
-          <div className="relative max-w-5xl mx-auto px-6 sm:px-12 py-12 sm:py-16">
-            {/* Opening Quote */}
-            <span className="absolute left-6 top-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
-              “
-            </span>
+          {/* Text - Centered */}
+          <p className="max-w-3xl text-sm sm:text-base leading-relaxed font-medium text-black text-center">
+            Help our Clients to reach their business goals through our services
+            in OOH communications, education, measurement, rewards and events to
+            inspire their employee, channel partners and customers.
+          </p>
 
-            {/* Text */}
-            <p className="max-w-3xl ml-10 text-sm sm:text-base leading-relaxed font-medium text-black">
-              Help our Clients to reach their business goals through our
-              services in OOH communications, education, measurement, rewards
-              and events to inspire their employee, channel partners and
-              customers.
-            </p>
-
-            {/* Closing Quote */}
-            <span className="absolute right-6 bottom-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
-              ”
-            </span>
-          </div>
+          {/* Closing Quote */}
+          <span className="absolute right-6 bottom-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
+            "
+          </span>
         </div>
       </div>
     </section>

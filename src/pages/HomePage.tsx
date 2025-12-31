@@ -1,4 +1,3 @@
-import { HeroSection } from "../components/sections/HeroSection";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { ProcessSection } from "../components/sections/ProcessSection";
 // import { ClientsSection } from "../components/sections/ClientsSection";
@@ -9,8 +8,7 @@ import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
 // import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
 import ScrollToTopButton from "../components/sections/ScrollToTopButton";
-import heroImg from "../assets/hero.png";
-
+import heroImg from "../assets/ChatGPT Image Dec 31, 2025, 01_57_47 PM.png";
 
 // import { clients } from "../data/clientsData";
 
@@ -28,17 +26,17 @@ import event4 from "../assets/event4.png";
 import event5 from "../assets/event5.png";
 // import TestimonialsPage from "../components/TestimonialsPage/TestimonialsPage";
 import Choseus from "../components/sections/Choseus";
+import { HeroSection } from "../components/sections/HeroSection";
 
 const HomePage = () => {
-//   const teamImages = [
-//   { src: man1, name: "Nirmalya Basu", role: "Founder & CEO" },
-//   { src: team1, name: "Sweta Bhattacharya", role: "Founder & COO" },
-//   { src: team2, name: "Asif Khan", role: "PR Manager" },
-//   { src: team3, name: "Biswanath Sarkar", role: "Accounts" },
-//   { src: team4, name: "Pritam Suin", role: "Operations" },
-//   { src: team5, name: "Titas Basu", role: "Account Manager" },
-// ];
-
+  //   const teamImages = [
+  //   { src: man1, name: "Nirmalya Basu", role: "Founder & CEO" },
+  //   { src: team1, name: "Sweta Bhattacharya", role: "Founder & COO" },
+  //   { src: team2, name: "Asif Khan", role: "PR Manager" },
+  //   { src: team3, name: "Biswanath Sarkar", role: "Accounts" },
+  //   { src: team4, name: "Pritam Suin", role: "Operations" },
+  //   { src: team5, name: "Titas Basu", role: "Account Manager" },
+  // ];
 
   const eventImages = [event1, event2, event3, event4, event5];
 
@@ -51,12 +49,12 @@ const HomePage = () => {
       <ProcessSection />
       {/* <ClientsSection clients={clients} /> */}
       <AboutSection />
-      <Choseus/>
+      <Choseus />
       <EventsSection images={eventImages} />
       <CommitmentSection />
       <CTASection />
-      
-    <ScrollToTopButton />
+
+      <ScrollToTopButton />
     </>
   );
 };
