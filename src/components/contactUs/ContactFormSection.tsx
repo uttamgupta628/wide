@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { easeOut, motion, useInView } from "framer-motion";
 import bgImg from "../../assets/Group 11.png";
+
 const ContactFormSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
@@ -23,9 +24,33 @@ const ContactFormSection: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
-    alert("Form submitted successfully!");
+    // Validate required fields
+    if (!formData.fullName || !formData.emailAddress || !formData.phoneNumber) {
+      alert(
+        "Please fill in all required fields (Full Name, Email, Phone Number)"
+      );
+      return;
+    }
+
+    // Create WhatsApp message
+    const whatsappMessage = `Hello! I'm interested in your services.
+
+*Name:* ${formData.fullName}
+*Email:* ${formData.emailAddress}
+*Phone:* ${formData.phoneNumber}
+${formData.message ? `*Message:* ${formData.message}` : ""}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // WhatsApp number (remove any spaces or special characters)
+    const whatsappNumber = "919831047613"; // Added country code 91 for India
+
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappURL, "_blank");
   };
 
   const formVariants = {
@@ -104,7 +129,7 @@ const ContactFormSection: React.FC = () => {
                 htmlFor="fullName"
                 className="block text-base font-medium text-black mb-2"
               >
-                Full Time
+                Full Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -113,6 +138,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
+                required
                 className="w-full px-4 py-3 border-2 border-black rounded-xl focus:ring-2 focus:ring-[#FFDA00] focus:border-transparent outline-none transition-all duration-300 text-[#686775]"
               />
             </motion.div>
@@ -128,7 +154,7 @@ const ContactFormSection: React.FC = () => {
                 htmlFor="emailAddress"
                 className="block text-base font-medium text-black mb-2"
               >
-                Email address
+                Email address <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -137,6 +163,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.emailAddress}
                 onChange={handleChange}
                 placeholder="Enter your email address"
+                required
                 className="w-full px-4 py-3 border-2 border-black rounded-xl focus:ring-2 focus:ring-[#FFDA00] focus:border-transparent outline-none transition-all duration-300 text-[#686775]"
               />
             </motion.div>
@@ -153,7 +180,7 @@ const ContactFormSection: React.FC = () => {
               htmlFor="phoneNumber"
               className="block text-base font-medium text-black mb-2"
             >
-              Phone Number
+              Phone Number <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
@@ -162,6 +189,7 @@ const ContactFormSection: React.FC = () => {
               value={formData.phoneNumber}
               onChange={handleChange}
               placeholder="Enter your phone number"
+              required
               className="w-full px-4 py-3 border-2 border-black rounded-xl focus:ring-2 focus:ring-[#FFDA00] focus:border-transparent outline-none transition-all duration-300 text-[#686775]"
             />
           </motion.div>
