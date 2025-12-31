@@ -26,14 +26,13 @@ import event5 from "../assets/event5.png";
 
 const HomePage = () => {
   const teamImages = [
-  { src: man1, name: "Nirmalya Basu", role: "Founder & CEO" },
-  { src: team1, name: "Sweta Bhattacharya", role: "Founder & COO" },
-  { src: team2, name: "Asif Khan", role: "PR Manager" },
-  { src: team3, name: "Biswanath Sarkar", role: "Accounts" },
-  { src: team4, name: "Pritam Suin", role: "Operations" },
-  { src: team5, name: "Titas Basu", role: "Account Manager" },
-];
-
+    { src: man1, name: "Nirmalya Basu", role: "Founder & CEO" },
+    { src: team1, name: "Sweta Bhattacharya", role: "Founder & COO" },
+    { src: team2, name: "Asif Khan", role: "PR Manager" },
+    { src: team3, name: "Biswanath Sarkar", role: "Accounts" },
+    { src: team4, name: "Pritam Suin", role: "Operations" },
+    { src: team5, name: "Titas Basu", role: "Account Manager" },
+  ];
 
   const eventImages = [event1, event2, event3, event4, event5];
 
