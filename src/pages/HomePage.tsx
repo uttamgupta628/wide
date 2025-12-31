@@ -9,7 +9,7 @@ import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
 // import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
 import ScrollToTopButton from "../components/sections/ScrollToTopButton";
-import heroImg from "../assets/hero.png";
+import heroImg from "../assets/image.png";
 
 
 // import { clients } from "../data/clientsData";
