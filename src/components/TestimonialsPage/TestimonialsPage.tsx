@@ -1,13 +1,6 @@
 import React, { useState, useRef } from "react";
 import Testimonials from "../../assets/TestimonialsPage.png";
 import back from "../../assets/background.png";
-import { Award, Network, Settings, ThumbsUp } from "lucide-react";
-import peerless from "../../assets/fortis.png";
-import tanishq from "../../assets/adani.png";
-import moople from "../../assets/apollo.png";
-import crax from "../../assets/cipla.png";
-import parle from "../../assets/itc.png";
-import rupa from "../../assets/govinda.png";
 import Rohit from "../../assets/rohit.png";
 import { ClientsSection } from "../sections/ClientsSection";
 import { clients } from "../../data/clientsData";
@@ -56,30 +49,6 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const items = [
-  {
-    icon: <Award className="w-10 h-10 text-[#FFDA00]" />,
-    title: "Proven Expertise",
-    desc: "Demonstrated experience delivering consistently successful events with precision and professionalism",
-  },
-  {
-    icon: <Network className="w-10 h-10 text-[#FFDA00]" />,
-    title: "Broad Network",
-    desc: "Extensive nationwide connections enabling seamless coordination, reach, and impactful event execution",
-  },
-  {
-    icon: <Settings className="w-10 h-10 text-[#FFDA00]" />,
-    title: "Custom Solutions",
-    desc: "Tailored event solutions designed to meet unique brand and client needs",
-  },
-  {
-    icon: <ThumbsUp className="w-10 h-10 text-[#FFDA00]" />,
-    title: "Client Satisfaction",
-    desc: "Delivering exceptional experiences that exceed expectations and ensure complete client satisfaction",
-  },
-];
-
-const logos = [peerless, tanishq, moople, crax, parle, rupa];
 
 const TestimonialsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("ALL");
