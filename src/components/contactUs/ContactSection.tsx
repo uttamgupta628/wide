@@ -54,7 +54,7 @@ const ContactSection: React.FC = () => {
           <circle cx="12" cy="10" r="3" />
         </svg>
       ),
-      title: "Office",
+      title: "Corporate Office",
       description:
         "Godrej Waterside, Tower-II, 12th Floor, Block-DP, Sector-V, Kolkata - 700091",
     },
@@ -71,7 +71,7 @@ const ContactSection: React.FC = () => {
         </svg>
       ),
       title: "Phone",
-      description: "+91-9831047613 / 8910665795",
+      description: "+91-9831047613 / 9007333399",
     },
     {
       icon: (
@@ -184,16 +184,16 @@ const ContactSection: React.FC = () => {
             </h3>
             <div className="space-y-4">
               <button
-                onClick={() => handlePhoneSelect("+919831047613")}
+                onClick={() => handlePhoneSelect("+919831047413")}
                 className="w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"
               >
-                +91-9831047613
+                +91-9831047413
               </button>
               <button
-                onClick={() => handlePhoneSelect("+918910665795")}
+                onClick={() => handlePhoneSelect("+919007333399")}
                 className="w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"
               >
-                +91-8910665795
+                +91-9007333399
               </button>
             </div>
             <button

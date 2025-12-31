@@ -26,8 +26,8 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ clients }) => {
       className="bg-white px-4 sm:px-6 py-16 sm:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          Our Clients
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-12">
+          Our Happy Clients
         </h2>
 
         {/* 🔹 TOP ROW — Right ➜ Left */}
