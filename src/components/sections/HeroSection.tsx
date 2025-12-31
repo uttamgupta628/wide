@@ -39,37 +39,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
           </div>
         </div>
       </div>
-      <div className="relative w-full overflow-hidden min-h-[450px] sm:min-h-[450px]">
-        {/* Background Image */}
+      {/* <div className="relative w-full overflow-hidden ">
+      
         <img
           src={heroImg}
           alt="Hero background"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Yellow Overlay */}
         <div className="absolute inset-0 bg-[#FFDA00]"></div>
 
-        {/* Content - Centered */}
-        <div className="relative h-full min-h-[450px] flex items-center justify-center px-6 sm:px-12">
-          {/* Opening Quote */}
+        <div className="relative h-full flex items-center justify-center px-6 sm:px-12">
+         
           <span className="absolute left-6 top-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
             "
           </span>
 
-          {/* Text - Centered */}
           <p className="max-w-3xl text-sm sm:text-base leading-relaxed font-medium text-black text-center">
             Help our Clients to reach their business goals through our services
             in OOH communications, education, measurement, rewards and events to
             inspire their employee, channel partners and customers.
           </p>
 
-          {/* Closing Quote */}
           <span className="absolute right-6 bottom-6 text-6xl sm:text-8xl font-serif text-[#8C7700]">
             "
           </span>
         </div>
-      </div>
+      </div> */}
 
       <style>{`
         @keyframes slide-in-right {

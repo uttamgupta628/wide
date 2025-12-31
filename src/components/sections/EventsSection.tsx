@@ -23,7 +23,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
     <section className="bg-white px-4 sm:px-20 py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8">
-          Events We’ve Delivered
+          Our Achievement
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-4">
           {/* LEFT COLUMN – 2 images */}
