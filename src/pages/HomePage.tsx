@@ -7,7 +7,7 @@ import { AboutSection } from "../components/sections/AboutSection";
 import { EventsSection } from "../components/sections/EventsSection";
 import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
-import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
+// import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
 import ScrollToTopButton from "../components/sections/ScrollToTopButton";
 import heroImg from "../assets/hero.png";
 
@@ -46,7 +46,7 @@ const HomePage = () => {
     <>
       <HeroSection heroImg={heroImg} />
       {/* <Banner /> */}
-      <VideoShrinkScroll />
+      {/* <VideoShrinkScroll /> */}
       <ServicesSection />
       <ProcessSection />
       {/* <ClientsSection clients={clients} /> */}
