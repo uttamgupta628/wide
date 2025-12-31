@@ -50,3 +50,19 @@ h6 {
 .animate-slideIn {
   animation: slideIn 0.8s ease-out forwards;
 }
+
+
+@keyframes textFromRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-text-from-right {
+  animation: textFromRight 1.2s ease-out forwards;
+}
