@@ -9,7 +9,7 @@ const pages = [
   { name: "About us", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Portfolio", path: "/portfolio" },
-  { name: "Process", path: "/process" },
+  // { name: "Process", path: "/process" },
 ];
 const quickLinks = [
   { name: "Contact us", path: "/contact-us" },
