@@ -9,6 +9,8 @@ import crax from "../../assets/cipla.png";
 import parle from "../../assets/itc.png";
 import rupa from "../../assets/govinda.png";
 import Rohit from "../../assets/rohit.png";
+import { ClientsSection } from "../sections/ClientsSection";
+import { clients } from "../../data/clientsData";
 
 type Category = "ALL" | "OUTDOOR ADVERTISING" | "PR & EVENTS" | "BRANDING";
 
@@ -55,36 +57,29 @@ const testimonials: Testimonial[] = [
 ];
 
 const items = [
-    {
-      icon: <Award className="w-10 h-10 text-[#FFDA00]" />,
-      title: "Proven Expertise",
-      desc: "Demonstrated experience delivering consistently successful events with precision and professionalism",
-    },
-    {
-      icon: <Network className="w-10 h-10 text-[#FFDA00]" />,
-      title: "Broad Network",
-      desc: "Extensive nationwide connections enabling seamless coordination, reach, and impactful event execution",
-    },
-    {
-      icon: <Settings className="w-10 h-10 text-[#FFDA00]" />,
-      title: "Custom Solutions",
-      desc: "Tailored event solutions designed to meet unique brand and client needs",
-    },
-    {
-      icon: <ThumbsUp className="w-10 h-10 text-[#FFDA00]" />,
-      title: "Client Satisfaction",
-      desc: "Delivering exceptional experiences that exceed expectations and ensure complete client satisfaction",
-    },
-  ];
+  {
+    icon: <Award className="w-10 h-10 text-[#FFDA00]" />,
+    title: "Proven Expertise",
+    desc: "Demonstrated experience delivering consistently successful events with precision and professionalism",
+  },
+  {
+    icon: <Network className="w-10 h-10 text-[#FFDA00]" />,
+    title: "Broad Network",
+    desc: "Extensive nationwide connections enabling seamless coordination, reach, and impactful event execution",
+  },
+  {
+    icon: <Settings className="w-10 h-10 text-[#FFDA00]" />,
+    title: "Custom Solutions",
+    desc: "Tailored event solutions designed to meet unique brand and client needs",
+  },
+  {
+    icon: <ThumbsUp className="w-10 h-10 text-[#FFDA00]" />,
+    title: "Client Satisfaction",
+    desc: "Delivering exceptional experiences that exceed expectations and ensure complete client satisfaction",
+  },
+];
 
-  const logos = [
-    peerless,
-    tanishq,
-    moople,
-    crax,
-    parle,
-    rupa,
-  ];
+const logos = [peerless, tanishq, moople, crax, parle, rupa];
 
 const TestimonialsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("ALL");
@@ -93,7 +88,7 @@ const TestimonialsPage: React.FC = () => {
   const filteredTestimonials =
     activeCategory === "ALL"
       ? testimonials
-      : testimonials.filter(t => t.category === activeCategory);
+      : testimonials.filter((t) => t.category === activeCategory);
 
   const scrollRight = () => {
     sliderRef.current?.scrollBy({ left: 350, behavior: "smooth" });
@@ -104,8 +99,8 @@ const TestimonialsPage: React.FC = () => {
       {/* ================= HEADER ================= */}
       <section className="bg-gradient-to-r from-[#FFDA00] to-white pb-16 relative overflow-hidden">
         <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-  Home &gt; Testimonials
-</div>
+          Home &gt; Testimonials
+        </div>
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 items-center">
           <div className="hidden lg:block" />
@@ -136,33 +131,34 @@ const TestimonialsPage: React.FC = () => {
 
       {/* ================= FILTER ================= */}
       <section className="py-10 text-center">
-  <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold">
-    WHAT <span className="text-[#FFDA00]">WE DO</span>
-  </h3>
+        <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold">
+          WHAT <span className="text-[#FFDA00]">WE DO</span>
+        </h3>
 
-  <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
-    {categories.map((cat, index) => (
-      <React.Fragment key={cat}>
-        <button
-          onClick={() => setActiveCategory(cat)}
-          className={`px-5 py-2 text-sm font-semibold ${
-            activeCategory === cat
-              ? "bg-[#FFDA00] text-black rounded-lg"
-              : "bg-white text-black"
-          }`}
-        >
-          {cat}
-        </button>
+        <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
+          {categories.map((cat, index) => (
+            <React.Fragment key={cat}>
+              <button
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 text-sm font-semibold ${
+                  activeCategory === cat
+                    ? "bg-[#FFDA00] text-black rounded-lg"
+                    : "bg-white text-black"
+                }`}
+              >
+                {cat}
+              </button>
 
-        {/* Separator */}
-        {index !== categories.length - 1 && (
-          <span className="text-gray-400 font-semibold select-none">|</span>
-        )}
-      </React.Fragment>
-    ))}
-  </div>
-</section>
-
+              {/* Separator */}
+              {index !== categories.length - 1 && (
+                <span className="text-gray-400 font-semibold select-none">
+                  |
+                </span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
 
       {/* ================= TESTIMONIALS SLIDER ================= */}
       <section
@@ -177,7 +173,6 @@ const TestimonialsPage: React.FC = () => {
         <div
           ref={sliderRef}
           className="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-hidden scroll-smooth"
-
         >
           {filteredTestimonials.map((item, index) => (
             <div
@@ -185,7 +180,11 @@ const TestimonialsPage: React.FC = () => {
               className="min-w-[360px] max-w-[360px] bg-[#3B3533] text-white rounded-2xl border-2 border-[#FFDA00] p-8"
             >
               <div className="flex items-center gap-3 mb-4">
-                <img src={Rohit} alt="user" className="w-12 h-12 rounded-full" />
+                <img
+                  src={Rohit}
+                  alt="user"
+                  className="w-12 h-12 rounded-full"
+                />
                 <div>
                   <h4 className="font-semibold">{item.name}</h4>
                   <p className="text-xs opacity-70">{item.role}</p>
@@ -214,74 +213,7 @@ const TestimonialsPage: React.FC = () => {
         </button>
       </section>
 
-
-
-      <section className="bg-[#F6F2EF] py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <h2 className="text-3xl font-bold text-center mb-2">
-          WHY CHOOSE US
-        </h2>
-        <p className="text-center text-gray-600 mb-16">
-          Delivering Success for our Clients
-        </p>
-
-        {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="text-center px-6 relative"
-            >
-              {/* Vertical Divider */}
-              {index !== items.length - 1 && (
-                <div className="hidden lg:block absolute top-0 right-0 h-full w-[1px] bg-gray-300" />
-              )}
-
-              <div className="flex justify-center mb-6">
-                {item.icon}
-              </div>
-
-              <h3 className="font-semibold text-lg mb-4">
-                {item.title}
-              </h3>
-
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-
-
-      <section className="bg-[#F6F2EF] py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-wide mb-12">
-
-          OUR SATIFIED CLIENTS
-        </h2>
-
-        {/* Logos */}
-        <div className="flex flex-wrap justify-center items-center gap-15">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center"
-            >
-             <img
-  src={logo}
-  alt="Client Logo"
-  className="h-10 sm:h-12 object-contain mix-blend-multiply"
-/>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      <ClientsSection clients={clients} />
     </div>
   );
 };

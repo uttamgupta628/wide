@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 
 export const ServicesSection = () => {
   const services = [
-    { icon: <Flag className="w-10 h-10" />, title: "OOH", path: "/services/ooh" },
+    {
+      icon: <Flag className="w-10 h-10" />,
+      title: "OOH",
+      path: "/services/ooh",
+    },
     {
       icon: <Calendar className="w-10 h-10" />,
       title: "Corporate",
@@ -47,17 +51,21 @@ export const ServicesSection = () => {
             <Link key={i} to={s.path} className="block">
               <div
                 className="bg-white p-8 sm:p-10 rounded-2xl
-                           shadow-sm
-                           transform-gpu
-                           transition-all duration-500 ease-out
-                           hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.35)]
-                           hover:-translate-y-2
-                           text-center group cursor-pointer"
+             shadow-sm
+             transform-gpu
+             transition-all duration-500 ease-out
+             hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.35)]
+             hover:-translate-y-2
+             text-center group cursor-pointer
+             h-56 sm:h-60
+             flex flex-col items-center justify-center"
               >
-                <div className="flex justify-center mb-4 sm:mb-6 
+                <div
+                  className="flex justify-center mb-4 sm:mb-6 
                                 text-gray-800 
                                 transition-colors duration-300
-                                group-hover:text-yellow-500">
+                                group-hover:text-yellow-500"
+                >
                   {s.icon}
                 </div>
 

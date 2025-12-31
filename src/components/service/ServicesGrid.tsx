@@ -1,59 +1,87 @@
-import React from "react";
+import { Flag, Calendar, Megaphone, Star, Mic, Edit3 } from "lucide-react";
 import { Link } from "react-router-dom";
-import oohImg from "../../assets/Ohh.png";
-import corporateImg from "../../assets/corporate.png";
-import brandingImg from "../../assets/pandal.png";
-import managementImg from "../../assets/management.png";
-import prImg from "../../assets/pr.png";
 
-type Service = {
-  title: string;
-  path: string;
-  image: string;
-};
+export const ServiceGrid = () => {
+  const services = [
+    {
+      icon: <Flag className="w-10 h-10" />,
+      title: "OOH",
+      path: "/services/ooh",
+    },
+    {
+      icon: <Calendar className="w-10 h-10" />,
+      title: "Corporate",
+      sub: "Events",
+      path: "/services/corporate",
+    },
+    {
+      icon: <Megaphone className="w-10 h-10" />,
+      title: "Brand",
+      sub: "Activations",
+      path: "/services/branding",
+    },
+    {
+      icon: <Star className="w-10 h-10" />,
+      title: "Celebrity",
+      sub: "Management",
+      path: "/services/management",
+    },
+    {
+      icon: <Mic className="w-10 h-10" />,
+      title: "Public",
+      sub: "Relations (PR)",
+      path: "/services/pr",
+    },
+    {
+      icon: <Edit3 className="w-10 h-10" />,
+      title: "Branding",
+      path: "/services/branding",
+    },
+  ];
 
-const services: Service[] = [
-  { title: "OOH Event services", path: "/services/ooh", image: oohImg },
-  { title: "Corporate Events", path: "/services/corporate", image: corporateImg },
-  { title: "Brand Activation", path: "/services/branding", image: brandingImg },
-  { title: "Celebrity Management", path: "/services/management", image: managementImg },
-  { title: "Public Relations (PR)", path: "/services/pr", image: prImg },
-  { title: "Branding", path: "/services/branding", image: brandingImg },
-];
-
-export const ServicesGrid: React.FC = () => {
   return (
-    <section className="px-0 sm:px-6 pb-10 bg-[#faf7f5]">
-      {/* Breadcrumb */}
-      <div className="bg-[#3C3533] text-white text-sm px-6 py-4 mb-12 tracking-wide w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        Home &gt; Services
-      </div>
+    <section id="services" className="bg-gray-50 px-4 sm:px-6 py-16 sm:py-20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          WHAT WE DO
+        </h2>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-[#111111] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col"
-          >
-            {/* IMAGE */}
-            <div className="h-72 sm:h-80 lg:h-96 w-full overflow-hidden">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              />
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {services.map((s, i) => (
+            <Link key={i} to={s.path} className="block">
+              <div
+                className="bg-white p-8 sm:p-10 rounded-2xl
+             shadow-sm
+             transform-gpu
+             transition-all duration-500 ease-out
+             hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.35)]
+             hover:-translate-y-2
+             text-center group cursor-pointer
+             h-56 sm:h-60
+             flex flex-col items-center justify-center"
+              >
+                <div
+                  className="flex justify-center mb-4 sm:mb-6 
+                                text-gray-800 
+                                transition-colors duration-300
+                                group-hover:text-yellow-500"
+                >
+                  {s.icon}
+                </div>
 
-            {/* BUTTON */}
-            <div className="p-5">
-              <Link to={service.path}>
-                <button className="w-full bg-[#1c1c1c] text-white py-4 rounded-md text-base font-medium tracking-wide hover:bg-[#2a2a2a] active:scale-[0.98] transition-all duration-200">
-                  {service.title}
-                </button>
-              </Link>
-            </div>
-          </div>
-        ))}
+                <h3 className="font-semibold text-base sm:text-lg">
+                  {s.title}
+                  {s.sub && (
+                    <>
+                      <br />
+                      {s.sub}
+                    </>
+                  )}
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

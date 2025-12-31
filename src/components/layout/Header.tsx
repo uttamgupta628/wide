@@ -76,18 +76,18 @@ export default function Header() {
             <a href="/portfolio" className="nav-link text-black">
               Portfolio
             </a>
-            <a href="/process" className="nav-link text-black">
+            {/* <a href="/process" className="nav-link text-black">
               Process
-            </a>
+            </a> */}
             <a href="/testimonials" className="nav-link text-black">
               Testimonials
             </a>
             <a href="/contact-us" className="nav-link text-black">
               Contact
             </a>
-            <a href="/contact-us" className="nav-link text-black">
+            {/* <a href="/contact-us" className="nav-link text-black">
               Contact
-            </a>
+            </a> */}
           </nav>
 
           {/* CTA Button */}

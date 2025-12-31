@@ -7,7 +7,7 @@ import Breadcrumb from "../components/Global/Breadcrumb";
 import AboutIntroSection from "../components/about/AboutIntroSection";
 import EmpoweringSection from "../components/about/EmpoweringSection";
 import OurMissionSection from "../components/about/OurMissionSection";
-import OurExpertTeamSection from "../components/about/OurExpertTeamSection";
+// import OurExpertTeamSection from "../components/about/OurExpertTeamSection";
 import BrandEvolutionSection from "../components/about/BrandEvolutionSection";
 
 export const AboutPage = () => {
@@ -20,7 +20,7 @@ export const AboutPage = () => {
       <EmpoweringSection />
       <OurMissionSection />
       <BrandEvolutionSection />
-      <OurExpertTeamSection />
+      {/* <OurExpertTeamSection /> */}
       <AboutCTA />
     </>
   );

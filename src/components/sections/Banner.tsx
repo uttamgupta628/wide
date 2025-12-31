@@ -147,17 +147,18 @@ const styles: { [key: string]: React.CSSProperties } = {
   textContainer: {
     position: "absolute",
     top: "50%",
-    left: "5%",
+    right: "5%",
     transform: "translateY(-50%)",
     zIndex: 5,
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
+    textAlign: "right",
   },
 
   textLine: {
-    fontSize: "clamp(2rem, 5vw, 4rem)",
-    fontWeight: "bold",
+    fontSize: "clamp(1rem, 5vw, 3rem)",
+    fontWeight: "600",
     margin: "0",
     lineHeight: "1.2",
   },
@@ -201,7 +202,7 @@ const styles: { [key: string]: React.CSSProperties } = {
 
   planeFly: {
     opacity: 1,
-    animation: "flyPlane 20s ease-in-out forwards",
+    animation: "flyPlane 15s ease-in-out forwards",
   },
 };
 
