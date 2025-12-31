@@ -4,7 +4,7 @@ import type { HeroSectionProps } from "../../types";
 import heroTitleImg from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ }) => {
   return (
     <section
       className="  relative overflow-hidden"
