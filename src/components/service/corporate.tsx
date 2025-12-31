@@ -1,6 +1,6 @@
 import React from "react";
-import oohImage from "../../assets/Ohh.png";
-import billboardImage from "../../assets/ooh1.jpg";
+import oohImage from "../../assets/corporate1.png";
+import billboardImage from "../../assets/corporate.png";
 
 export const Corporate: React.FC = () => {
   return (
