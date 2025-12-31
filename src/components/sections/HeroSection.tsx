@@ -5,12 +5,12 @@ import heroTitleImg from "../../assets/logo2.png";
 export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
   return (
     <section
-      className=" relative overflow-hidden"
+      className="  relative overflow-hidden"
       style={{ backgroundColor: "#FFDA00" }}
     >
-      <div className="max-w-7xl mx-auto py-8 sm:py-12 lg:py-12 mt-6 sm:mt-10">
-        <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-12 ">
-          <div className="w-full lg:w-1/2 h-[250px] sm:h-[350px] flex flex-col justify-center items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-12">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12">
+          <div className="w-full lg:w-1/2">
             <img
               src={heroTitleImg}
               alt="Right Budget for Right Execution"
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
         />
 
         {/* Yellow Overlay */}
-        <div className="absolute inset-0 bg-[#FFDA00]"></div>
+        <div className="absolute inset-0 bg-[#FFDA00]/75"></div>
 
         {/* Content - Centered */}
         <div className="relative h-full min-h-[450px] flex items-center justify-center px-6 sm:px-12">
