@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { easeOut, motion } from "framer-motion";
 import images from "../../assets/images";
 
 const Banner: React.FC = () => {
@@ -12,10 +13,52 @@ const Banner: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const textVariants = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: easeOut,
+        delay: 0.5 + custom * 0.3,
+      },
+    }),
+  };
+
+  const texts = [
+    "WIDEST gamut of services.",
+    "WIDEST network of media.",
+    "WIDEST repertoire of customization.",
+  ];
+
   return (
     <div style={styles.container}>
       {/* Main Image */}
       <img src={images.banner} alt="Main Visual" style={styles.mainImage} />
+
+      {/* TEXT CONTENT */}
+      <div style={styles.textContainer}>
+        {texts.map((text, index) => {
+          const [widest, ...rest] = text.split(" ");
+          return (
+            <motion.h1
+              key={index}
+              custom={index}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              style={styles.textLine}
+            >
+              <span style={styles.yellowText}>{widest}</span>{" "}
+              <span style={styles.blackText}>{rest.join(" ")}</span>
+            </motion.h1>
+          );
+        })}
+      </div>
 
       {/* First Truck */}
       <img
@@ -98,6 +141,33 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+  },
+
+  /* Text Container */
+  textContainer: {
+    position: "absolute",
+    top: "50%",
+    left: "5%",
+    transform: "translateY(-50%)",
+    zIndex: 5,
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+  },
+
+  textLine: {
+    fontSize: "clamp(2rem, 5vw, 4rem)",
+    fontWeight: "bold",
+    margin: "0",
+    lineHeight: "1.2",
+  },
+
+  yellowText: {
+    color: "#FFCD29",
+  },
+
+  blackText: {
+    color: "#fff",
   },
 
   /* Trucks */

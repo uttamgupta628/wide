@@ -98,15 +98,13 @@
 //   );
 // };
 
-
-import React from 'react';
-import bg1 from '../../assets/Banner.png';
-import bg2 from '../../assets/Banner.png';
+import React from "react";
+import bg1 from "../../assets/Banner.png";
+import bg2 from "../../assets/Banner.png";
 
 export const HeroSection: React.FC = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
-
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0 z-0">
         <img
@@ -148,7 +146,6 @@ export const HeroSection: React.FC = () => {
           }
         `}
       </style>
-
     </section>
   );
 };
