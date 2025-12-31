@@ -71,7 +71,7 @@ const ContactSection: React.FC = () => {
         </svg>
       ),
       title: "Phone",
-      description: "+91-9831047613 / 9007333399",
+      description: "+91-9831047413 / 9007333399",
     },
     {
       icon: (
