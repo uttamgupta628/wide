@@ -8,9 +8,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
       className=" relative overflow-hidden"
       style={{ backgroundColor: "#FFDA00" }}
     >
-      <div className="max-w-7xl mx-auto py-8 sm:py-12 lg:py-12">
+      <div className="max-w-7xl mx-auto py-8 sm:py-12 lg:py-12 mt-6 sm:mt-10">
         <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-12 ">
-          <div className="w-full lg:w-1/2 h-[200px] sm:h-[250px] flex flex-col justify-center items-start">
+          <div className="w-full lg:w-1/2 h-[250px] sm:h-[350px] flex flex-col justify-center items-start">
             <img
               src={heroTitleImg}
               alt="Right Budget for Right Execution"
@@ -24,15 +24,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
             <div className="relative">
               <p className="text-lg sm:text-xl lg:text-2xl font-medium text-black max-w-md text-right leading-relaxed">
                 <span className="inline-block animate-slide-in-right">
-                  Widest network of media
+                  <span className="font-bold">Widest</span> network of media
                 </span>
                 <br />
                 <span className="inline-block animate-slide-in-right animation-delay-200">
-                  widest repertoire of customization
+                  <span className="font-bold">Widest</span> repertoire of customization
                 </span>
                 <br />
                 <span className="inline-block animate-slide-in-right animation-delay-400">
-                  Widest repertoire of customization
+                  <span className="font-bold">Widest</span> repertoire of customization
                 </span>
               </p>
             </div>
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ heroImg }) => {
         />
 
         {/* Yellow Overlay */}
-        <div className="absolute inset-0 bg-[#FFDA00]/75"></div>
+        <div className="absolute inset-0 bg-[#FFDA00]"></div>
 
         {/* Content - Centered */}
         <div className="relative h-full min-h-[450px] flex items-center justify-center px-6 sm:px-12">
