@@ -85,6 +85,9 @@ export default function Header() {
             <a href="/contact-us" className="nav-link text-black">
               Contact
             </a>
+            <a href="/contact-us" className="nav-link text-black">
+              Contact
+            </a>
           </nav>
 
           {/* CTA Button */}

@@ -1,10 +1,37 @@
 export const ProcessSection = () => {
   const steps = [
-    { n: "01", t: "Documentation", s: "of Project" },
-    { n: "02", t: "Detailed", s: "Planning" },
-    { n: "03", t: "Improvement", s: "of Planning &", s2: "Finalization" },
-    { n: "04", t: "Budget", s: "Finalization" },
-    { n: "05", t: "Team Allocation &", s: "Production", s2: "Check" },
+    {
+      n: "01",
+      t: "Documentation",
+      s: "of Project",
+      desc: "We gather and document all project requirements, objectives, and constraints to ensure complete clarity before execution.",
+    },
+    {
+      n: "02",
+      t: "Detailed",
+      s: "Planning",
+      desc: "A structured plan is created covering timelines, milestones, resources, and risk management for smooth execution.",
+    },
+    {
+      n: "03",
+      t: "Improvement",
+      s: "of Planning &",
+      s2: "Finalization",
+      desc: "Plans are refined based on feedback and feasibility checks to ensure efficiency, accuracy, and alignment with goals.",
+    },
+    {
+      n: "04",
+      t: "Budget",
+      s: "Finalization",
+      desc: "We finalize budgets by optimizing costs while maintaining quality, transparency, and financial control.",
+    },
+    {
+      n: "05",
+      t: "Team Allocation &",
+      s: "Production",
+      s2: "Check",
+      desc: "The right team is assigned and production readiness is verified to ensure flawless execution and delivery.",
+    },
   ];
 
   return (
@@ -37,13 +64,12 @@ export const ProcessSection = () => {
         id="process"
         className="px-4 sm:px-6 py-24"
         style={{
-          background: "linear-gradient(90deg, #FFE8E1 0%, #FFDA0080 100%)",
+          background:
+            "linear-gradient(90deg, #FFDA0080 0%, #FFE8E1 50%, #FFDA0080 100%)",
         }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-20">
-            How We Work
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-20">How We Work</h2>
 
           <div className="flex flex-wrap justify-center gap-10">
             {steps.map((step, i) => (
@@ -88,19 +114,17 @@ export const ProcessSection = () => {
                   {/* Back */}
                   <div
                     className="
-                      flip-face flip-back
-                      absolute inset-0
-                      bg-white
-                      rounded-[40px]
-                      shadow-xl
-                      flex items-center justify-center
-                      text-center px-6
-                    "
+    flip-face flip-back
+    absolute inset-0
+    bg-white
+    rounded-[40px]
+    shadow-xl
+    flex items-center justify-center
+    text-center px-6
+  "
                   >
                     <p className="text-sm font-semibold text-black leading-relaxed">
-                      We carefully execute this step to ensure
-                      smooth project delivery, quality output,
-                      and timely completion.
+                      {step.desc}
                     </p>
                   </div>
                 </div>

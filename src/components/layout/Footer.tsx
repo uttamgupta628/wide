@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
       <li key={item.name}>
         <Link
           to={item.path}
-          className="text-gray-300 hover:text-white transition cursor-pointer"
+          className="text-gray-300 hover:text-[#FFDA00] transition cursor-pointer"
         >
           {item.name}
         </Link>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
       <li key={item.name}>
         <Link
           to={item.path}
-          className="text-gray-400 hover:text-white transition cursor-pointer"
+          className="text-gray-400 hover:text-[#FFDA00] transition cursor-pointer"
         >
           {item.name}
         </Link>
@@ -84,13 +84,13 @@ export const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-semibold mb-4">Contact us</h4>
           <div className="space-y-2 text-sm text-gray-300">
-            <div className="hover:text-white transition cursor-pointer">
+            <div className="hover:text-[#FFDA00] transition cursor-pointer">
               +91-9831047413 / 8910665795
             </div>
-            <div className="hover:text-white transition cursor-pointer">
+            <div className="hover:text-[#FFDA00] transition cursor-pointer">
               nirmalya@widehorizons.co.in
             </div>
-            <div className="text-gray-400 leading-relaxed">
+            <div className="text-gray-400 leading-relaxed hover:text-[#FFDA00]">
               Godrej Waterside, Tower-II, 12th Floor
               <br />
               Block-DP, Sector-V, Kolkata – 700091

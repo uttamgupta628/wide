@@ -1,4 +1,3 @@
-// import { HeroSection } from "../components/sections/HeroSection";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { ProcessSection } from "../components/sections/ProcessSection";
 import { ClientsSection } from "../components/sections/ClientsSection";
@@ -8,6 +7,8 @@ import { EventsSection } from "../components/sections/EventsSection";
 import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
 import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
+import ScrollToTopButton from "../components/sections/ScrollToTopButton";
+
 
 import { clients } from "../data/clientsData";
 
@@ -50,6 +51,8 @@ const HomePage = () => {
       <EventsSection images={eventImages} />
       <CommitmentSection />
       <CTASection />
+      
+    <ScrollToTopButton />
     </>
   );
 };
