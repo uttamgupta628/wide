@@ -206,12 +206,16 @@ const TestimonialsPage: React.FC = () => {
       >
         <div
           ref={sliderRef}
-          className="max-w-[1175px] mx-auto px-6 flex gap-6 overflow-x-hidden scroll-smooth"
+          className="max-w-full lg:max-w-[1175px] mx-auto px-4 sm:px-6
+             flex gap-4 sm:gap-6 overflow-x-hidden scroll-smooth"
         >
           {filteredTestimonials.map((item, index) => (
             <div
               key={index}
-              className="min-w-[360px] max-w-[360px] bg-[#3B3533] text-white rounded-2xl border-2 border-[#FFDA00] p-8 flex-shrink-0"
+              className="min-w-[280px] sm:min-w-[320px] lg:min-w-[360px]
+             max-w-[280px] sm:max-w-[320px] lg:max-w-[360px]
+             bg-[#3B3533] text-white rounded-2xl border-2 border-[#FFDA00]
+             p-6 sm:p-8 flex-shrink-0"
             >
               <div className="flex items-center gap-3 mb-4">
                 <img
@@ -242,7 +246,9 @@ const TestimonialsPage: React.FC = () => {
         {/* Left Arrow */}
         <button
           onClick={scrollLeft}
-          className="absolute left-10 top-1/2 -translate-y-1/2 bg-[#FFDA00] w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"
+          className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2
+             bg-[#FFDA00] w-10 h-10 rounded-full items-center justify-center
+             shadow-lg hover:scale-110 transition"
         >
           <ArrowLeft />
         </button>
@@ -250,7 +256,9 @@ const TestimonialsPage: React.FC = () => {
         {/* Right Arrow */}
         <button
           onClick={scrollRight}
-          className="absolute right-10 top-1/2 -translate-y-1/2 bg-[#FFDA00] w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"
+          className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2
+             bg-[#FFDA00] w-10 h-10 rounded-full items-center justify-center
+             shadow-lg hover:scale-110 transition"
         >
           <ArrowRight />
         </button>
