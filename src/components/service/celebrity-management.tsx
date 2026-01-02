@@ -1,161 +1,136 @@
 import React from "react";
-import oohImage from "../../assets/corporate1.png";
-import billboardImage from "../../assets/corporate.png";
 
-export const Management: React.FC = () => {
+/* ================== IMAGE IMPORTS ================== */
+import heroImg from "../../assets/cele1.png";
+
+// Celebrities
+import madhumita from "../../assets/cele2.png";
+import shiboprosad from "../../assets/cele3.png";
+import trina from "../../assets/cele4.png";
+import oindrila from "../../assets/cele5.png";
+
+// Press Meets
+import pressMain from "../../assets/cele6.png";
+import press1 from "../../assets/cele7.png";
+import press2 from "../../assets/cele8.png";
+
+// Meet & Greet
+import meet1 from "../../assets/cele9.png";
+import meet2 from "../../assets/cele10.png";
+import meet3 from "../../assets/cele11.png";
+import meet4 from "../../assets/cele12.png";
+import meet5 from "../../assets/cele13.png";
+
+/* ================================================== */
+
+const Management: React.FC = () => {
   return (
-    <div className="bg-[#F8F6F5] min-h-screen">
-      {/* Breadcrumb */}
-      <div className="bg-[#3C3533] text-white text-sm px-6 py-2">
-        Home &gt; Services &gt; Celebrity management
-      </div>
+    <div className="bg-[#faf7f4] py-16 px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto space-y-24">
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Celebrity management</h1>
-        <p className="text-gray-700 mb-6">
-          Expert management of celebrity partnerships and appearances to boost your brand is impact and visibility  
-        </p>
+        {/* ================= HEADER ================= */}
+        <section>
+          <h1 className="text-3xl font-bold mb-2">Celebrity management</h1>
+          <p className="text-gray-600 max-w-3xl">
+            Expert management of celebrity partnerships and appearances to boost
+            your brand’s impact and visibility
+          </p>
+        </section>
 
-        <div className="w-full h-64 bg-gray-300 rounded-lg mb-12">
-          {/* Placeholder for hero image */}
-          <img
-            src={billboardImage}
-            alt="OOH Advertising"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <h2 className="text-2xl sm:text-5xl font-bold mb-4">
-          Leverage the power of Celebrity Influence
-        </h2>
-        <p className="text-gray-700 mb-8 sm:text-2xl ">
-          Celebrity endorsement can elevate your brand’s profile and connect you with  a broader audience . We handle massively
-acpect of celebrity engagement to ensure impact at partnerships
-        </p>
-
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/2">
+        {/* ================= HERO SECTION ================= */}
+        <section className="bg-[#D0D0D0] rounded-xl p-12 sm:p-20 grid md:grid-cols-2 gap-2 items-center justify-between">
+          <div className="relative w-fit">
+            <div className="absolute -left-4 -top-4  h-full w-50 bg-yellow-400 rounded-bl-[120px]" />
             <img
-              src={oohImage}
-              alt="Billboard"
-              className="rounded-lg w-full h-auto"
+              src={heroImg}
+              alt="Celebrity"
+              className="relative z-10 rounded-bl-[120px] rounded-tr-xl max-w-70"
             />
           </div>
-          <div className="lg:w-1/2 flex flex-col justify-start gap-8">
-            <h3 className="text-2xl font-semibold">Our brand Celebrity management services</h3>
 
-            <ul className="space-y-4 text-gray-800">
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Celebrity Endorsements  </span>
-              </li>
-
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Brand Ambassadorships</span>
-              </li>
-
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Event appearances</span>
-              </li>
-
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Product launches</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className="bg-gray-100 py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
-          Why Choose Brand Activations  ?
-        </h2>
-        <p className="text-gray-600 text-lg mb-12">
-          We deliver despites, how your event talend, meretivey accomplishment
-        </p>
-        
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-          {/* High Visibility Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">Drive Engagement</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Capture attention with fun interactive brand experiences
-              </p>
-            </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
-              </div>
-            </div>
-          </div>
-
-          {/* Targeted Reach Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">Brand Awarness</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Increase your brand visibility and reach a wider audience
-              </p>
-            </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
-              </div>
-            </div>
-          </div>
-
-          {/* Cost Effective Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">Generate Buzz</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Create a shareable moments that get people talking about your brand
-              </p>
-            </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
-          {/* TEXT */}
-          <div className="flex flex-col gap-2 text-center sm:text-left">
-            <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
-              Ready to amplify your brand with OOH Advertising
+          <div>
+            <h2 className="text-3xl font-bold mb-4">
+              The ultimate platform for planning and promoting successful events
             </h2>
-            <p className="text-gray-600">
-              Contact us today to start your impactful outdoor advertising campaign
+            <p className="text-gray-700 max-w-xl">
+              The ultimate platform for planning and promoting successful events,
+              bringing tools, insights, and audiences together to simplify
+              coordination, boost visibility, drive engagement, and deliver
+              memorable experiences every time, globally effortlessly.
             </p>
           </div>
-          {/* BUTTON */}
-          <button
-            onClick={() => window.location.href = '/contact-us'}
-            className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
-          >
-            Contact us
-          </button>
-        </div>
+        </section>
+
+        {/* ================= CELEBRITY GRID ================= */}
+        <section className="grid sm:grid-cols-2 gap-14">
+          {[
+            { img: madhumita, name: "Madhumita Sarkar" },
+            { img: shiboprosad, name: "Shiboprosad Mukherjee" },
+            { img: trina, name: "Trina Saha" },
+            { img: oindrila, name: "Oindrila Sen" },
+          ].map((celeb, i) => (
+            <div key={i} className="flex items-center gap-6">
+              <img
+                src={celeb.img}
+                className="w-44 h-60 object-cover rounded-xl"
+                alt={celeb.name}
+              />
+              <div className="flex items-center gap-3">
+                <div className="w-1 h-12 bg-yellow-400" />
+                <div className="bg-white px-6 py-3 rounded-lg shadow text-sm font-medium">
+                  {celeb.name}
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        {/* ================= PRESS MEETS ================= */}
+        <section>
+          <h2 className="text-2xl font-bold mb-2">Press Meets</h2>
+          <p className="text-gray-600 max-w-3xl mb-8">
+            Press meets are organized media briefings where officials share news,
+            answer questions, and shape public communication with journalists.
+          </p>
+
+          <div className="mb-8">
+            <img
+              src={pressMain}
+              alt="Press Meet"
+              className="rounded-xl w-full object-cover"
+            />
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <img src={press1} className="rounded-xl" alt="Press" />
+            <img src={press2} className="rounded-xl" alt="Press" />
+          </div>
+        </section>
+
+        {/* ================= MEET & GREET ================= */}
+        <section>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-1 h-10 bg-yellow-400" />
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm text-sm font-semibold uppercase">
+              Meet & Greet with Celebrity
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[meet1, meet2, meet3, meet4, meet5].map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt="Meet & Greet"
+                className="rounded-xl h-44 w-full object-cover hover:scale-105 transition"
+              />
+            ))}
+          </div>
+        </section>
+
       </div>
-    </section>
     </div>
   );
 };
+
+export default Management;

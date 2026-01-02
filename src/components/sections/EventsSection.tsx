@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { EventsSectionProps } from '../../types';
+import { Link } from "react-router-dom";
+
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
   const [imgOrder, setImgOrder] = useState(images.slice(0, 5));
@@ -29,6 +31,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
           {/* LEFT COLUMN – 2 images */}
           <div className="grid grid-rows-2 gap-4 h-80 lg:h-[800px]">
             {[imgOrder[0], imgOrder[1]].map((img, i) => (
+              
               <div
                 key={`${img}-${i}`}
                 className={`overflow-hidden rounded-lg shadow-lg transition-all duration-1000 ease-in-out transform ${

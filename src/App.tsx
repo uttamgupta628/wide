@@ -8,7 +8,7 @@ import { OOHAdvertising } from './components/service/OOH';
 import { Layout } from './components/layout/Layout';
 import { Corporate } from './components/service/corporate';
 import { Branding } from './components/service/brand-activation';
-import { Management } from './components/service/celebrity-management';
+import  Management  from './components/service/celebrity-management';
 import { Pr } from './components/service/pr';
 import OurProcess from './pages/processPage';
 import PortfolioPage from "./pages/Portfoliopage";
