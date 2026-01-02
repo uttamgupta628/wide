@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import type { EventsSectionProps } from '../../types';
-import { Link } from "react-router-dom";
 
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
