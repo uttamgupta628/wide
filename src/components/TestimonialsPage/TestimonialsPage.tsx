@@ -128,12 +128,12 @@ const TestimonialsPage: React.FC = () => {
         autoScrollRef.current = null;
       }
     };
-  }, [activeCategory]); // ✅ ONLY restart when category changes
+  }, [activeCategory]);
 
   const scrollRight = () => {
     const cardWidth = 360;
     const gap = 24;
-    const scrollAmount = (cardWidth + gap) * 3; // Scroll by 3 cards
+    const scrollAmount = (cardWidth + gap) * 3;
     sliderRef.current?.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
 

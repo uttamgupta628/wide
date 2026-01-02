@@ -14,21 +14,42 @@ import cipla from '../assets/cipla.png';
 import pc from '../assets/pc.png';
 import mpj from '../assets/mpj.png';
 import svf from '../assets/svf.png';
+import Royal from '../assets/royal.png'
+import nuv from '../assets/nuv.png'
+import crax from '../assets/crax.png'
+import moople from '../assets/moople.png' 
+import kre from '../assets/kre.png'
+import byjus from '../assets/byjus.png'
+import gcl from '../assets/gcl.png'
+import cream from '../assets/cream.png'
+import ds from '../assets/ds.png'
+import car from '../assets/car.png'
+import ori from '../assets/ori.png'
 
 export const clients: Client[] = [
   { name: "Fortis Hospital", img: fortisImg },
-  { name: "NuVoCo", img: "/images/nuvoco.png" },
+  { name: "ITC", img: itc },
+  { name: "NuVoCo", img: nuv },
+  { name: "crax", img: crax },
+  { name: "Apollo", img: apollo },
+  { name: "Royal", img: Royal },
+  { name: "Adani", img: adani },
+  { name: "byjus", img: byjus },
+  { name: "car", img: car },
+  { name: "ABP", img: abp },
+  { name: "Cipla", img: cipla },
+  { name: "MPJ", img: mpj },
+  { name: "cream", img: cream },
+  { name: "ori", img: ori },
   { name: "Svf", img: svf },
   { name: "GOVINDA", img: govinda },
+  { name: "ds", img: ds },
+  { name: "gcl", img: gcl },
   { name: "GLOUT", img: glout },
   { name: "Z", img: z },
-  { name: "ITC", img: itc },
+  { name: "moople", img: moople },
   { name: "NK", img: nk },
-  { name: "ABP", img: abp },
-  { name: "Apollo", img: apollo },
-  { name: "Hoichoi", img: hoichoi },
-  { name: "Adani", img: adani },
-  { name: "Cipla", img: cipla },
   { name: "PC EXPRESS", img: pc },
-  { name: "MPJ", img: mpj },
+  { name: "Hoichoi", img: hoichoi },
+  { name: "kre", img: kre },
 ];
