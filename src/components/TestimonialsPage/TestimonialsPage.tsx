@@ -157,7 +157,7 @@ const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
             <h2 className="text-3xl md:text-4xl font-bold uppercase whitespace-nowrap text-white">
-              Happy <span className="text-black">CLIENTS TAIL</span>
+              Happy <span className="text-black">CLIENTS TELL</span>
             </h2>
 
             <p className="mt-4 text-sm md:text-base">

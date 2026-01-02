@@ -121,7 +121,7 @@ const ContactSection: React.FC = () => {
               </div>
 
               <h4 className="text-2xl font-medium mb-4">{card.title}</h4>
-              <p className="text-xl leading-relaxed">{card.description}</p>
+              <p className="text- md leading-relaxed">{card.description}</p>
             </motion.div>
           ))}
         </motion.div>
