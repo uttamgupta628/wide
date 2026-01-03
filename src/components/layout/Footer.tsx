@@ -79,15 +79,18 @@ export const Footer: React.FC = () => {
           <p className="text-white font-semibold mb-4">Contact us</p>
           <div className="space-y-2 text-sm text-gray-300">
             <div className="hover:text-[#FFDA00] transition cursor-pointer">
-              +91-9831047413 / 8910665795
+              +91-9831047413 / 9007333399
             </div>
             <div className="hover:text-[#FFDA00] transition cursor-pointer">
-              nirmalya@widehorizons.co.in
+              info@widehorizons.co.in
             </div>
-            <div className="text-gray-400 leading-relaxed hover:text-[#FFDA00]">
+            <div className="text-gray-400 leading-relaxed hover:text-[#FFDA00] cursor-pointer">
               Godrej Waterside, Tower-II, 12th Floor
               <br />
               Block-DP, Sector-V, Kolkata – 700091
+            </div>
+            <div className="text-gray-400 leading-relaxed hover:text-[#FFDA00] cursor-pointer">
+              203C/B, Lake Town, Block-B, Kolkata-700089
             </div>
           </div>
         </div>

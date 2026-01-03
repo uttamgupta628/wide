@@ -1,47 +1,40 @@
 import React from "react";
+import Lottie from "lottie-react";
 import type { HeroSectionProps } from "../../types";
-import heroTitleImg from "../../assets/logo2.png";
-import heroBgImg from "../../assets/heroBg1.png";
-import { FaRegHandshake } from "react-icons/fa";
+import heroTitleImg from "../../assets/logoWide.svg";
+import businessHandshake from "../../assets/Business Handshake.json";
 
 export const HeroSection: React.FC<HeroSectionProps> = ({}) => {
   return (
     <section
-      className="relative overflow-hidden bg-center bg-cover bg-no-repeat"
-      style={{
-        backgroundImage: `url(${heroBgImg})`,
-        minHeight: "600px",
-      }}
+      className="relative overflow-hidden bg-[#FFDA00]"
+      // style={{
+      //   minHeight: "600px",
+      // }}
     >
-      {/* Yellow Overlay */}
-      {/* <div className="absolute inset-0 bg-[#FFDA00]/90"></div> */}
+      {/* Lottie Animation Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <Lottie
+          animationData={businessHandshake}
+          loop={true}
+          className="w-full h-auto max-w-7xl"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
-          {/* Left Side - Handshake Icon + Logo */}
-          <div className="w-full lg:w-1/2 flex items-end justify-center lg:justify-end">
-            <div className="flex items-center gap-4 sm:gap-0">
-              {/* Handshake Icon */}
-              <FaRegHandshake
-                className="text-[#3d3435] w-42 h-42 sm:w-52 sm:h-52 lg:w-64 lg:h-64"
-                // style={{
-                //   width: "48px",
-                //   height: "64px",
-                // }}
-              />
-
-              {/* Logo */}
-              <img
-                src={heroTitleImg}
-                alt="WH Logo"
-                className="w-64 sm:w-80 lg:w-96 object-contain"
-              />
-            </div>
+          {/* Left Side - Logo */}
+          <div className="w-full lg:w-1/2 flex items-center justify-start">
+            <img
+              src={heroTitleImg}
+              alt="WH Logo"
+              className="w-64 sm:w-80 lg:w-96 object-contain"
+            />
           </div>
 
           {/* Right Side - Text */}
-          <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start">
+          <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
             <div className="text-right">
               <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-black leading-relaxed">
                 <span className="inline-block animate-slide-in-right">

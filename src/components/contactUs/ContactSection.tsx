@@ -12,7 +12,10 @@ const ContactSection: React.FC = () => {
   const handleCardClick = (index: number) => {
     switch (index) {
       case 0:
-        window.open("https://wa.me/919831047413", "_blank");
+        window.open(
+          "https://www.google.com/maps/search/?api=1&query=203C/B+Lake+Town+Block+B+Kolkata+700089",
+          "_blank"
+        );
         break;
       case 1:
         window.open(
@@ -24,7 +27,7 @@ const ContactSection: React.FC = () => {
         setShowPhoneOptions(true);
         break;
       case 3:
-        window.location.href = "mailto:nirmaly@swidehorizons.co.in";
+        window.location.href = "mailto:info@widehorizons.co.in";
         break;
     }
   };
@@ -38,7 +41,7 @@ const ContactSection: React.FC = () => {
     {
       icon: <HiOutlineBuildingOffice2 className="w-12 h-12 text-white" />,
       title: "Registered Office",
-      description: "Sector V, Kolkata - 700091",
+      description: "203C/B, Lake Town, Block-B, Kolkata-700089",
     },
     {
       icon: <PiBuildingOfficeBold className="w-12 h-12 text-white" />,
@@ -54,7 +57,7 @@ const ContactSection: React.FC = () => {
     {
       icon: <Mail className="w-12 h-12 text-white" />,
       title: "Email",
-      description: "nirmaly@swidehorizons.co.in",
+      description: "info@widehorizons.co.in",
     },
   ];
 
@@ -147,13 +150,13 @@ const ContactSection: React.FC = () => {
             <div className="space-y-4">
               <button
                 onClick={() => handlePhoneSelect("+919831047413")}
-                className="w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 rounded-xl transition-all text-lg"
+                className="cursor-pointer w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 rounded-xl transition-all text-lg"
               >
                 +91-9831047413
               </button>
               <button
                 onClick={() => handlePhoneSelect("+919007333399")}
-                className="w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 rounded-xl transition-all text-lg"
+                className="cursor-pointer w-full bg-[#FFC907] hover:bg-[#e6b506] text-black font-medium py-4 rounded-xl transition-all text-lg"
               >
                 +91-9007333399
               </button>
@@ -161,7 +164,7 @@ const ContactSection: React.FC = () => {
 
             <button
               onClick={() => setShowPhoneOptions(false)}
-              className="w-full mt-6 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 rounded-xl transition-all"
+              className="cursor-pointer w-full mt-6 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 rounded-xl transition-all"
             >
               Cancel
             </button>
