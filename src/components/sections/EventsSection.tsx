@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import type { EventsSectionProps } from '../../types';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import type { EventsSectionProps } from "../../types";
+import { ArrowRight } from "lucide-react";
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
   const [imgOrder, setImgOrder] = useState(images.slice(0, 5));
@@ -9,7 +11,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
-      
+
       // Wait for fade out, then rotate images
       setTimeout(() => {
         setImgOrder((prev) => [prev[4], prev[0], prev[1], prev[2], prev[3]]);
@@ -24,19 +26,18 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
     <section className="bg-white px-4 sm:px-20 py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8">
-          Our Achievement
+          Campaigns We've Delivered
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-4">
           {/* LEFT COLUMN – 2 images */}
           <div className="grid grid-rows-2 gap-4 h-80 lg:h-[800px]">
             {[imgOrder[0], imgOrder[1]].map((img, i) => (
-              
               <div
                 key={`${img}-${i}`}
                 className={`overflow-hidden rounded-lg shadow-lg transition-all duration-1000 ease-in-out transform ${
-                  isTransitioning 
-                    ? 'opacity-0 scale-95' 
-                    : 'opacity-100 scale-100'
+                  isTransitioning
+                    ? "opacity-0 scale-95"
+                    : "opacity-100 scale-100"
                 }`}
               >
                 <img
@@ -53,9 +54,9 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
               <div
                 key={`${img}-${i + 2}`}
                 className={`overflow-hidden rounded-lg shadow-lg transition-all duration-1000 ease-in-out transform ${
-                  isTransitioning 
-                    ? 'opacity-0 scale-95' 
-                    : 'opacity-100 scale-100'
+                  isTransitioning
+                    ? "opacity-0 scale-95"
+                    : "opacity-100 scale-100"
                 }`}
               >
                 <img
@@ -66,6 +67,20 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Portfolio Button */}
+        <div className="flex justify-end mt-8">
+          <Link to="/portfolio">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-black text-white hover:bg-[#FFCD29] hover:text-black font-semibold px-6 py-3 rounded-xl hover:opacity-90 cursor-pointer transition flex items-center gap-2"
+            >
+              VIEW MORE
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </Link>
         </div>
       </div>
     </section>

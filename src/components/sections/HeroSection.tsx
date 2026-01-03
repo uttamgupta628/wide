@@ -17,7 +17,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({}) => {
         <Lottie
           animationData={businessHandshake}
           loop={true}
-          className="w-full h-auto max-w-7xl"
+          className="w-full h-auto max-w-full"
         />
       </div>
 

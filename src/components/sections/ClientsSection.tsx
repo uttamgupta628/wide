@@ -10,11 +10,12 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ clients }) => {
   const ClientCard = ({ img, name }: { img: string; name: string }) => (
     <div className="mx-4 py-6 flex items-center justify-center">
       {/* Fixed-size wrapper prevents layout shift */}
-      <div className="bg-white border border-gray-200 rounded-xl px-8 py-6 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 hover:cursor-pointer hover:shadow-md">
+      {/* <div className="bg-white border border-gray-200 rounded-xl px-8 py-6 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 hover:cursor-pointer hover:shadow-md"> */}
+      <div className="flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 hover:cursor-pointer">
         <img
           src={img}
           alt={name}
-          className="max-h-14 sm:max-h-16 object-contain pointer-events-none"
+          className="max-h-14 sm:max-h-28 object-contain pointer-events-none"
         />
       </div>
     </div>
@@ -34,7 +35,8 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ clients }) => {
         <div className="mb-10 overflow-visible">
           <Marquee
             direction="left"
-            speed={40}
+            speed={60}
+            // speed={200}
             pauseOnHover
             gradient={false}
             className="overflow-visible"
@@ -49,7 +51,8 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ clients }) => {
         <div className="overflow-visible">
           <Marquee
             direction="right"
-            speed={30}
+            speed={60}
+            // speed={200}
             pauseOnHover
             gradient={false}
             className="overflow-visible"

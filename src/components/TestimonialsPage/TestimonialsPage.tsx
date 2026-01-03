@@ -149,14 +149,13 @@ const TestimonialsPage: React.FC = () => {
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
       />
-      <section className="bg-gradient-to-r from-[#FFDA00] to-white pb-16 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 items-center">
-          <div className="hidden lg:block" />
-
-          <div className="text-center max-w-2xl mx-auto">
+      <section className="bg-gradient-to-r from-[#FFDA00] to-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto py-18 px-6 h-full flex items-center justify-center">
+          {/* Center Content */}
+          <div className="text-center max-w-xl">
             <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
-            <h2 className="text-3xl md:text-4xl font-bold uppercase whitespace-nowrap text-white">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase text-white">
               Happy <span className="text-black">CLIENTS TELL</span>
             </h2>
 
@@ -167,7 +166,8 @@ const TestimonialsPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="hidden lg:flex justify-end">
+          {/* Right Image */}
+          <div className="hidden lg:block absolute right-8 bottom-0">
             <img
               src={Testimonials}
               alt="Client Review"
@@ -187,9 +187,9 @@ const TestimonialsPage: React.FC = () => {
           </h2>
 
           <p className="mt-4 text-sm md:text-base">
-            We take pride in the success stories shared by our valued clients.
-            Here's what they have to say about partnering with us to boost their
-            brand visibility and achieve their marketing goals.
+            Our clients’ feedback speaks for itself. Their stories showcase our
+            commitment to building strong brands, creating impactful campaigns,
+            and delivering results that truly matter.
           </p>
         </div>
       </section>
