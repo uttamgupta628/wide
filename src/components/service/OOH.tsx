@@ -1,14 +1,22 @@
 import React from "react";
 import oohImage from "../../assets/Ohh.png";
 import billboardImage from "../../assets/ooh1.jpg";
+import Breadcrumb from "../Global/Breadcrumb";
 
 export const OOHAdvertising: React.FC = () => {
   return (
-    <div className="bg-[#F8F6F5] min-h-screen">
+    <div className="bg-[#F8F6F5]">
       {/* Breadcrumb */}
-      <div className="bg-[#3C3533] text-white text-sm px-6 py-2">
+      {/* <div className="bg-[#3C3533] text-white text-sm px-6 py-2">
         Home &gt; Services &gt; OOH
-      </div>
+      </div> */}
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "OOH" },
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
@@ -76,87 +84,98 @@ export const OOHAdvertising: React.FC = () => {
 
       {/* Why Choose Section */}
       <section className="bg-gray-100 py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
-          Why Choose OOH Advertising ?
-        </h2>
-        <p className="text-gray-600 text-lg mb-12">
-          High Visibility. Reach a vast number of consumer in strategic locations
-        </p>
-        
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-          {/* High Visibility Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">High Visibility</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Reach a vast number of consumers in strategic locations
-              </p>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
+            Why Choose OOH Advertising ?
+          </h2>
+          <p className="text-gray-600 text-lg mb-12">
+            High Visibility. Reach a vast number of consumer in strategic
+            locations
+          </p>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+            {/* High Visibility Card */}
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
+              <div className="p-8 pb-16">
+                <h4 className="font-bold text-xl mb-4 text-gray-900">
+                  High Visibility
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Reach a vast number of consumers in strategic locations
+                </p>
+              </div>
+              {/* Diagonal accent */}
+              <div className="absolute bottom-0 right-0 w-32 h-32">
+                <div
+                  className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
+                  style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+                ></div>
+              </div>
             </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
+
+            {/* Targeted Reach Card */}
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
+              <div className="p-8 pb-16">
+                <h4 className="font-bold text-xl mb-4 text-gray-900">
+                  Targeted Reach
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Reach a vast number of consumers in strategic locations
+                </p>
+              </div>
+              {/* Diagonal accent */}
+              <div className="absolute bottom-0 right-0 w-32 h-32">
+                <div
+                  className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
+                  style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Cost Effective Card */}
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
+              <div className="p-8 pb-16">
+                <h4 className="font-bold text-xl mb-4 text-gray-900">
+                  Cost Effective
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Reach a vast number of consumers in strategic locations
+                </p>
+              </div>
+              {/* Diagonal accent */}
+              <div className="absolute bottom-0 right-0 w-32 h-32">
+                <div
+                  className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
+                  style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+                ></div>
               </div>
             </div>
           </div>
 
-          {/* Targeted Reach Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">Targeted Reach</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Reach a vast number of consumers in strategic locations
+          {/* CTA Section */}
+          <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
+            {/* TEXT */}
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
+                Ready to amplify your brand with OOH Advertising
+              </h2>
+              <p className="text-gray-600">
+                Contact us today to start your impactful outdoor advertising
+                campaign
               </p>
             </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
-              </div>
-            </div>
-          </div>
-
-          {/* Cost Effective Card */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
-            <div className="p-8 pb-16">
-              <h4 className="font-bold text-xl mb-4 text-gray-900">Cost Effective</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Reach a vast number of consumers in strategic locations
-              </p>
-            </div>
-            {/* Diagonal accent */}
-            <div className="absolute bottom-0 right-0 w-32 h-32">
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right" 
-                   style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}>
-              </div>
-            </div>
+            {/* BUTTON */}
+            <button
+              onClick={() => (window.location.href = "/contact-us")}
+              className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
+            >
+              Contact us
+            </button>
           </div>
         </div>
-
-        {/* CTA Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
-          {/* TEXT */}
-          <div className="flex flex-col gap-2 text-center sm:text-left">
-            <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
-              Ready to amplify your brand with OOH Advertising
-            </h2>
-            <p className="text-gray-600">
-              Contact us today to start your impactful outdoor advertising campaign
-            </p>
-          </div>
-          {/* BUTTON */}
-          <button
-            onClick={() => window.location.href = '/contact-us'}
-            className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
-          >
-            Contact us
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };

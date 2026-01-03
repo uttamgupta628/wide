@@ -7,7 +7,6 @@ import { EventsSection } from "../components/sections/EventsSection";
 import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
 // import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
-import ScrollToTopButton from "../components/sections/ScrollToTopButton";
 import heroImg from "../assets/ChatGPT Image Dec 31, 2025, 01_57_47 PM.png";
 
 // import { clients } from "../data/clientsData";
@@ -53,8 +52,6 @@ const HomePage = () => {
       <EventsSection images={eventImages} />
       <CommitmentSection />
       <CTASection />
-
-      <ScrollToTopButton />
     </>
   );
 };

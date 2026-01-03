@@ -46,8 +46,9 @@ export const CommitmentSection = () => {
         </h2>
 
         <p className="text-gray-600 max-w-3xl mx-auto mb-12 text-sm sm:text-base">
-          At Wide Horizons we take ownership of your brand's success as if it were our own.
-          From Strategic Planning to flawless execution, we focus on delivering results that matter.
+          At Wide Horizons we take ownership of your brand's success as if it
+          were our own. From Strategic Planning to flawless execution, we focus
+          on delivering results that matter.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
@@ -57,7 +58,7 @@ export const CommitmentSection = () => {
               className={`
                 bg-white rounded-2xl p-8 text-center shadow-lg
                 transition-transform duration-300 ease-out
-                hover:-translate-y-3 hover:scale-105 hover:shadow-2xl
+                hover:-translate-y-3 hover:scale-105 hover:shadow-2xl cursor-pointer
                 ${visible ? "animate-slide-in" : "opacity-0 translate-x-[-0px]"}
               `}
               style={{
@@ -66,7 +67,7 @@ export const CommitmentSection = () => {
               }}
             >
               <div className="flex justify-center mb-6">{c.icon}</div>
-              <h3 className="font-bold text-xl mb-4">{c.title}</h3>
+              <p className="font-bold text-xl mb-4">{c.title}</p>
               <p className="text-gray-600 text-sm">{c.desc}</p>
             </div>
           ))}

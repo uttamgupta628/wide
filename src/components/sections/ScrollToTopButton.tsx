@@ -41,6 +41,7 @@ const ScrollToTopButton = () => {
         shadow-lg
         hover:bg-[#e6a700]
         transition
+        cursor-pointer
       "
       aria-label="Scroll to top"
     >

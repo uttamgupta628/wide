@@ -1,15 +1,14 @@
-import Breadcrumb from '../components/Global/Breadcrumb';
-import { ServiceGrid } from '../components/service/ServicesGrid';
+import Breadcrumb from "../components/Global/Breadcrumb";
+import { ServicesSection } from "../components/sections/ServicesSection";
 
 const service = () => {
   return (
     <>
-    <Breadcrumb
+      <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Services" }]}
       />
-    <ServiceGrid/>
+      <ServicesSection />
     </>
-      
   );
 };
 

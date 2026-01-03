@@ -20,14 +20,21 @@ import meet2 from "../../assets/cele10.png";
 import meet3 from "../../assets/cele11.png";
 import meet4 from "../../assets/cele12.png";
 import meet5 from "../../assets/cele13.png";
+import Breadcrumb from "../Global/Breadcrumb";
 
 /* ================================================== */
 
 const Management: React.FC = () => {
   return (
-    <div className="bg-[#faf7f4] py-16 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto space-y-24">
-
+    <div className="bg-[#faf7f4]">
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Celebrity Management" },
+        ]}
+      />
+      <div className="max-w-7xl mx-auto  py-12 px-4 sm:px-8 space-y-12">
         {/* ================= HEADER ================= */}
         <section>
           <h1 className="text-3xl font-bold mb-2">Celebrity management</h1>
@@ -53,10 +60,10 @@ const Management: React.FC = () => {
               The ultimate platform for planning and promoting successful events
             </h2>
             <p className="text-gray-700 max-w-xl">
-              The ultimate platform for planning and promoting successful events,
-              bringing tools, insights, and audiences together to simplify
-              coordination, boost visibility, drive engagement, and deliver
-              memorable experiences every time, globally effortlessly.
+              The ultimate platform for planning and promoting successful
+              events, bringing tools, insights, and audiences together to
+              simplify coordination, boost visibility, drive engagement, and
+              deliver memorable experiences every time, globally effortlessly.
             </p>
           </div>
         </section>
@@ -89,8 +96,9 @@ const Management: React.FC = () => {
         <section>
           <h2 className="text-2xl font-bold mb-2">Press Meets</h2>
           <p className="text-gray-600 max-w-3xl mb-8">
-            Press meets are organized media briefings where officials share news,
-            answer questions, and shape public communication with journalists.
+            Press meets are organized media briefings where officials share
+            news, answer questions, and shape public communication with
+            journalists.
           </p>
 
           <div className="mb-8">
@@ -127,7 +135,6 @@ const Management: React.FC = () => {
             ))}
           </div>
         </section>
-
       </div>
     </div>
   );

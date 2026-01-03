@@ -145,9 +145,7 @@ const OurMissionSection = () => {
 
                 {/* CONTENT */}
                 <div className="relative z-10 flex flex-col h-full transition-colors duration-300 group-hover:text-black">
-                  <h3 className="font-semibold text-[28px] mb-4">
-                    {card.title}
-                  </h3>
+                  <p className="font-semibold text-[28px] mb-4">{card.title}</p>
 
                   <p className="text-xl leading-relaxed">{card.text}</p>
 

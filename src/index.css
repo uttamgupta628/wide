@@ -14,11 +14,43 @@ html {
 
 h1,
 h2,
-h3,
+h3 {
+  font-family: var(--font-inter);
+  font-size: 28px; /* Mobile default */
+}
 h4,
 h5,
 h6 {
   font-family: var(--font-inter);
+  font-size: 20px;
+}
+
+/* Tablet screens */
+@media (min-width: 768px) {
+  h1,
+  h2,
+  h3 {
+    font-size: 36px;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 20px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  h1,
+  h2,
+  h3 {
+    font-size: 48px;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 24px;
+  }
 }
 
 @keyframes move-left {
@@ -49,20 +81,4 @@ h6 {
 
 .animate-slideIn {
   animation: slideIn 0.8s ease-out forwards;
-}
-
-
-@keyframes textFromRight {
-  0% {
-    transform: translateX(100vw);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.animate-text-from-right {
-  animation: textFromRight 1.2s ease-out forwards;
 }

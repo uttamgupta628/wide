@@ -73,8 +73,18 @@ export const AboutSection = () => {
       className="bg-gray-100 px-4 sm:px-6 py-16 sm:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center">
-        <div className="bg-white rounded-3xl shadow-lg p-12 border-4 border-gray-300 max-w-md relative">
-          <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+        <div
+          className="
+  bg-white rounded-3xl shadow-lg p-12 
+  border-4 border-gray-300 max-w-md relative
+  transform-gpu
+  transition-all duration-500 ease-out
+  hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.35)]
+  hover:border-amber-400
+  hover:-translate-y-2
+"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight  ">
             What set
             <br />
             us apart
@@ -84,11 +94,12 @@ export const AboutSection = () => {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`bg-white rounded-xl p-6 shadow-md flex items-start gap-4 transition-all duration-[1600ms] ease-out ${
-                isVisible
-                  ? "opacity-100 translate-x-0 scale-100"
-                  : "opacity-0 -translate-x-[700px] scale-50"
-              }`}
+              className={`bg-white rounded-xl p-6 shadow-md flex items-start gap-4 transition-all duration-[1600ms] ease-out   hover:-translate-y-2
+ ${
+   isVisible
+     ? "opacity-100 translate-x-0 scale-100"
+     : "opacity-0 -translate-x-[700px] scale-50"
+ }`}
               style={{
                 transitionDelay: isVisible ? `${i * 400}ms` : "0ms",
               }}
@@ -115,7 +126,7 @@ export const AboutSection = () => {
                   transitionDelay: isVisible ? `${i * 400 + 300}ms` : "0ms",
                 }}
               >
-                <h3 className="font-bold text-lg mb-2">{f.title}</h3>
+                <p className="font-bold text-lg mb-2">{f.title}</p>
                 <p className="text-gray-600 text-sm">{f.desc}</p>
               </div>
             </div>

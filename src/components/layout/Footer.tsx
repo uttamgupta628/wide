@@ -3,7 +3,6 @@ import { Facebook, Instagram } from "lucide-react";
 import footerlogo from "../../assets/footerLogo.jpeg";
 import { Link } from "react-router-dom";
 
-
 const pages = [
   { name: "Home", path: "/" },
   { name: "About us", path: "/about" },
@@ -17,13 +16,10 @@ const quickLinks = [
   { name: "Terms & Condition", path: "/terms-condition" },
 ];
 
-
-
 export const Footer: React.FC = () => {
   return (
     <footer id="contact" className="bg-[#3D3533] px-4 sm:px-6 py-14">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        
         {/* Logo + Social */}
         <div className="flex flex-col items-center sm:items-start">
           <img
@@ -42,47 +38,45 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Pages */}
-       
+
         <div>
-  <h4 className="text-white font-semibold mb-4">Pages</h4>
+          <p className="text-white font-semibold mb-4">Pages</p>
 
-  <ul className="space-y-2 text-sm">
-    {pages.map((item) => (
-      <li key={item.name}>
-        <Link
-          to={item.path}
-          className="text-gray-300 hover:text-[#FFDA00] transition cursor-pointer"
-        >
-          {item.name}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
-
+          <ul className="space-y-2 text-sm">
+            {pages.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="text-gray-300 hover:text-[#FFDA00] transition cursor-pointer"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Quick Links */}
         <div>
-  <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+          <p className="text-white font-semibold mb-4">Quick Links</p>
 
-  <ul className="space-y-2 text-sm">
-    {quickLinks.map((item) => (
-      <li key={item.name}>
-        <Link
-          to={item.path}
-          className="text-gray-400 hover:text-[#FFDA00] transition cursor-pointer"
-        >
-          {item.name}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
-
+          <ul className="space-y-2 text-sm">
+            {quickLinks.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="text-gray-400 hover:text-[#FFDA00] transition cursor-pointer"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Contact */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Contact us</h4>
+          <p className="text-white font-semibold mb-4">Contact us</p>
           <div className="space-y-2 text-sm text-gray-300">
             <div className="hover:text-[#FFDA00] transition cursor-pointer">
               +91-9831047413 / 8910665795
@@ -101,7 +95,7 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="text-center text-gray-500 text-xs mt-14 pt-6 border-t border-gray-700">
-        © 2025 Wide Horizons. All rights reserved.
+        © 2026 Wide Horizons. All rights reserved.
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 export const CTASection = () => {
   return (
-    <section className="px-4 sm:px-6 py-12">
+    <section className="py-12">
       <div className="max-w-7xl mx-auto">
         <div
           className="relative overflow-hidden  px-8 py-10 sm:px-12 sm:py-12
