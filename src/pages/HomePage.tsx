@@ -7,7 +7,7 @@ import { EventsSection } from "../components/sections/EventsSection";
 import { CommitmentSection } from "../components/sections/CommitmentSection";
 import { CTASection } from "../components/sections/CTASection";
 // import VideoShrinkScroll from "../components/sections/VideoShrinkScroll";
-import heroImg from "../assets/ChatGPT Image Dec 31, 2025, 01_57_47 PM.png";
+// import heroImg from "../assets/ChatGPT Image Dec 31, 2025, 01_57_47 PM.png";
 
 // import { clients } from "../data/clientsData";
 
@@ -25,7 +25,8 @@ import event4 from "../assets/event4.png";
 import event5 from "../assets/event5.png";
 // import TestimonialsPage from "../components/TestimonialsPage/TestimonialsPage";
 import Choseus from "../components/sections/Choseus";
-import { HeroSection } from "../components/sections/HeroSection";
+// import { HeroSection } from "../components/sections/HeroSection";
+import WideHorizonsHero from "../components/sections/WideHorizonsHero";
 
 const HomePage = () => {
   //   const teamImages = [
@@ -41,7 +42,8 @@ const HomePage = () => {
 
   return (
     <>
-      <HeroSection heroImg={heroImg} />
+      <WideHorizonsHero />
+      {/* <HeroSection heroImg={heroImg} /> */}
       {/* <Banner /> */}
       {/* <VideoShrinkScroll /> */}
       <ServicesSection />

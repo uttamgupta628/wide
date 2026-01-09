@@ -1,8 +1,7 @@
 import React from "react";
-import Lottie from "lottie-react";
 import type { HeroSectionProps } from "../../types";
 import heroTitleImg from "../../assets/logoWide.svg";
-import businessHandshake from "../../assets/Business Handshake.json";
+import images from "../../assets/images";
 
 export const HeroSection: React.FC<HeroSectionProps> = ({}) => {
   return (
@@ -12,12 +11,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({}) => {
       //   minHeight: "600px",
       // }}
     >
-      {/* Lottie Animation Background */}
+      {/* Image Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <Lottie
-          animationData={businessHandshake}
-          loop={true}
-          className="w-full h-auto max-w-full"
+        <img
+          src={images.hero} // Add your image source here
+          alt="Background"
+          className="w-full h-full object-cover"
         />
       </div>
 
