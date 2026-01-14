@@ -12,7 +12,7 @@ const WideHorizonsHero: React.FC = () => {
         style={{ backgroundColor: "#FFDA00", minHeight: "500px" }}
       >
         {/* Decorative Image - Top Right - Appears from top */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 pointer-events-none"
           style={{ zIndex: 1 }}
           initial={{ y: -400, opacity: 0 }}
@@ -27,7 +27,7 @@ const WideHorizonsHero: React.FC = () => {
             loading="eager"
             style={{ display: "block" }}
           />
-        </motion.div>
+        </motion.div> */}
 
         {/* Logo and Text Container - Top Right */}
         <div className="absolute top-8 right-0 md:top-12 pr-6 md:pr-12 z-20 text-right">
