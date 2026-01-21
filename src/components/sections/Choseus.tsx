@@ -6,17 +6,17 @@ const items = [
   {
     icon: <Award className="w-10 h-10 text-[#FFDA00]" />,
     title: "Proven Expertise",
-    desc: "Backed by years of hands-on OOH experience, we deliver consistently high-performing campaigns with precision, reliability, and strategic clarity.",
+    desc: "Backed by hands-on multiple media experience, we deliver consistently high-performing campaigns with precision, reliability, and strategic clarity.",
   },
   {
     icon: <Network className="w-10 h-10 text-[#FFDA00]" />,
     title: "Broad Network",
-    desc: "Our extensive pan-India media network ensures seamless coordination, wider reach, and impactful campaign execution across key markets.",
+    desc: "Our extensive pan-India network ensures seamless coordination, wider reach, and impactful campaign execution across key markets..",
   },
   {
     icon: <Settings className="w-10 h-10 text-[#FFDA00]" />,
     title: "Custom Solutions",
-    desc: "We design tailored OOH strategies aligned with your brand goals, audience behavior, and location-specific insights for maximum effectiveness.",
+    desc: "We design tailored media strategies aligned with your brand goals, audience behavior, and location-specific insights for maximum effectiveness.",
   },
   {
     icon: <ThumbsUp className="w-10 h-10 text-[#FFDA00]" />,
