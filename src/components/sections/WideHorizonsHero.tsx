@@ -80,7 +80,7 @@ const WideHorizonsHero: React.FC = () => {
         <div className="absolute bottom-12 right-8 md:right-12 z-10 text-right space-y-4 md:space-y-6">
           {/* First Line - Appears from right */}
           <motion.div
-            className="font-semibold text-4xl font-courgette"
+            className="font-semibold text-4xl font-bell-mt"
             initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -94,7 +94,7 @@ const WideHorizonsHero: React.FC = () => {
 
           {/* Second Line - Appears from right after first */}
           <motion.div
-            className="font-semibold text-4xl font-courgette"
+            className="font-semibold text-4xl font-bell-mt"
             initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -108,7 +108,7 @@ const WideHorizonsHero: React.FC = () => {
 
           {/* Third Line - Appears from right after second */}
           <motion.div
-            className="font-semibold text-4xl font-courgette"
+            className="font-semibold text-4xl font-bell-mt "
             initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}

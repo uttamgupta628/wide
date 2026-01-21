@@ -2,10 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Bell MT";
+  src: url("../assets/fonts/Bell MT.ttf") format("truetype");
+  font-weight: 100 900; /* Allow all weights if it's a variable font */
+  font-style: normal;
+}
+
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --font-courgette: "Courgette", cursive;
+  --font-bell-mt: "Bell MT", serif;
 }
 
 body,
