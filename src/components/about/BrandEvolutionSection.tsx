@@ -117,7 +117,9 @@ const BrandEvolutionSection: React.FC = () => {
               className="text-[17px] leading-relaxed text-[#686775] mb-4"
             >
               As our vision expanded, we evolved into{" "}
-              <span className="font-semibold text-black">Wide Horizons</span>
+              <span className="font-semibold text-black">
+                Wide Horizons Advertising PVT LTD
+              </span>
               —a name that represents broader thinking, deeper innovation, and a
               future-ready approach to building meaningful digital experiences.
             </motion.p>
@@ -154,7 +156,7 @@ const BrandEvolutionSection: React.FC = () => {
                   Now
                 </span>
                 <p className="mt-2 text-lg font-semibold text-black">
-                  Wide Horizons
+                  Wide Horizons Advertising PVT LTD
                 </p>
               </div>
             </motion.div>

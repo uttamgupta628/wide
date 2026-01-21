@@ -162,12 +162,13 @@ function AboutIntroSection() {
             className="text-[#686775] text-lg leading-relaxed mb-4 max-w-xl"
           >
             <p className="mb-4">
-              We are a full-service Out-of-Home (OOH) advertising agency with a
-              strong presence across India, delivering high-impact traditional
-              and digital OOH solutions. Our services include advertising across
-              billboards, hoardings, transit media, malls, airports, cinemas,
-              corporate parks, and digital screens, ensuring brands connect with
-              audiences where they live, move, and engage.
+              Wide Horizons is a full-service advertising agency delivering
+              impactful brand solutions across India. We specialize in OOH
+              advertising, corporate events, brand activations, celebrity
+              management, public relations (PR), and branding. With a strong
+              focus on strategy, creativity, and flawless execution, we help
+              brands build visibility, engage audiences, and achieve lasting
+              market presence through integrated marketing campaigns.
             </p>
 
             <AnimatePresence>

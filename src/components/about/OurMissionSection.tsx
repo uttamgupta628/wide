@@ -74,17 +74,17 @@ const OurMissionSection = () => {
     {
       no: "01",
       title: "STRATEGIC ADVERTISING",
-      text: "Strategically advertising uses research, creativity, and planning to deliver targeted messages that reach the right audience and achieve measurable business goals.",
+      text: "We develop insight-led advertising strategies that combine research, planning, and creativity to deliver targeted messages at the right place and time, ensuring maximum visibility and measurable business outcomes.",
     },
     {
       no: "02",
       title: "INNOVATIVE SOLUTIONS",
-      text: "Innovative solutions combine creativity, technology, and strategy to solve challenges, improve efficiency, and help businesses grow in competitive markets with long-term sustainability.",
+      text: "By blending creativity with technology and market intelligence, we design innovative advertising solutions that solve real challenges, improve campaign efficiency, and support long-term brand growth.",
     },
     {
       no: "03",
       title: "MEASURABLE RESULTS",
-      text: "Measurable results focus on clear metrics and data-driven insights to track performance, prove success, and guide smarter business decisions.",
+      text: "We focus on performance-driven execution supported by clear metrics and actionable insights, enabling brands to track success, optimize campaigns, and make smarter business decisions.",
     },
   ];
 
@@ -116,10 +116,11 @@ const OurMissionSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="text-black text-2xl max-w-5xl mx-auto mb-20 leading-relaxed"
         >
-          Our mission is to empower businesses by expanding their reach and
-          strengthening their market presence through innovative advertising,
-          meaningful audience connections, and strategic creativity that
-          elevates brands above the competition and drives lasting growth.
+          Our mission is to help brands stand out in the real world by expanding
+          their reach and strengthening market presence through strategic
+          thinking, creative excellence, and data-driven advertising solutions.
+          We create meaningful audience connections that elevate brands above
+          the competition and drive sustainable growth.
         </motion.p>
 
         {/* Cards Grid */}
