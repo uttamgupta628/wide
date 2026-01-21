@@ -18,13 +18,13 @@ export const CTASection = () => {
           {/* Content */}
           <div className="relative z-10 max-w-3xl">
             <h3 className="text-xl sm:text-2xl font-semibold text-black mb-3">
-              Ready to make an impact in the real world?
+              Make Your Brand Impossible to Ignore
             </h3>
 
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              At Wide Horizons we take ownership of your brand’s success as if
-              it were our own. From strategic planning to flawless execution, we
-              are dedicated to delivering results that matter
+              We partner with brands to create powerful OOH campaigns backed by
+              insight, precision, and seamless execution—delivering real-world
+              impact where it matters most.
             </p>
           </div>
 
@@ -34,9 +34,9 @@ export const CTASection = () => {
               className="bg-black text-[#FFD900] font-semibold
   px-6 py-3 rounded-md
   transition-all duration-300
-  hover:bg-[#FFD900] hover:text-black"
+  hover:bg-[#FFD900] hover:text-black cursor-pointer"
             >
-              Start your Campaign
+              Launch Your Campaign
             </button>
           </div>
         </div>

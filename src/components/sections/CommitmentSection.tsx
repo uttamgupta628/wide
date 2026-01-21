@@ -6,17 +6,17 @@ export const CommitmentSection = () => {
     {
       icon: <TrendingUp className="w-16 h-16 text-yellow-500" />,
       title: "Customzied Strategies",
-      desc: "Bespoke marketing strategies tailored to your brand's unique",
+      desc: "We craft bespoke OOH campaigns tailored to your brand objectives, audience behavior, and market dynamics.",
     },
     {
       icon: <Handshake className="w-16 h-16 text-yellow-500" />,
       title: "Transparent Workflow",
-      desc: "Clear communication and honest process at every stage",
+      desc: "We maintain clear communication, structured processes, and complete transparency at every stage of execution.",
     },
     {
       icon: <ThumbsUp className="w-16 h-16 text-yellow-500" />,
       title: "Proven Results",
-      desc: "Trackable success metrics that demonstrate real impact",
+      desc: "Our campaigns are backed by measurable outcomes, strong recall, and performance metrics that demonstrate real-world success.",
     },
   ];
 
@@ -32,7 +32,7 @@ export const CommitmentSection = () => {
           setVisible(false); // reset when section leaves viewport
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -46,9 +46,10 @@ export const CommitmentSection = () => {
         </h2>
 
         <p className="text-gray-600 max-w-3xl mx-auto mb-12 text-sm sm:text-base">
-          At Wide Horizons we take ownership of your brand's success as if it
-          were our own. From Strategic Planning to flawless execution, we focus
-          on delivering results that matter.
+          At Wide Horizons, we treat your brand’s growth as our own. From
+          insight-driven strategy to flawless on-ground execution, we deliver
+          OOH solutions that create visibility, engagement, and measurable
+          impact.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">

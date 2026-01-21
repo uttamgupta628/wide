@@ -1,6 +1,6 @@
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
-import footerlogo from "../../assets/footerLogo.jpeg";
+import footerlogo from "../../assets/footerLogo.png";
 import { Link } from "react-router-dom";
 
 const pages = [
@@ -25,10 +25,10 @@ export const Footer: React.FC = () => {
           <img
             src={footerlogo}
             alt="Wide Horizons - An Anthera Private Limited"
-            className="h-20 sm:h-16 md:h-36 w-auto object-contain"
+            className="h-20 sm:h-16 md:h-28 w-auto object-cover"
           />
 
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 mt-6 pl-4">
             <Facebook className="w-6 h-6 text-gray-400 hover:text-white transition cursor-pointer" />
             <div className="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-white transition cursor-pointer text-sm font-semibold">
               𝕏

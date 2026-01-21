@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { easeOut, motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { easeOut, motion, useInView, AnimatePresence } from "framer-motion";
 import aboutUsAnimation from "../../assets/About Us Team.json";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ function AboutIntroSection() {
   const animationInstance = useRef<any>(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     // Dynamically load the Lottie player script
@@ -96,6 +97,25 @@ function AboutIntroSection() {
     },
   };
 
+  const expandVariants = {
+    collapsed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+        ease: easeOut,
+      },
+    },
+    expanded: {
+      height: "auto",
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: easeOut,
+      },
+    },
+  };
+
   return (
     <section ref={sectionRef} className="w-full bg-[#F8F3F3] py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -134,19 +154,64 @@ function AboutIntroSection() {
             </span>
           </motion.h2>
 
-          <motion.p
+          <motion.div
             custom={2}
             variants={textVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#686775] text-2xl leading-relaxed mb-8 max-w-xl"
+            className="text-[#686775] text-lg leading-relaxed mb-4 max-w-xl"
           >
-            Helping brands connect with their audience through strategic out of
-            home advertising and experimental marketing, delivering seamless and
-            memorable experiences through expert planning, innovative design,
-            and flawless execution—turning ideas into impactful events people
-            truly remember.
-          </motion.p>
+            <p className="mb-4">
+              We are a full-service Out-of-Home (OOH) advertising agency with a
+              strong presence across India, delivering high-impact traditional
+              and digital OOH solutions. Our services include advertising across
+              billboards, hoardings, transit media, malls, airports, cinemas,
+              corporate parks, and digital screens, ensuring brands connect with
+              audiences where they live, move, and engage.
+            </p>
+
+            <AnimatePresence>
+              {isExpanded && (
+                <motion.div
+                  initial="collapsed"
+                  animate="expanded"
+                  exit="collapsed"
+                  variants={expandVariants}
+                  style={{ overflow: "hidden" }}
+                >
+                  <p className="mb-4">
+                    With over two decades of industry experience, we have grown
+                    organically by delivering measurable value to brands while
+                    building strong partnerships with media owners and agencies
+                    across India. Our integrated approach ensures seamless
+                    execution and nationwide reach.
+                  </p>
+
+                  <p className="mb-4">
+                    Backed by a dedicated team, we provide real-time market
+                    intelligence from every region, enabling dynamic, localized,
+                    and data-driven advertising strategies tailored for today's
+                    India.
+                  </p>
+
+                  <p>
+                    Driven by deep market understanding and strategic expertise,
+                    we create naturally integrated OOH solutions that amplify
+                    brand visibility, drive recall, and deliver lasting impact.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-[#1a1a1a] hover:text-[#FFDA00] cursor-pointer font-semibold mt-2 transition-colors duration-300 flex items-center gap-1"
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+              <span className="text-sm">{isExpanded ? "▲" : "▼"}</span>
+            </button>
+          </motion.div>
+
           <Link to="/services">
             <motion.button
               custom={3}

@@ -10,27 +10,27 @@ export const AboutSection = () => {
     {
       icon: <Shield className="w-12 h-12 text-yellow-500 shrink-0" />,
       title: "Extremely Stringent Quality Standards",
-      desc: "We uphold the highest quality standards to exceptional results",
+      desc: "We follow rigorous quality checks at every stage to ensure flawless execution and consistent brand representation.",
     },
     {
       icon: <DollarSign className="w-12 h-12 text-green-500 shrink-0" />,
       title: "Right Budget for Right Execution",
-      desc: "We deliver results within the optimal budget for unmatched value",
+      desc: "We align budgets with objectives to ensure cost efficiency without compromising execution quality.",
     },
     {
       icon: <Target className="w-12 h-12 text-purple-500 shrink-0" />,
       title: "Highly Skilled, Efficient & Experienced Planning & Buying Team",
-      desc: "Our team comprised seasoned professionals adapt in strategic planning and procurement",
+      desc: "Our expert team plans and negotiates media placements strategically to deliver maximum reach and value.",
     },
     {
       icon: <Clock className="w-12 h-12 text-yellow-500 shrink-0" />,
       title: "Stringent Timeline Meetups",
-      desc: "We adhere to strict timelines, ensuring timely delivery of all projects",
+      desc: "We adhere strictly to timelines through regular reviews, coordination, and disciplined execution processes.",
     },
     {
       icon: <FileText className="w-12 h-12 text-gray-800 shrink-0" />,
       title: "High Quality Post Production Documentation & Reporting",
-      desc: "We provide detailed and accurate post production documentation and reporting",
+      desc: "We provide detailed reports with visual proofs, performance insights, and complete campaign documentation.",
     },
   ];
 
@@ -52,7 +52,7 @@ export const AboutSection = () => {
       {
         threshold: [0.3, 0.5, 0.7],
         rootMargin: "0px",
-      }
+      },
     );
 
     if (sectionRef.current) {

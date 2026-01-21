@@ -6,22 +6,22 @@ const items = [
   {
     icon: <Award className="w-10 h-10 text-[#FFDA00]" />,
     title: "Proven Expertise",
-    desc: "Demonstrated experience delivering consistently successful events with precision and professionalism",
+    desc: "Backed by years of hands-on OOH experience, we deliver consistently high-performing campaigns with precision, reliability, and strategic clarity.",
   },
   {
     icon: <Network className="w-10 h-10 text-[#FFDA00]" />,
     title: "Broad Network",
-    desc: "Extensive nationwide connections enabling seamless coordination, reach, and impactful event execution",
+    desc: "Our extensive pan-India media network ensures seamless coordination, wider reach, and impactful campaign execution across key markets.",
   },
   {
     icon: <Settings className="w-10 h-10 text-[#FFDA00]" />,
     title: "Custom Solutions",
-    desc: "Tailored event solutions designed to meet unique brand and client needs",
+    desc: "We design tailored OOH strategies aligned with your brand goals, audience behavior, and location-specific insights for maximum effectiveness.",
   },
   {
     icon: <ThumbsUp className="w-10 h-10 text-[#FFDA00]" />,
     title: "Client Satisfaction",
-    desc: "Delivering exceptional experiences that exceed expectations and ensure complete client satisfaction",
+    desc: "We focus on long-term partnerships by delivering transparent processes, timely execution, and results that exceed client expectations.",
   },
 ];
 
@@ -119,7 +119,7 @@ const Choseus = () => {
             animate={isInView ? "visible" : "hidden"}
             className="text-center text-gray-600 mb-16"
           >
-            Delivering Success for our Clients
+            Driving Visibility. Delivering Impact.
           </motion.p>
 
           {/* Content */}
