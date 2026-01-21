@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const CTASection = () => {
   return (
     <section className="py-12">
@@ -22,7 +24,7 @@ export const CTASection = () => {
             </h3>
 
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              We partner with brands to create powerful OOH campaigns backed by
+              We partner with brands to create powerful campaigns backed by
               insight, precision, and seamless execution—delivering real-world
               impact where it matters most.
             </p>
@@ -30,14 +32,15 @@ export const CTASection = () => {
 
           {/* Button */}
           <div className="relative z-10">
-            <button
+            <Link
+              to="/contact-us"
               className="bg-black text-[#FFD900] font-semibold
   px-6 py-3 rounded-md
   transition-all duration-300
   hover:bg-[#FFD900] hover:text-black cursor-pointer"
             >
               Launch Your Campaign
-            </button>
+            </Link>
           </div>
         </div>
       </div>

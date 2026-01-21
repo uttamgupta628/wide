@@ -6,12 +6,12 @@ export const CommitmentSection = () => {
     {
       icon: <TrendingUp className="w-16 h-16 text-yellow-500" />,
       title: "Customzied Strategies",
-      desc: "We craft bespoke OOH campaigns tailored to your brand objectives, audience behavior, and market dynamics.",
+      desc: "We craft bespoke campaigns tailored to your brand objectives, audience behavior, and market dynamics.",
     },
     {
       icon: <Handshake className="w-16 h-16 text-yellow-500" />,
       title: "Transparent Workflow",
-      desc: "We maintain clear communication, structured processes, and complete transparency at every stage of execution.",
+      desc: "We follow a structured, well-organized workflow, ensuring clear communication, accountability, and full transparency at every stage. Our approach keeps you informed, involved, and confident throughout the entire execution process",
     },
     {
       icon: <ThumbsUp className="w-16 h-16 text-yellow-500" />,
@@ -48,8 +48,8 @@ export const CommitmentSection = () => {
         <p className="text-gray-600 max-w-3xl mx-auto mb-12 text-sm sm:text-base">
           At Wide Horizons, we treat your brand’s growth as our own. From
           insight-driven strategy to flawless on-ground execution, we deliver
-          OOH solutions that create visibility, engagement, and measurable
-          impact.
+          wide range of media solutions that create visibility, engagement, and
+          measurable impact.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">

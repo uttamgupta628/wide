@@ -102,7 +102,7 @@ const BrandEvolutionSection: React.FC = () => {
               className="text-[17px] leading-relaxed text-[#686775] mb-4"
             >
               <span className="font-semibold text-black">
-                Brand Wave Media Solutions
+                Brandwave Media Solutions
               </span>{" "}
               was where our journey began—focused on delivering impactful
               digital solutions and helping brands establish a strong online
@@ -118,7 +118,7 @@ const BrandEvolutionSection: React.FC = () => {
             >
               As our vision expanded, we evolved into{" "}
               <span className="font-semibold text-black">
-                Wide Horizons Advertising PVT LTD
+                Wide Horizons Advertising Private Limited
               </span>
               —a name that represents broader thinking, deeper innovation, and a
               future-ready approach to building meaningful digital experiences.
@@ -147,7 +147,7 @@ const BrandEvolutionSection: React.FC = () => {
                   Previously
                 </span>
                 <p className="mt-2 text-lg font-semibold text-black">
-                  Brand Wave Media Solutions
+                  Brandwave Media Solutions
                 </p>
               </div>
 
@@ -156,7 +156,7 @@ const BrandEvolutionSection: React.FC = () => {
                   Now
                 </span>
                 <p className="mt-2 text-lg font-semibold text-black">
-                  Wide Horizons Advertising PVT LTD
+                  Wide Horizons Advertising Private Limited
                 </p>
               </div>
             </motion.div>

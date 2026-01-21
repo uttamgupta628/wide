@@ -13,8 +13,14 @@ const ContactFormSection: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -23,34 +29,63 @@ const ContactFormSection: React.FC = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Validate required fields
     if (!formData.fullName || !formData.emailAddress || !formData.phoneNumber) {
-      alert(
-        "Please fill in all required fields (Full Name, Email, Phone Number)"
-      );
+      setSubmitStatus({
+        type: "error",
+        message:
+          "Please fill in all required fields (Full Name, Email, Phone Number)",
+      });
       return;
     }
 
-    // Create WhatsApp message
-    const whatsappMessage = `Hello! I'm interested in your services.
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
-*Name:* ${formData.fullName}
-*Email:* ${formData.emailAddress}
-*Phone:* ${formData.phoneNumber}
-${formData.message ? `*Message:* ${formData.message}` : ""}`;
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_API_KEY,
+          name: formData.fullName,
+          email: formData.emailAddress,
+          phone: formData.phoneNumber,
+          message: formData.message || "No message provided",
+        }),
+      });
 
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
+      const data = await response.json();
 
-    // WhatsApp number (remove any spaces or special characters)
-    const whatsappNumber = "919831047613"; // Added country code 91 for India
-
-    // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-    // Open WhatsApp in new tab
-    window.open(whatsappURL, "_blank");
+      if (data.success) {
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! We'll get back to you soon.",
+        });
+        // Reset form
+        setFormData({
+          fullName: "",
+          emailAddress: "",
+          phoneNumber: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const formVariants = {
@@ -214,9 +249,24 @@ ${formData.message ? `*Message:* ${formData.message}` : ""}`;
               onChange={handleChange}
               placeholder="Enter your message"
               rows={5}
-              className="w-full px-4 py-3 border-2 border-black rounded-xl focus:ring-2 focus:ring-[#FFDA00] focus:border-transparent outline-none transition-all duration-300 text-[#686775]"
+              className="w-full px-4 py-3 border-2 border-black rounded-xl focus:ring-2 focus:ring-[#FFDA00] focus:border-transparent outline-none transition-all duration-300 text-[#686775] resize-none"
             />
           </motion.div>
+
+          {/* Status Message */}
+          {submitStatus.type && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`p-4 rounded-lg ${
+                submitStatus.type === "success"
+                  ? "bg-green-100 text-green-700 border border-green-300"
+                  : "bg-red-100 text-red-700 border border-red-300"
+              }`}
+            >
+              {submitStatus.message}
+            </motion.div>
+          )}
 
           {/* Submit Button */}
           <motion.div
@@ -227,11 +277,14 @@ ${formData.message ? `*Message:* ${formData.message}` : ""}`;
           >
             <motion.button
               onClick={handleSubmit}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-black hover:bg-[#FFC907] cursor-pointer text-white hover:text-black font-medium text-xl px-12 py-3 rounded-lg shadow-lg transition-all duration-300"
+              disabled={isSubmitting}
+              whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+              className={`bg-black hover:bg-[#FFC907] cursor-pointer text-white hover:text-black font-medium text-xl px-12 py-3 rounded-lg shadow-lg transition-all duration-300 ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              Send us
+              {isSubmitting ? "Sending..." : "Send us"}
             </motion.button>
           </motion.div>
         </div>
