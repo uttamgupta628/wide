@@ -1,88 +1,125 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import type { EventsSectionProps } from "../../types";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
-export const EventsSection: React.FC<EventsSectionProps> = ({ images }) => {
-  const [imgOrder, setImgOrder] = useState(images.slice(0, 5));
-  const [isTransitioning, setIsTransitioning] = useState(false);
+// images
+import ooh from "../../assets/ooh1.jpg";
+import corporate from "../../assets/Banner.png";
+import activation from "../../assets/Ohh.png";
+import celebrity from "../../assets/Ohh.png";
+import pr from "../../assets/Ohh.png";
+import branding from "../../assets/Ohh.png";
+
+const services = [
+  { title: "Out-of-Home Advertising", image: ooh },
+  { title: "CORPORATE EVENTS", image: corporate },
+  { title: "BRAND ACTIVATIONS", image: activation },
+  { title: "CELEBRITY MANAGEMENT", image: celebrity },
+  { title: "PUBLIC RELATION (PR)", image: pr },
+  { title: "BRANDING", image: branding },
+];
+
+export default function EventsSection() {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardsRef.current.indexOf(
+              entry.target as HTMLDivElement
+            );
+            if (index !== -1) {
+              setTimeout(() => {
+                (entry.target as HTMLDivElement).classList.add("animate");
+              }, index * 80);
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
 
-      // Wait for fade out, then rotate images
-      setTimeout(() => {
-        setImgOrder((prev) => [prev[4], prev[0], prev[1], prev[2], prev[3]]);
-        setIsTransitioning(false);
-      }, 500); // Half of transition duration
-    }, 3000);
-
-    return () => clearInterval(interval);
+    cardsRef.current.forEach((card) => card && observer.observe(card));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="bg-white px-4 sm:px-20 py-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8">
-          Campaigns Sucessfully Executed
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-4">
-          {/* LEFT COLUMN – 2 images */}
-          <div className="grid grid-rows-2 gap-4 h-80 lg:h-[800px]">
-            {[imgOrder[0], imgOrder[1]].map((img, i) => (
-              <div
-                key={`${img}-${i}`}
-                className={`overflow-hidden rounded-lg shadow-lg transition-all duration-1000 ease-in-out transform ${
-                  isTransitioning
-                    ? "opacity-0 scale-95"
-                    : "opacity-100 scale-100"
-                }`}
-              >
-                <img
-                  src={img}
-                  alt={`Event ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
-          {/* RIGHT COLUMN – 3 images (vertical) */}
-          <div className="grid grid-rows-3 gap-4 h-80 lg:h-[800px]">
-            {[imgOrder[2], imgOrder[3], imgOrder[4]].map((img, i) => (
-              <div
-                key={`${img}-${i + 2}`}
-                className={`overflow-hidden rounded-lg shadow-lg transition-all duration-1000 ease-in-out transform ${
-                  isTransitioning
-                    ? "opacity-0 scale-95"
-                    : "opacity-100 scale-100"
-                }`}
-              >
-                <img
-                  src={img}
-                  alt={`Event ${i + 3}`}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
+    <section className="w-full bg-[#f5f5f5] py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* HEADING */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">
+            Campaigns Successfully Executed
+          </h2>
         </div>
 
-        {/* Portfolio Button */}
-        <div className="flex justify-end mt-8">
-          <Link to="/portfolio">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-black text-white hover:bg-[#FFCD29] hover:text-black font-semibold px-6 py-3 rounded-xl hover:opacity-90 cursor-pointer transition flex items-center gap-2"
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group flex flex-col gap-4 cursor-pointer"
             >
-              VIEW MORE
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
+              {/* CARD */}
+              <div
+                ref={(el) => {
+                  cardsRef.current[index] = el;
+                }}
+                className="
+                  sector-card
+                  relative overflow-hidden
+                  aspect-[578/324]
+                  bg-white
+                  transition-all duration-500 ease-out
+                  shadow-[0px_4px_38.6px_-7px_rgba(127,117,117,0.25)]
+                  group-hover:shadow-[0_0_40px_10px_rgba(251,191,36,0.35)]
+                  group-hover:-translate-y-2
+                "
+              >
+                {/* TOP GRADIENT LINE */}
+                <span
+                  className="
+                    absolute top-0 left-0 h-[4px] w-full
+                    bg-gradient-to-r from-[#4c1818] to-[#e04545]
+                    scale-x-0 origin-left
+                    transition-transform duration-300
+                    group-hover:scale-x-100
+                    z-20
+                  "
+                />
+
+                {/* IMAGE */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="
+                    w-full h-full object-cover opacity-50
+                    transition-transform duration-500 ease-out
+                    group-hover:scale-105
+                  "
+                />
+              </div>
+
+              {/* TITLE */}
+              <p
+                className="
+                  text-[#2c2c2c]
+                  font-semibold
+                  text-lg
+                  text-center
+                  tracking-wide
+                  transition-all duration-300
+                  group-hover:text-yellow-500
+                  group-hover:tracking-wider
+                "
+              >
+                {service.title}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
