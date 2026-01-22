@@ -20,7 +20,7 @@ const WideHorizonsHero: React.FC = () => {
         </div>
 
         {/* GIRL IMAGE – LEFT */}
-        <motion.div className="absolute left-0 bottom-0 w-[420px] h-[620px]">
+        <motion.div className="absolute left-0 bottom-0 top-25 w-[420px] h-[620px]">
           <img
             src={heroGirl}
             alt="Presenter"
@@ -29,34 +29,40 @@ const WideHorizonsHero: React.FC = () => {
         </motion.div>
 
         {/* SERVICES TEXT – TRUE STEP BY STEP BUILD */}
-        <motion.div className="absolute left-75 top-15 z-10 text-left">
+        <motion.div className="absolute top-0 z-10">
           {[
-            "Out-of-Home (OOH) Advertising",
-            "Corporate Events",
-            "Brand Activations",
-            "Celebrity management",
-            "Public Relations",
             "Branding",
+            "Public Relations",
+            "Celebrity management",
+            "Brand Activations",
+            "Corporate Events",
+            "Out-of-Home (OOH) Advertising",
           ].map((text, index) => {
             const step = 28;
             const appearDelay = index * 0.8;
+            const leftPosition = 280 + index * 40; // Each index goes more to the right
+            const reverseIndex = 5 - index; // For vertical positioning
 
             return (
               <motion.p
                 key={index}
-                className={`text-[#3d3533] mt-1 ${
+                className={`text-[#3d3533] mt-1 absolute whitespace-nowrap ${
                   index === 0
-                    ? "text-3xl font-bold left-300"
+                    ? "text-[12px] font-medium leading-tight"
                     : index === 1
-                      ? "text-xl font-semibold right-80"
+                      ? "text-sm font-medium"
                       : index === 2
-                        ? "text-lg font-semibold"
+                        ? "text-base font-medium"
                         : index === 3
-                          ? "text-base font-medium"
+                          ? "text-lg font-semibold"
                           : index === 4
-                            ? "text-sm font-medium"
-                            : "text-[12px] font-medium leading-tight"
+                            ? "text-xl font-semibold"
+                            : "text-3xl font-bold"
                 }`}
+                style={{
+                  left: `${leftPosition}px`,
+                  top: `${reverseIndex * 45}px`, // Branding at bottom (225px), OOH at top (0px)
+                }}
                 initial={{ opacity: 0, y: step * (5 - index), x: -20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{
@@ -74,7 +80,6 @@ const WideHorizonsHero: React.FC = () => {
             );
           })}
         </motion.div>
-
         {/* RIGHT BOTTOM – WIDEST BLOCK */}
         <div className="absolute bottom-24 right-16 text-right space-y-2">
           {[
