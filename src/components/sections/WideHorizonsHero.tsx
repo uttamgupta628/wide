@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import logo from "../../assets/logo.png";
 import heroGirl from "../../assets/herogirl.png";
-import logo from "../../assets/logoTp.png";
 
 const WideHorizonsHero: React.FC = () => {
   return (
@@ -14,13 +14,10 @@ const WideHorizonsHero: React.FC = () => {
             alt="Wide Horizons Advertising Private Limited"
             className="w-44 ml-auto"
           />
-          <p className="text-sm font-semibold text-[#3d3533] mt-1">
-            Advertising Private Limited
-          </p>
         </div>
 
         {/* GIRL IMAGE – LEFT */}
-        <motion.div className="absolute left-0 bottom-0 top-25 w-[420px] h-[620px]">
+        <motion.div className="absolute left-0 bottom-0 top-20 w-[420px] h-[620px]">
           <img
             src={heroGirl}
             alt="Presenter"
@@ -28,58 +25,74 @@ const WideHorizonsHero: React.FC = () => {
           />
         </motion.div>
 
-        {/* SERVICES TEXT – TRUE STEP BY STEP BUILD */}
-        <motion.div className="absolute top-0 z-10">
+        {/* SERVICES TEXT – CASCADING FROM BOTTOM WITH LETTER-BY-LETTER ANIMATION */}
+        <motion.div className="absolute top-8 z-10">
           {[
-            "Branding",
-            "Public Relations",
-            "Celebrity management",
-            "Brand Activations",
-            "Corporate Events",
             "Out-of-Home (OOH) Advertising",
+            "Corporate Events",
+            "Brand Activations",
+            "Celebrity management",
+            "Public Relations",
+            "Branding",
           ].map((text, index) => {
-            const step = 28;
-            const appearDelay = index * 0.8;
-            const leftPosition = 280 + index * 40; // Each index goes more to the right
-            const reverseIndex = 5 - index; // For vertical positioning
+            const reverseIndex = 5 - index; // For applying correct styles
+            const appearDelay = index * 0.5;
+            const leftPositions = [480, 440, 400, 360, 320, 280]; // Right to left
+            const topPositions = [20, 65, 100, 130, 160, 180]; // Top to bottom in final position
+            const finalLeft = leftPositions[index];
+            const finalTop = topPositions[index];
+            const startingLeft = 280; // All start from Branding's left position
+            const startingTop = 180; // All start from Branding's top position
 
             return (
               <motion.p
                 key={index}
                 className={`text-[#3d3533] mt-1 absolute whitespace-nowrap ${
-                  index === 0
+                  reverseIndex === 0
                     ? "text-[12px] font-medium leading-tight"
-                    : index === 1
+                    : reverseIndex === 1
                       ? "text-sm font-medium"
-                      : index === 2
+                      : reverseIndex === 2
                         ? "text-base font-medium"
-                        : index === 3
+                        : reverseIndex === 3
                           ? "text-lg font-semibold"
-                          : index === 4
+                          : reverseIndex === 4
                             ? "text-xl font-semibold"
                             : "text-3xl font-bold"
                 }`}
-                style={{
-                  left: `${leftPosition}px`,
-                  top: `${reverseIndex * 45}px`, // Branding at bottom (225px), OOH at top (0px)
-                }}
-                initial={{ opacity: 0, y: step * (5 - index), x: -20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
+                initial={{ left: startingLeft, top: startingTop }}
+                animate={{ left: finalLeft, top: finalTop }}
                 transition={{
-                  opacity: { delay: appearDelay, duration: 0.3 },
-                  y: {
-                    delay: appearDelay + 0.4,
-                    duration: 0.6,
+                  left: {
+                    delay: appearDelay + 0.2,
+                    duration: 2,
                     ease: "easeOut",
                   },
-                  x: { delay: appearDelay, duration: 0.4 },
+                  top: {
+                    delay: appearDelay + 0.2,
+                    duration: 2,
+                    ease: "easeOut",
+                  },
                 }}
               >
-                {text}
+                {text.split("").map((letter, letterIndex) => (
+                  <motion.span
+                    key={letterIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: appearDelay + letterIndex * 0.03,
+                      duration: 0.1,
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </motion.p>
             );
           })}
         </motion.div>
+
         {/* RIGHT BOTTOM – WIDEST BLOCK */}
         <div className="absolute bottom-24 right-16 text-right space-y-2">
           {[
