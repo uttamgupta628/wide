@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/herologo.jpeg";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -54,13 +54,17 @@ export default function Header() {
       <header className="bg-[#FFDA00] px-4 sm:px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <Link to="/">
-            <img
-              src={logo}
-              alt="Wide Horizons Logo"
-              className="h-10 sm:h-12 w-auto hover:scale-105 transition-transform duration-200"
-            />
-          </Link>
+          <Link to="/" className="flex flex-col items-start">
+  <img
+    src={logo}
+    alt="Wide Horizons Logo"
+    className="h-16 sm:h-16 w-auto hover:scale-105 transition-transform duration-200"
+  />
+  {/* <span className="text-[10px] sm:text-xs italic font-bold tracking-wide text-black mt-1">
+    Advertising Private Limited
+  </span> */}
+</Link>
+
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex space-x-2 text-sm font-medium items-center">
