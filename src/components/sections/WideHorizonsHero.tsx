@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/herologo.jpeg";
 import heroGirl from "../../assets/herogirl.png";
 
 const WideHorizonsHero: React.FC = () => {
@@ -55,12 +55,15 @@ const WideHorizonsHero: React.FC = () => {
     <section className="bg-[#FFDA00] relative overflow-hidden">
       <div className="relative w-full max-w-7xl mx-auto h-[700px] px-6">
         {/* LOGO – TOP RIGHT */}
-        <div className="absolute top-10 right-10 text-right z-20">
+        <div className="absolute top-10 -right-19 z-20 flex flex-col items-end">
           <img
             src={logo}
             alt="Wide Horizons Advertising Private Limited"
-            className="w-44 ml-auto"
+            className="w-64"
           />
+          <p className="-mt-20 text-xs italic font-bold text-left -translate-x-11">
+            advertising private limited
+          </p>
         </div>
 
         {/* GIRL IMAGE – LEFT */}
@@ -76,14 +79,12 @@ const WideHorizonsHero: React.FC = () => {
         <motion.div className="absolute top-8 z-10">
           {items.map((text, index) => {
             const reverseIndex = items.length - 1 - index;
-            
+
             // Find the original index of this text in the services array
             const originalIndex = services.indexOf(text);
-            
+
             // Check if this item should be visible based on the sequential reveal
-            const isVisible = isInitial 
-              ? originalIndex < visibleCount 
-              : true; // All visible after initial animation
+            const isVisible = isInitial ? originalIndex < visibleCount : true; // All visible after initial animation
 
             return (
               <motion.p
@@ -128,7 +129,7 @@ const WideHorizonsHero: React.FC = () => {
         </motion.div>
 
         {/* RIGHT BOTTOM – WIDEST BLOCK */}
-        <div className="absolute bottom-24 right-16 text-right space-y-2">
+        <div className="absolute bottom-24 -right-19 text-right space-y-2">
           {[
             "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
