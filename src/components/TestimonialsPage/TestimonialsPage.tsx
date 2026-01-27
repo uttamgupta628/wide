@@ -6,8 +6,9 @@ import Breadcrumb from "../Global/Breadcrumb";
 import { ClientsSection } from "../sections/ClientsSection";
 import { clients } from "../../data/clientsData";
 import Testimonials from "../../assets/TestimonialsPage.png";
+import rupa from "../../assets/rupaceo.png"
 
-type Category = "ALL" | "OUTDOOR ADVERTISING" | "PR & EVENTS" | "BRANDING";
+type Category = "ALL" | "OUTDOOR ADVERTISING" | "PR & EVENTS" | "BRANDING" |"Head Marketing-Outdoor & Branding";
 
 type Testimonial = {
   name: string;
@@ -15,22 +16,25 @@ type Testimonial = {
   rating: number;
   message: string;
   category: Category;
+  image: string;
 };
 
 const testimonials: Testimonial[] = [
   {
-    name: "Rohit Sharma",
-    role: "President, ODI 200",
+    name: "Rupa & Co Ltd",
+    role: "Testimonial from Rupa",
     rating: 5,
-    category: "OUTDOOR ADVERTISING",
+    category: "Head Marketing-Outdoor & Branding",
+    image: rupa,
     message:
-      "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
+      "Wide Horizons is a trusted partner for all our branding and advertising needs. With multiple successful projects under their belt, they've consistently delivered high-quality work within tight deadlines. They excel at crafting engaging campaigns from complex strategies, leveraging their expertise in event marketing and brand positioning. A reliable choice for impactful branding solutions!",
   },
   {
     name: "Rohit Sharma",
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -39,6 +43,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "BRANDING",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -47,6 +52,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "OUTDOOR ADVERTISING",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -55,6 +61,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -63,6 +70,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "BRANDING",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -71,6 +79,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "OUTDOOR ADVERTISING",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -79,6 +88,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
+    image:Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -219,7 +229,7 @@ const TestimonialsPage: React.FC = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src={Rohit}
+                  src={item.image}
                   alt="user"
                   className="w-12 h-12 rounded-full"
                 />
