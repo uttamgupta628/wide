@@ -48,7 +48,7 @@ const WideHorizonsHero: React.FC = () => {
     return () => clearInterval(revealInterval);
   }, []);
 
-  const leftPositions = [420, 380, 340, 300, 260, 220];
+  const leftPositions = [200, 160, 120, 80, 40, 10];
   const topPositions = [120, 175, 225, 270, 315, 355];
 
   return (
@@ -64,7 +64,7 @@ const WideHorizonsHero: React.FC = () => {
         </div>
 
         {/* GIRL IMAGE – LEFT */}
-        <motion.div className="absolute left-0 bottom-0 w-[340px] h-[540px]">
+        <motion.div className="absolute -left-50 bottom-0 w-[340px] h-[540px]">
           <img
             src={heroGirl}
             alt="Presenter"
@@ -103,7 +103,7 @@ const WideHorizonsHero: React.FC = () => {
                 }`}
                 initial={false}
                 animate={{
-                  left: isVisible ? leftPositions[index] : 220,
+                  left: isVisible ? leftPositions[index] : 120,
                   top: isVisible ? topPositions[index] : 320,
                   opacity: isVisible ? 1 : 0,
                 }}
