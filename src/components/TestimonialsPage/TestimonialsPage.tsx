@@ -6,9 +6,14 @@ import Breadcrumb from "../Global/Breadcrumb";
 import { ClientsSection } from "../sections/ClientsSection";
 import { clients } from "../../data/clientsData";
 import Testimonials from "../../assets/TestimonialsPage.png";
-import rupa from "../../assets/rupaceo.png"
+import rupa from "../../assets/rupaceo.png";
 
-type Category = "ALL" | "OUTDOOR ADVERTISING" | "PR & EVENTS" | "BRANDING" |"Head Marketing-Outdoor & Branding";
+type Category =
+  | "ALL"
+  | "OUTDOOR ADVERTISING"
+  | "PR & EVENTS"
+  | "BRANDING"
+  | "Head Marketing-Outdoor & Branding";
 
 type Testimonial = {
   name: string;
@@ -34,7 +39,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -43,7 +48,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "BRANDING",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -52,7 +57,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "OUTDOOR ADVERTISING",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -61,7 +66,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -70,7 +75,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "BRANDING",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -79,7 +84,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "OUTDOOR ADVERTISING",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -88,7 +93,7 @@ const testimonials: Testimonial[] = [
     role: "President, ODI 200",
     rating: 5,
     category: "PR & EVENTS",
-    image:Rohit,
+    image: Rohit,
     message:
       "Excellent brand integration with renowned pandals, flawless execution, massive visibility, cultural alignment, professional coordination.",
   },
@@ -107,38 +112,37 @@ const TestimonialsPage: React.FC = () => {
   const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    startAutoplay();
+
+    return () => stopAutoplay();
+  }, [activeCategory]);
+
+  const startAutoplay = () => {
     const slider = sliderRef.current;
     if (!slider) return;
 
     const cardWidth = 360;
     const gap = 24;
 
-    const startAutoplay = () => {
-      // Clear existing interval (safety)
-      if (autoScrollRef.current) {
-        clearInterval(autoScrollRef.current);
+    stopAutoplay(); // safety
+
+    autoScrollRef.current = setInterval(() => {
+      const scrollAmount = (cardWidth + gap) * 3;
+
+      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
+    }, 3000);
+  };
 
-      autoScrollRef.current = setInterval(() => {
-        const scrollAmount = (cardWidth + gap) * 3;
-
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-          slider.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-      }, 3000);
-    };
-
-    startAutoplay();
-
-    return () => {
-      if (autoScrollRef.current) {
-        clearInterval(autoScrollRef.current);
-        autoScrollRef.current = null;
-      }
-    };
-  }, [activeCategory]);
+  const stopAutoplay = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
+  };
 
   const scrollRight = () => {
     const cardWidth = 360;
@@ -216,8 +220,10 @@ const TestimonialsPage: React.FC = () => {
       >
         <div
           ref={sliderRef}
+          onMouseEnter={stopAutoplay}
+          onMouseLeave={startAutoplay}
           className="max-w-full lg:max-w-[1175px] mx-auto px-4 sm:px-6
-             flex gap-4 sm:gap-6 overflow-x-hidden scroll-smooth"
+    flex gap-4 sm:gap-6 overflow-x-hidden scroll-smooth"
         >
           {filteredTestimonials.map((item, index) => (
             <div
@@ -231,7 +237,7 @@ const TestimonialsPage: React.FC = () => {
                 <img
                   src={item.image}
                   alt="user"
-                  className="w-12 h-12 rounded-full"
+                  className="w-20 h-20 rounded-full"
                 />
                 <div>
                   <h4 className="font-semibold">{item.name}</h4>

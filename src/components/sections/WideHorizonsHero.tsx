@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/herologo3.png";
 import heroGirl from "../../assets/herogirl.png";
 
 const WideHorizonsHero: React.FC = () => {
@@ -42,7 +42,7 @@ const WideHorizonsHero: React.FC = () => {
   }, []);
 
   const leftPositions = [10, 10, 10, 10, 10, 10];
-  const topPositions = [120, 175, 225, 270, 315, 355];
+  const topPositions = [90, 165, 220, 265, 315, 355];
 
   return (
     <section className="bg-[#FFDA00] relative overflow-hidden">
@@ -53,7 +53,7 @@ const WideHorizonsHero: React.FC = () => {
           <img
             src={logo}
             alt="Wide Horizons Advertising Private Limited"
-            className="w-64"
+            className="w-88"
           />
           {/* <p className="-mt-20 text-xs italic font-bold text-left -translate-x-11">
             Advertising Private Limited
