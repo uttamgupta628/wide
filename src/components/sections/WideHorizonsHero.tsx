@@ -138,8 +138,13 @@ const WideHorizonsHero: React.FC = () => {
             "GAMUT OF SERVICES.",
             "REPERTOIRE OF CUSTOMIZATION.",
           ].map((text, i) => {
-            const slideDelay = 0.4 + i * 0.25;
-            const letterStartDelay = slideDelay + 0.9; // Start letter animation after slide completes
+            // Calculate delays so each line completes before next starts
+            // Line duration: 0.9s slide + (text.length * 0.05s) for letters
+            const textDuration = text.length * 0.05; // Time for all letters to appear
+            const lineDuration = 0.9 + textDuration; // Total time for one complete line
+            
+            const slideDelay = 0.4 + i * lineDuration; // Each line starts after previous completes
+            const letterStartDelay = slideDelay + 0.9; // Letters start after slide completes
             
             return (
               <motion.div
