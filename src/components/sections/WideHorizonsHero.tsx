@@ -20,32 +20,35 @@ const WideHorizonsHero: React.FC = () => {
   React.useEffect(() => {
     if (!isInitial) return;
 
-    // Sequential reveal animation
-    let i = 0;
-    const revealInterval = setInterval(() => {
-      setVisibleCount(i + 1);
-      i++;
+    // Wait for image to slide in first (1.2s duration)
+    setTimeout(() => {
+      // Sequential reveal animation for text
+      let i = 0;
+      const revealInterval = setInterval(() => {
+        setVisibleCount(i + 1);
+        i++;
 
-      if (i === services.length) {
-        clearInterval(revealInterval);
+        if (i === services.length) {
+          clearInterval(revealInterval);
 
-        // Start rotation AFTER all are visible
-        setTimeout(() => {
-          setIsInitial(false);
+          // Start rotation AFTER all are visible
+          setTimeout(() => {
+            setIsInitial(false);
 
-          const rotationInterval = setInterval(() => {
-            setItems((prev) => {
-              const first = prev[0];
-              return [...prev.slice(1), first];
-            });
-          }, 3500);
+            const rotationInterval = setInterval(() => {
+              setItems((prev) => {
+                const first = prev[0];
+                return [...prev.slice(1), first];
+              });
+            }, 3500);
 
-          return () => clearInterval(rotationInterval);
-        }, 800);
-      }
-    }, 400);
+            return () => clearInterval(rotationInterval);
+          }, 800);
+        }
+      }, 400);
 
-    return () => clearInterval(revealInterval);
+      return () => clearInterval(revealInterval);
+    }, 1200); // Delay matches image animation duration
   }, []);
 
   const leftPositions = [200, 160, 120, 80, 40, 10];
@@ -67,7 +70,12 @@ const WideHorizonsHero: React.FC = () => {
         </div>
 
         {/* GIRL IMAGE – LEFT */}
-        <motion.div className="absolute -left-50 bottom-0 w-[340px] h-[540px]">
+        <motion.div 
+          className="absolute -left-50 bottom-0 w-[340px] h-[540px]"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           <img
             src={heroGirl}
             alt="Presenter"
@@ -104,8 +112,8 @@ const WideHorizonsHero: React.FC = () => {
                 }`}
                 initial={false}
                 animate={{
-                  left: isVisible ? leftPositions[index] : 120,
-                  top: isVisible ? topPositions[index] : 320,
+                  left: isVisible ? leftPositions[index] : 10,
+                  top: isVisible ? topPositions[index] : 355,
                   opacity: isVisible ? 1 : 0,
                 }}
                 transition={{
