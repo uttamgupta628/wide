@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../../assets/herologo3.png";
+import logo from "../../assets/logo.png";
 import heroGirl from "../../assets/herogirl.png";
 
 const WideHorizonsHero: React.FC = () => {
@@ -42,18 +42,18 @@ const WideHorizonsHero: React.FC = () => {
   }, []);
 
   const leftPositions = [10, 10, 10, 10, 10, 10];
-  const topPositions = [90, 165, 220, 265, 315, 355];
+  const topPositions = [120, 175, 225, 270, 315, 355];
 
   return (
     <section className="bg-[#FFDA00] relative overflow-hidden">
       <div className="bg-black w-full h-[1px]"></div>
       <div className="relative w-full max-w-7xl mx-auto h-[700px] px-6">
         {/* LOGO – TOP RIGHT */}
-        <div className="absolute top-10 right-10 z-20 flex flex-col items-end">
+        <div className="absolute top-40 -right-0 z-20 flex flex-col items-end">
           <img
             src={logo}
             alt="Wide Horizons Advertising Private Limited"
-            className="w-88"
+            className="w-54"
           />
           {/* <p className="-mt-20 text-xs italic font-bold text-left -translate-x-11">
             Advertising Private Limited
@@ -132,25 +132,43 @@ const WideHorizonsHero: React.FC = () => {
         </motion.div>
 
         {/* RIGHT BOTTOM – WIDEST BLOCK */}
-        <div className="absolute bottom-24 right-10 text-right space-y-2">
+        <div className="absolute bottom-24 -right-0 text-right space-y-2">
           {[
             "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
             "REPERTOIRE OF CUSTOMIZATION.",
-          ].map((text, i) => (
-            <motion.div
-              key={i}
-              className="flex justify-end items-end gap-2"
-              initial={{ x: 150, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.9, delay: 0.4 + i * 0.25 }}
-            >
-              <span className="text-2xl italic font-semibold">Widest</span>
-              <span className="text-sm tracking-wide uppercase font-3xl mb-1.5">
-                {text}
-              </span>
-            </motion.div>
-          ))}
+          ].map((text, i) => {
+            const slideDelay = 0.4 + i * 0.25;
+            const letterStartDelay = slideDelay + 0.9; // Start letter animation after slide completes
+            
+            return (
+              <motion.div
+                key={i}
+                className="flex justify-end items-end gap-2"
+              >
+                <motion.span 
+                  className="text-2xl italic font-semibold"
+                  initial={{ x: 150, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.9, delay: slideDelay }}
+                >
+                  Widest
+                </motion.span>
+                <span className="text-sm tracking-wide uppercase font-3xl mb-1.5">
+                  {text.split("").map((letter, letterIndex) => (
+                    <motion.span
+                      key={letterIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: letterStartDelay + letterIndex * 0.05 }}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
