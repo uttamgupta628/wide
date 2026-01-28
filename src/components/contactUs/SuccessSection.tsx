@@ -78,7 +78,9 @@ const SuccessSection: React.FC = () => {
 
           {/* Instagram */}
           <motion.a
-            href="#"
+            href="https://www.instagram.com/wide.horizons24"
+            target="_blank"
+            rel="noopener noreferrer"
             variants={iconVariants}
             className="group w-16 h-16 rounded-2xl flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-all duration-500 hover:scale-110 shadow-lg"
             aria-label="Instagram"
