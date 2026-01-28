@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 // images
-import ooh from "../../assets/ooh1.jpg";
-import corporate from "../../assets/Banner.png";
-import activation from "../../assets/Ohh.png";
-import celebrity from "../../assets/Ohh.png";
-import pr from "../../assets/Ohh.png";
-import branding from "../../assets/Ohh.png";
+import ooh from "../../assets/ooh.png";
+import corporate from "../../assets/corporate_event.png";
+import activation from "../../assets/brand_advertising.png";
+import celebrity from "../../assets/celebrity.png";
+import pr from "../../assets/public.png";
+import branding from "../../assets/branding.png";
 
 const services = [
   { title: "Out-of-Home Advertising", image: ooh },
