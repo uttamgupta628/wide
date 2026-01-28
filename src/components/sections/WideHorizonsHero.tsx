@@ -57,7 +57,9 @@ const WideHorizonsHero: React.FC = () => {
   return (
     <section className="bg-[#FFDA00] relative overflow-hidden">
       <div className="bg-black w-full h-[1px]"></div>
-      <div className="relative w-full max-w-7xl mx-auto h-[700px] px-6">
+      
+      {/* Desktop Version */}
+      <div className="hidden lg:block relative w-full max-w-7xl mx-auto h-[700px] px-6">
         {/* LOGO – TOP RIGHT */}
         <div className="absolute top-10 -right-0 z-20 flex flex-col items-end">
           <img
@@ -65,9 +67,6 @@ const WideHorizonsHero: React.FC = () => {
             alt="Wide Horizons Advertising Private Limited"
             className="w-100"
           />
-          {/* <p className="-mt-20 text-xs italic font-bold text-left -translate-x-11">
-            Advertising Private Limited
-          </p> */}
         </div>
 
         {/* GIRL IMAGE – LEFT */}
@@ -184,6 +183,67 @@ const WideHorizonsHero: React.FC = () => {
               </motion.div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Mobile/Tablet Version */}
+      <div className="lg:hidden relative w-full px-4 py-12">
+        {/* Logo - Top Center */}
+        <div className="flex justify-center mb-8">
+          <img
+            src={logo}
+            alt="Wide Horizons Advertising Private Limited"
+            className="w-48 sm:w-64"
+          />
+        </div>
+
+        {/* Services List - Stacked (No Animation) */}
+        <div className="space-y-4 mb-8">
+          {services.map((text, index) => {
+            const reverseIndex = services.length - 1 - index;
+            
+            return (
+              <div
+                key={text}
+                className={`text-[#3d3533] ${
+                  reverseIndex === 0
+                    ? "text-xs font-medium"
+                    : reverseIndex === 1
+                      ? "text-sm font-medium"
+                      : reverseIndex === 2
+                        ? "text-base font-medium"
+                        : reverseIndex === 3
+                          ? "text-lg font-semibold"
+                          : reverseIndex === 4
+                            ? "text-xl font-semibold"
+                            : "text-2xl sm:text-3xl font-bold"
+                }`}
+              >
+                {text}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Widest Block - Bottom (No Animation) */}
+        <div className="space-y-3 text-center">
+          {[
+            "NETWORK OF MEDIA.",
+            "GAMUT OF SERVICES.",
+            "REPERTOIRE OF CUSTOMIZATION.",
+          ].map((text, i) => (
+            <div
+              key={i}
+              className="flex flex-col sm:flex-row justify-center items-center gap-2"
+            >
+              <span className="text-lg sm:text-xl italic font-semibold text-[#3d3533]">
+                Widest
+              </span>
+              <span className="text-xs sm:text-sm tracking-wide uppercase font-medium text-[#3d3533]">
+                {text}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
