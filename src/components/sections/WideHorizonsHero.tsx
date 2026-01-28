@@ -189,34 +189,34 @@ const WideHorizonsHero: React.FC = () => {
       {/* Mobile/Tablet Version */}
       <div className="lg:hidden relative w-full px-4 py-12">
         {/* Logo - Top Center */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-12">
           <img
             src={logo}
             alt="Wide Horizons Advertising Private Limited"
-            className="w-48 sm:w-64"
+            className="w-56 sm:w-72"
           />
         </div>
 
-        {/* Services List - Stacked (No Animation) */}
-        <div className="space-y-4 mb-8">
+        {/* Services List - Centered with Visual Hierarchy */}
+        <div className="space-y-3 mb-12 text-center">
           {services.map((text, index) => {
             const reverseIndex = services.length - 1 - index;
             
             return (
               <div
                 key={text}
-                className={`text-[#3d3533] ${
+                className={`text-[#3d3533] transition-all duration-300 ${
                   reverseIndex === 0
-                    ? "text-xs font-medium"
+                    ? "text-sm font-medium opacity-70"
                     : reverseIndex === 1
-                      ? "text-sm font-medium"
+                      ? "text-base font-medium opacity-75"
                       : reverseIndex === 2
-                        ? "text-base font-medium"
+                        ? "text-lg font-semibold opacity-80"
                         : reverseIndex === 3
-                          ? "text-lg font-semibold"
+                          ? "text-xl font-semibold opacity-85"
                           : reverseIndex === 4
-                            ? "text-xl font-semibold"
-                            : "text-2xl sm:text-3xl font-bold"
+                            ? "text-2xl font-bold opacity-90"
+                            : "text-3xl sm:text-4xl font-bold"
                 }`}
               >
                 {text}
@@ -225,8 +225,13 @@ const WideHorizonsHero: React.FC = () => {
           })}
         </div>
 
-        {/* Widest Block - Bottom (No Animation) */}
-        <div className="space-y-3 text-center">
+        {/* Decorative Divider */}
+        <div className="flex justify-center mb-10">
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#3d3533] to-transparent rounded-full"></div>
+        </div>
+
+        {/* Widest Block - Styled Cards */}
+        <div className="space-y-4">
           {[
             "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
@@ -234,16 +239,27 @@ const WideHorizonsHero: React.FC = () => {
           ].map((text, i) => (
             <div
               key={i}
-              className="flex flex-col sm:flex-row justify-center items-center gap-2"
+              className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 shadow-md border-2 border-[#3d3533]/10 hover:border-[#3d3533]/30 transition-all duration-300"
             >
-              <span className="text-lg sm:text-xl italic font-semibold text-[#3d3533]">
-                Widest
-              </span>
-              <span className="text-xs sm:text-sm tracking-wide uppercase font-medium text-[#3d3533]">
-                {text}
-              </span>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xl sm:text-2xl italic font-bold text-[#3d3533]">
+                  Widest
+                </span>
+                <span className="text-xs sm:text-sm tracking-widest uppercase font-semibold text-[#3d3533]/80">
+                  {text}
+                </span>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom Accent */}
+        <div className="flex justify-center mt-10">
+          <div className="flex gap-2">
+            <div className="w-2 h-2 rounded-full bg-[#3d3533]"></div>
+            <div className="w-2 h-2 rounded-full bg-[#3d3533]/60"></div>
+            <div className="w-2 h-2 rounded-full bg-[#3d3533]/30"></div>
+          </div>
         </div>
       </div>
     </section>
