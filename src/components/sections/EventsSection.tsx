@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import { Link } from "react-router-dom";
 // images
 import ooh from "../../assets/ooh1.jpg";
 import corporate from "../../assets/Banner.png";
@@ -40,6 +40,7 @@ export default function EventsSection() {
     );
 
     cardsRef.current.forEach((card) => card && observer.observe(card));
+
     return () => observer.disconnect();
   }, []);
 
@@ -57,8 +58,9 @@ export default function EventsSection() {
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
+              to="/portfolio"
               className="group flex flex-col gap-4 cursor-pointer"
             >
               {/* CARD */}
@@ -88,7 +90,6 @@ export default function EventsSection() {
                     z-20
                   "
                 />
-
                 {/* IMAGE */}
                 <img
                   src={service.image}
@@ -116,7 +117,7 @@ export default function EventsSection() {
               >
                 {service.title}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

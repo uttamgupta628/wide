@@ -16,6 +16,7 @@ const WideHorizonsHero: React.FC = () => {
   const [items, setItems] = React.useState(services);
   const [visibleCount, setVisibleCount] = React.useState(0);
   const [isInitial, setIsInitial] = React.useState(true);
+  const [widestAnimKey, setWidestAnimKey] = React.useState(0);
 
   React.useEffect(() => {
     if (!isInitial) return;
@@ -39,6 +40,15 @@ const WideHorizonsHero: React.FC = () => {
         return () => clearInterval(rotationInterval);
       }, 3500); // Wait for all animations to complete
     }, 1200); // Delay matches image animation duration
+  }, []);
+
+  // Loop widest animation every 5 seconds
+  React.useEffect(() => {
+    const loopInterval = setInterval(() => {
+      setWidestAnimKey(prev => prev + 1);
+    }, 10000);
+
+    return () => clearInterval(loopInterval);
   }, []);
 
   const leftPositions = [10, 10, 10, 10, 10, 10];
@@ -132,7 +142,7 @@ const WideHorizonsHero: React.FC = () => {
         </motion.div>
 
         {/* RIGHT BOTTOM – WIDEST BLOCK */}
-        <div className="absolute bottom-24 -right-0 text-right space-y-2">
+        <div className="absolute bottom-24 -right-0 text-right space-y-2" key={widestAnimKey}>
           {[
             "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
@@ -143,7 +153,7 @@ const WideHorizonsHero: React.FC = () => {
             const textDuration = text.length * 0.05; // Time for all letters to appear
             const lineDuration = 0.9 + textDuration; // Total time for one complete line
             
-            const slideDelay = 0.4 + i * lineDuration; // Each line starts after previous completes
+            const slideDelay = i * lineDuration; // Each line starts after previous completes
             const letterStartDelay = slideDelay + 0.9; // Letters start after slide completes
             
             return (

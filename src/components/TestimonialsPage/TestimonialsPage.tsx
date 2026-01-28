@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import Marquee from "react-fast-marquee";
 import back from "../../assets/testiBg.png";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import Rohit from "../../assets/rohit.png";
 import Breadcrumb from "../Global/Breadcrumb";
 import { ClientsSection } from "../sections/ClientsSection";
@@ -101,65 +101,51 @@ const testimonials: Testimonial[] = [
 
 const TestimonialsPage: React.FC = () => {
   const [activeCategory] = useState<Category>("ALL");
-  const sliderRef = useRef<HTMLDivElement>(null);
 
   const filteredTestimonials =
     activeCategory === "ALL"
       ? testimonials
       : testimonials.filter((t) => t.category === activeCategory);
 
-  // Autoplay testimonials carousel - scroll by 3 cards (1104px = 360px * 3 + 24px gap * 2)
-  const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const TestimonialCard = ({ item }: { item: Testimonial }) => (
+    <div className="mx-3">
+      <div
+        className="w-[300px] h-[380px]
+             bg-[#3B3533] text-white rounded-2xl border-2 border-[#FFDA00]
+             p-6 flex flex-col
+             transition-transform duration-300 ease-out
+             hover:scale-110 hover:shadow-2xl hover:cursor-pointer"
+      >
+        <div className="flex items-center gap-3 mb-4">
+          <img
+            src={item.image}
+            alt="user"
+            className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+          />
+          <div className="min-w-0">
+            <h4 className="font-semibold text-sm truncate">{item.name}</h4>
+            <p className="text-xs opacity-70 truncate">{item.role}</p>
+          </div>
+        </div>
 
-  useEffect(() => {
-    startAutoplay();
+        <div className="flex gap-1 mb-3 text-[#FFDA00]">
+          {Array.from({ length: item.rating }).map((_, i) => (
+            <span key={i}>★</span>
+          ))}
+        </div>
 
-    return () => stopAutoplay();
-  }, [activeCategory]);
-
-  const startAutoplay = () => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    const cardWidth = 360;
-    const gap = 24;
-
-    stopAutoplay(); // safety
-
-    autoScrollRef.current = setInterval(() => {
-      const scrollAmount = (cardWidth + gap) * 3;
-
-      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-        slider.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    }, 3000);
-  };
-
-  const stopAutoplay = () => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
-    }
-  };
-
-  const scrollRight = () => {
-    const cardWidth = 360;
-    const gap = 24;
-    const scrollAmount = (cardWidth + gap) * 3;
-    sliderRef.current?.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  };
-
-  const scrollLeft = () => {
-    const cardWidth = 360;
-    const gap = 24;
-    const scrollAmount = (cardWidth + gap) * 3; // Scroll by 3 cards
-    sliderRef.current?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  };
+        <div className="flex-1 overflow-hidden">
+          <p className="text-sm leading-relaxed line-clamp-[10]">
+            <span className="text-[#FFDA00] text-2xl mr-2">"</span>
+            {item.message}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div className=" w-full bg-white">
+    <div className="w-full bg-white">
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
       />
@@ -170,7 +156,7 @@ const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
             <h2 className="text-3xl md:text-4xl font-bold uppercase text-white">
-              Happy <span className="text-black">CLIENTS TELL</span>
+              Happy <span className="text-black">CLIENTS' TALES</span>
             </h2>
 
             <p className="mt-4 text-sm md:text-base">
@@ -201,16 +187,16 @@ const TestimonialsPage: React.FC = () => {
           </h2>
 
           <p className="mt-4 text-sm md:text-base">
-            Our clients’ feedback speaks for itself. Their stories showcase our
+            Our clients' feedback speaks for itself. Their stories showcase our
             commitment to building strong brands, creating impactful campaigns,
             and delivering results that truly matter.
           </p>
         </div>
       </section>
 
-      {/* ================= TESTIMONIALS SLIDER WITH AUTOPLAY ================= */}
+      {/* ================= TESTIMONIALS MARQUEE ================= */}
       <section
-        className="relative py-20"
+        className="relative py-20 overflow-hidden px-4 sm:px-8 lg:px-16"
         style={{
           backgroundImage: `url(${back})`,
           backgroundRepeat: "no-repeat",
@@ -218,67 +204,19 @@ const TestimonialsPage: React.FC = () => {
           backgroundSize: "cover",
         }}
       >
-        <div
-          ref={sliderRef}
-          onMouseEnter={stopAutoplay}
-          onMouseLeave={startAutoplay}
-          className="max-w-full lg:max-w-[1175px] mx-auto px-4 sm:px-6
-    flex gap-4 sm:gap-6 overflow-x-hidden scroll-smooth"
+        <Marquee
+          direction="left"
+          speed={60}
+          pauseOnHover
+          gradient={false}
+          className="overflow-visible"
         >
           {filteredTestimonials.map((item, index) => (
-            <div
-              key={index}
-              className="min-w-[280px] sm:min-w-[320px] lg:min-w-[360px]
-             max-w-[280px] sm:max-w-[320px] lg:max-w-[360px]
-             bg-[#3B3533] text-white rounded-2xl border-2 border-[#FFDA00]
-             p-6 sm:p-8 flex-shrink-0"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <img
-                  src={item.image}
-                  alt="user"
-                  className="w-20 h-20 rounded-full"
-                />
-                <div>
-                  <h4 className="font-semibold">{item.name}</h4>
-                  <p className="text-xs opacity-70">{item.role}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-1 mb-3 text-[#FFDA00]">
-                {Array.from({ length: item.rating }).map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </div>
-
-              <p className="text-sm leading-relaxed">
-                <span className="text-[#FFDA00] text-2xl mr-2">"</span>
-                {item.message}
-              </p>
-            </div>
+            <TestimonialCard key={index} item={item} />
           ))}
-        </div>
-
-        {/* Left Arrow */}
-        <button
-          onClick={scrollLeft}
-          className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2
-             bg-[#FFDA00] w-10 h-10 rounded-full items-center justify-center
-             shadow-lg hover:scale-110 transition"
-        >
-          <ArrowLeft />
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={scrollRight}
-          className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2
-             bg-[#FFDA00] w-10 h-10 rounded-full items-center justify-center
-             shadow-lg hover:scale-110 transition"
-        >
-          <ArrowRight />
-        </button>
+        </Marquee>
       </section>
+
       <ClientsSection clients={clients} />
     </div>
   );

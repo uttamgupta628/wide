@@ -56,11 +56,10 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex flex-col items-start">
             <img
-  src={logo}
-  alt="Wide Horizons Logo"
-  className="h-20 sm:h-24 w-auto hover:scale-105 transition-transform duration-200 -my-12"
-/>
-
+              src={logo}
+              alt="Wide Horizons Logo"
+              className="h-20 sm:h-24 w-auto hover:scale-105 transition-transform duration-200 -my-12"
+            />
           </Link>
 
           {/* Desktop Nav */}

@@ -10,8 +10,10 @@ const pages = [
   { name: "Portfolio", path: "/portfolio" },
   // { name: "Process", path: "/process" },
 ];
+
 const quickLinks = [
   { name: "Contact us", path: "/contact-us" },
+  { name: "Careers", path: "/careers" },
   { name: "Privacy Policy", path: "/privacy-policy" },
   { name: "Terms & Condition", path: "/terms-condition" },
 ];
@@ -27,7 +29,6 @@ export const Footer: React.FC = () => {
             alt="Wide Horizons - An Anthera Private Limited"
             className="h-20 sm:h-16 md:h-28 w-auto object-cover"
           />
-
           <div className="flex gap-4 mt-6 pl-4">
             <Facebook className="w-6 h-6 text-gray-400 hover:text-white transition cursor-pointer" />
             <div className="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-white transition cursor-pointer text-sm font-semibold">
@@ -36,12 +37,9 @@ export const Footer: React.FC = () => {
             <Instagram className="w-6 h-6 text-gray-400 hover:text-white transition cursor-pointer" />
           </div>
         </div>
-
         {/* Pages */}
-
         <div>
           <p className="text-white font-semibold mb-4">Pages</p>
-
           <ul className="space-y-2 text-sm">
             {pages.map((item) => (
               <li key={item.name}>
@@ -55,11 +53,9 @@ export const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-
         {/* Quick Links */}
         <div>
           <p className="text-white font-semibold mb-4">Quick Links</p>
-
           <ul className="space-y-2 text-sm">
             {quickLinks.map((item) => (
               <li key={item.name}>
@@ -73,7 +69,6 @@ export const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-
         {/* Contact */}
         <div>
           <p className="text-white font-semibold mb-4">Contact us</p>
@@ -95,7 +90,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-
       {/* Bottom Bar */}
       <div className="text-center text-gray-500 text-xs mt-14 pt-6 border-t border-gray-700">
         © 2026 Wide Horizons. All rights reserved.
