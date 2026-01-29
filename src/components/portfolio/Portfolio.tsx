@@ -312,7 +312,7 @@ const Portfolio: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
             >
-              Brand Activations
+              Experiences That Bring Brands to Life
             </motion.h1>
 
             {/* Subtitle */}
@@ -322,9 +322,7 @@ const Portfolio: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-gray-600 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              Engaging and experimental campaigns designed to bring your brand
-              to life and connect with your audience through memorable
-              experiences
+              We create immersive, on-ground brand experiences that spark curiosity, drive engagement, and leave lasting impressions—captured through real moments and real audiences.
             </motion.p>
 
             {/* Decorative Line */}
@@ -346,7 +344,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Out-of-Home (OOH) Advertising
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
@@ -407,7 +405,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Corporate Events
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
@@ -475,7 +473,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Celebrity Management
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
@@ -543,7 +541,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Public Relations (PR)
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
@@ -611,7 +609,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Brand Activations
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
@@ -679,7 +677,7 @@ const Portfolio: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-16 scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Branding
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
