@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, Sparkles } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { Button } from "../ui/moving-border";
+
 import n1 from "../../assets/brand1.png";
 import n2 from "../../assets/brand2.png";
 import n3 from "../../assets/brand3.png";
@@ -107,97 +109,97 @@ const Section = ({
         viewport={{ once: true }}
         className="mb-24 scroll-mt-24"
       >
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-        viewport={{ once: true }}
-        className="flex items-center gap-4 mb-10 group"
-      >
+        {/* Section Header */}
         <motion.div
-          whileHover={{ scaleY: 1.2 }}
-          className="w-1.5 h-16 bg-gradient-to-b from-[#FFDA00] to-[#FFA500] rounded-full"
-        />
-        <div className="relative">
-          <div className="bg-gradient-to-r from-white to-gray-50 px-8 py-4 rounded-2xl shadow-lg border border-gray-100 group-hover:shadow-xl transition-all duration-300">
-            <h2 className="!text-lg font-bold uppercase tracking-wide bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
-              {title}
-              <ChevronRight
-                size={24}
-                className="text-[#FFDA00] group-hover:translate-x-2 transition-transform duration-300"
-              />
-            </h2>
-          </div>
-          {/* Decorative element */}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4 mb-10 group"
+        >
           <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.5, 0.8, 0.5],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -right-3 -top-3 w-6 h-6 bg-[#FFDA00] rounded-full blur-sm"
+            whileHover={{ scaleY: 1.2 }}
+            className="w-1.5 h-16 bg-gradient-to-b from-[#FFDA00] to-[#FFA500] rounded-full"
           />
-        </div>
-      </motion.div>
-
-      {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {images.map((img, imgIndex) => (
-          <motion.div
-            key={imgIndex}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.4,
-              delay: imgIndex * 0.05,
-            }}
-            viewport={{ once: true }}
-            onMouseEnter={() => setHoveredIndex(imgIndex)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            onClick={() => setSelectedImage(img)}
-            className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 bg-white cursor-pointer"
-          >
-            {/* Image Container */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-              <motion.img
-                src={img}
-                alt={`${title} - ${imgIndex + 1}`}
-                className="w-full h-full object-contain"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              />
-
-              {/* Overlay on hover */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: hoveredIndex === imgIndex ? 1 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"
-              />
-
-              {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#FFDA00]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="bg-gradient-to-r from-white to-gray-50 px-8 py-4 rounded-2xl shadow-lg border border-gray-100 group-hover:shadow-xl transition-all duration-300">
+              <h2 className="!text-lg font-bold uppercase tracking-wide bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
+                {title}
+                <ChevronRight
+                  size={24}
+                  className="text-[#FFDA00] group-hover:translate-x-2 transition-transform duration-300"
+                />
+              </h2>
             </div>
-
-            {/* Bottom accent line */}
+            {/* Decorative element */}
             <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 0.6, delay: imgIndex * 0.05 + 0.2 }}
-              viewport={{ once: true }}
-              className="h-1 bg-gradient-to-r from-[#FFDA00] via-[#FFA500] to-[#FFDA00] origin-left"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -right-3 -top-3 w-6 h-6 bg-[#FFDA00] rounded-full blur-sm"
             />
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+          </div>
+        </motion.div>
+
+        {/* Image Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {images.map((img, imgIndex) => (
+            <motion.div
+              key={imgIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                delay: imgIndex * 0.05,
+              }}
+              viewport={{ once: true }}
+              onMouseEnter={() => setHoveredIndex(imgIndex)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => setSelectedImage(img)}
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 bg-white cursor-pointer"
+            >
+              {/* Image Container */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                <motion.img
+                  src={img}
+                  alt={`${title} - ${imgIndex + 1}`}
+                  className="w-full h-full object-contain"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                />
+
+                {/* Overlay on hover */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: hoveredIndex === imgIndex ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"
+                />
+
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#FFDA00]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+
+              {/* Bottom accent line */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.6, delay: imgIndex * 0.05 + 0.2 }}
+                viewport={{ once: true }}
+                className="h-1 bg-gradient-to-r from-[#FFDA00] via-[#FFA500] to-[#FFDA00] origin-left"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* Image Modal */}
       {selectedImage && (
@@ -243,13 +245,13 @@ const Portfolio: React.FC = () => {
     if (location.hash) {
       // Small delay to ensure DOM is ready
       setTimeout(() => {
-        const id = location.hash.replace('#', '');
+        const id = location.hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'nearest'
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
           });
         }
       }, 100);
@@ -310,7 +312,7 @@ const Portfolio: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="!text-2xl sm:text-5xl md:text-6xl  mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
             >
               Experiences That Bring Brands to Life
             </motion.h1>
@@ -322,7 +324,9 @@ const Portfolio: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-gray-600 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              We create immersive, on-ground brand experiences that spark curiosity, drive engagement, and leave lasting impressions—captured through real moments and real audiences.
+              We create immersive, on-ground brand experiences that spark
+              curiosity, drive engagement, and leave lasting
+              impressions—captured through real moments and real audiences.
             </motion.p>
 
             {/* Decorative Line */}
@@ -336,18 +340,33 @@ const Portfolio: React.FC = () => {
 
           {/* OOH Main Section */}
           <div className="mb-32" id="ooh-section">
-            {/* OOH Main Heading */}
+            {/* OOH Main Section */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24"
             >
-              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Out-of-Home (OOH) Advertising
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
 
             {/* OOH Subsections */}
@@ -369,9 +388,9 @@ const Portfolio: React.FC = () => {
               index={2}
               id="brand-activations"
             />
-            <Section 
-              title="Transit Media" 
-              images={transitImages} 
+            <Section
+              title="Transit Media"
+              images={transitImages}
               index={3}
               id="celebrity-management"
             />
@@ -401,14 +420,29 @@ const Portfolio: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24 mb-4"
             >
-              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Corporate Events
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
 
             {/* Corporate Events Image Showcase */}
@@ -469,14 +503,29 @@ const Portfolio: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24 mb-4"
             >
-              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Celebrity Management
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
 
             {/* Celebrity Management Image Showcase */}
@@ -537,14 +586,29 @@ const Portfolio: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24 mb-4"
             >
-              <h2 className="text-4xl sm:text-5xl mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Public Relations (PR)
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
 
             {/* Public Relations Image Showcase */}
@@ -605,16 +669,30 @@ const Portfolio: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24 mb-4"
             >
-              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Brand Activations
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
-
             {/* Brand Activations Image Showcase */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -673,16 +751,30 @@ const Portfolio: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-center mb-16 scroll-mt-24"
+              className="flex justify-center scroll-mt-24 mb-4"
             >
-              <h2 className="text-4xl sm:text-5xl  mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              <Button
+                borderRadius="999px"
+                className="
+      px-20 py-4
+      bg-white
+      text-gray-900
+      text-lg sm:text-2xl
+      font-bold
+      border-neutral-200
+      shadow-md
+      hover:shadow-lg
+      transition-all
+    "
+                containerClassName="border-[#FFDA00]"
+                borderClassName="bg-[radial-gradient(#FFDA00_60%,transparent_80%)]"
+                duration={6000}
+              >
                 Branding
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+              </Button>
             </motion.div>
-
             {/* Branding Subsections */}
             <Section
               title="Innovative Branding During Festivals"
