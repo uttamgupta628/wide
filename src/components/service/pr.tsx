@@ -1,6 +1,6 @@
 import React from "react";
-import oohImage from "../../assets/Ohh.png";
-import billboardImage from "../../assets/pr.png";
+import oohImage from "../../assets/publicrelation.png";
+import billboardImage from "../../assets/public2.png";
 import Breadcrumb from "../Global/Breadcrumb";
 
 export const Pr: React.FC = () => {
@@ -24,15 +24,17 @@ export const Pr: React.FC = () => {
           Strategic public realtions services to enhance your brand ‘s
           reputation and build meaningful connections with your audience
         </p>
-
-        <div className="w-full h-64 bg-gray-300 rounded-lg mb-12">
-          {/* Placeholder for hero image */}
+        <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
           <img
             src={billboardImage}
             alt="OOH Advertising"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
           />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
         </div>
+        
       </section>
 
       {/* Features Section */}

@@ -9,17 +9,41 @@ import pr from "../../assets/public.png";
 import branding from "../../assets/branding.png";
 
 const services = [
-  { title: "Out-of-Home Advertising", image: ooh },
-  { title: "CORPORATE EVENTS", image: corporate },
-  { title: "BRAND ACTIVATIONS", image: activation },
-  { title: "CELEBRITY MANAGEMENT", image: celebrity },
-  { title: "PUBLIC RELATION (PR)", image: pr },
-  { title: "BRANDING", image: branding },
+  { 
+    title: "Out-of-Home Advertising", 
+    image: ooh,
+    sectionId: "ooh-section" // Links to OOH main section
+  },
+  { 
+    title: "CORPORATE EVENTS", 
+    image: corporate,
+    sectionId: "corporate-events-section" // Links to Corporate Events main section
+  },
+  { 
+    title: "BRAND ACTIVATIONS", 
+    image: activation,
+    sectionId: "brand-activations-section" // Links to Brand Activations main section
+  },
+  { 
+    title: "CELEBRITY MANAGEMENT", 
+    image: celebrity,
+    sectionId: "celebrity-management-section" // Links to Celebrity Management main section
+  },
+  { 
+    title: "PUBLIC RELATION (PR)", 
+    image: pr,
+    sectionId: "public-relations-section" // Links to Public Relations main section
+  },
+  { 
+    title: "BRANDING", 
+    image: branding,
+    sectionId: "branding-section" // Links to Branding main section
+  },
 ];
 
 export default function EventsSection() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,9 +62,7 @@ export default function EventsSection() {
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
-
     cardsRef.current.forEach((card) => card && observer.observe(card));
-
     return () => observer.disconnect();
   }, []);
 
@@ -60,7 +82,7 @@ export default function EventsSection() {
           {services.map((service, index) => (
             <Link
               key={index}
-              to="/portfolio"
+              to={`/portfolio#${service.sectionId}`}
               className="group flex flex-col gap-4 cursor-pointer"
             >
               {/* CARD */}
@@ -101,7 +123,6 @@ export default function EventsSection() {
                   "
                 />
               </div>
-
               {/* TITLE */}
               <p
                 className="

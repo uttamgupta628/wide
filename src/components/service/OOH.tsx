@@ -1,6 +1,6 @@
 import React from "react";
-import oohImage from "../../assets/Ohh.png";
-import billboardImage from "../../assets/ooh1.jpg";
+import oohImage from "../../assets/ooh3.png";
+import billboardImage from "../../assets/ooh2.png";
 import Breadcrumb from "../Global/Breadcrumb";
 
 export const OOHAdvertising: React.FC = () => {
@@ -25,14 +25,15 @@ export const OOHAdvertising: React.FC = () => {
           High impact outdoor advertising to capture and engage audiences
           effectively
         </p>
-
-        <div className="w-full h-64 bg-gray-300 rounded-lg mb-12">
-          {/* Placeholder for hero image */}
+        <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
           <img
             src={billboardImage}
             alt="OOH Advertising"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
           />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
         </div>
       </section>
 

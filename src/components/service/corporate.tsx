@@ -1,6 +1,6 @@
 import React from "react";
-import oohImage from "../../assets/corporate1.png";
-import billboardImage from "../../assets/corporate.png";
+import oohImage from "../../assets/cor.png";
+import billboardImage from "../../assets/corporate2.png";
 import Breadcrumb from "../Global/Breadcrumb";
 
 export const Corporate: React.FC = () => {
@@ -25,14 +25,16 @@ export const Corporate: React.FC = () => {
           elevate your brand
         </p>
 
-        <div className="w-full h-64 bg-gray-300 rounded-lg mb-12">
-          {/* Placeholder for hero image */}
-          <img
-            src={billboardImage}
-            alt="OOH Advertising"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
+        <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
+  <img
+    src={billboardImage}
+    alt="OOH Advertising"
+    className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
+</div>
       </section>
 
       {/* Features Section */}

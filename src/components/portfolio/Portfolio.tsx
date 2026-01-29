@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, Sparkles } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import n1 from "../../assets/brand1.png";
 import n2 from "../../assets/brand2.png";
 import n3 from "../../assets/brand3.png";
@@ -86,10 +87,12 @@ const Section = ({
   title,
   images,
   index,
+  id,
 }: {
   title: string;
   images: string[];
   index: number;
+  id: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -97,11 +100,12 @@ const Section = ({
   return (
     <>
       <motion.section
+        id={id}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="mb-24"
+        className="mb-24 scroll-mt-24"
       >
       {/* Section Header */}
       <motion.div
@@ -117,7 +121,7 @@ const Section = ({
         />
         <div className="relative">
           <div className="bg-gradient-to-r from-white to-gray-50 px-8 py-4 rounded-2xl shadow-lg border border-gray-100 group-hover:shadow-xl transition-all duration-300">
-            <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-wide bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
+            <h2 className="!text-lg font-bold uppercase tracking-wide bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
               {title}
               <ChevronRight
                 size={24}
@@ -210,12 +214,12 @@ const Section = ({
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-7xl max-h-[90vh] cursor-default"
+            className="relative w-full max-w-6xl max-h-[90vh] cursor-default"
           >
             <img
               src={selectedImage}
               alt={title}
-              className="w-full h-full object-contain rounded-lg"
+              className="w-full h-full max-h-[90vh] object-contain rounded-lg"
             />
             {/* Close button */}
             <button
@@ -232,6 +236,26 @@ const Section = ({
 };
 
 const Portfolio: React.FC = () => {
+  const location = useLocation();
+
+  // Handle smooth scrolling to sections based on hash
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#faf7f4] via-white to-[#f5f5f5] relative overflow-hidden">
       {/* Animated Background Elements */}
@@ -286,7 +310,7 @@ const Portfolio: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
             >
               Brand Activations
             </motion.h1>
@@ -312,43 +336,363 @@ const Portfolio: React.FC = () => {
             />
           </motion.div>
 
-          {/* Sections */}
-          <Section
-            title="Conventional Outdoor - North"
-            images={northImages}
-            index={0}
-          />
-          <Section
-            title="Conventional Outdoor Campaign - East"
-            images={eastImages}
-            index={1}
-          />
-          <Section
-            title="Conventional Outdoor Campaign - South"
-            images={southImages}
-            index={2}
-          />
-          <Section title="Transit Media" images={transitImages} index={3} />
-          <Section
-            title="RWA Digital Screens"
-            images={rwaImages}
-            index={4}
-          />
-          <Section
-            title="Wall Wraps in India"
-            images={wallWrapImages}
-            index={5}
-          />
-          <Section
-            title="Innovative Branding During Festivals"
-            images={festivalImages}
-            index={6}
-          />
-          <Section
-            title="Brand Integration with Renowned Pandals"
-            images={pandal}
-            index={7}
-          />
+          {/* OOH Main Section */}
+          <div className="mb-32" id="ooh-section">
+            {/* OOH Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Out-of-Home (OOH) Advertising
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* OOH Subsections */}
+            <Section
+              title="Conventional Outdoor - North"
+              images={northImages}
+              index={0}
+              id="ooh-advertising"
+            />
+            <Section
+              title="Conventional Outdoor Campaign - East"
+              images={eastImages}
+              index={1}
+              id="corporate-events"
+            />
+            <Section
+              title="Conventional Outdoor Campaign - South"
+              images={southImages}
+              index={2}
+              id="brand-activations"
+            />
+            <Section 
+              title="Transit Media" 
+              images={transitImages} 
+              index={3}
+              id="celebrity-management"
+            />
+            <Section
+              title="RWA Digital Screens"
+              images={rwaImages}
+              index={4}
+              id="public-relations"
+            />
+            <Section
+              title="Wall Wraps in India"
+              images={wallWrapImages}
+              index={5}
+              id="branding"
+            />
+            <Section
+              title="Brand Integration with Renowned Pandals"
+              images={pandal}
+              index={7}
+              id="pandals"
+            />
+          </div>
+
+          {/* Corporate Events Main Section */}
+          <div className="mb-32" id="corporate-events-section">
+            {/* Corporate Events Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Corporate Events
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* Corporate Events Image Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop&q=80"
+                    alt="Corporate Event Conference"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Corporate Conferences
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop&q=80"
+                    alt="Product Launch Event"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Product Launches
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&h=400&fit=crop&q=80"
+                    alt="Corporate Gala Event"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Corporate Galas
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Celebrity Management Main Section */}
+          <div className="mb-32" id="celebrity-management-section">
+            {/* Celebrity Management Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Celebrity Management
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* Celebrity Management Image Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=400&fit=crop&q=80"
+                    alt="Celebrity Endorsement Campaign"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Celebrity Endorsements
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop&q=80"
+                    alt="Brand Ambassador Event"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Brand Ambassadors
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=400&fit=crop&q=80"
+                    alt="Celebrity Event Appearance"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Celebrity Appearances
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Public Relations Main Section */}
+          <div className="mb-32" id="public-relations-section">
+            {/* Public Relations Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Public Relations (PR)
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* Public Relations Image Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80"
+                    alt="Press Conference"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Press Conferences
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=400&fit=crop&q=80"
+                    alt="Media Relations"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Media Relations
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop&q=80"
+                    alt="Brand Communication"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Brand Communications
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Brand Activations Main Section */}
+          <div className="mb-32" id="brand-activations-section">
+            {/* Brand Activations Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Brand Activations
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* Brand Activations Image Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop&q=80"
+                    alt="Experiential Marketing Event"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Experiential Marketing
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=400&fit=crop&q=80"
+                    alt="Pop-up Store Activation"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Pop-up Activations
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1464047736614-af63643285bf?w=600&h=400&fit=crop&q=80"
+                    alt="Street Marketing Campaign"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Street Marketing
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Branding Main Section */}
+          <div className="mb-32" id="branding-section">
+            {/* Branding Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 scroll-mt-24"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                Branding
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#FFDA00] to-transparent mx-auto mt-4"></div>
+            </motion.div>
+
+            {/* Branding Subsections */}
+            <Section
+              title="Innovative Branding During Festivals"
+              images={festivalImages}
+              index={6}
+              id="festivals"
+            />
+          </div>
         </div>
       </div>
     </div>
