@@ -41,11 +41,11 @@ export const Pr: React.FC = () => {
         <h2 className="text-2xl sm:text-5xl font-bold mb-4">
           Enhance your brand with strategic public relations
         </h2>
-        <p className="text-gray-700 mb-8 sm:text-2xl ">
+        {/* <p className="text-gray-700 mb-8 sm:text-2xl ">
           Effective PR is key to building credibility , managing your public
           image , and ensuring your brand’s narrative is seen and heard in the
           best possible light
-        </p>
+        </p> */}
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/2">
@@ -78,7 +78,7 @@ export const Pr: React.FC = () => {
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Reputation Mangement</span>
+                <span>Press Meet</span>
               </li>
             </ul>
           </div>
@@ -162,11 +162,11 @@ export const Pr: React.FC = () => {
             {/* TEXT */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
-                Ready to amplify your brand with PR
+                Craft stories that resonate, inspire, and elevate your brand
+                presence
               </h2>
               <p className="text-gray-600">
-                Contact us today to start your impactful outdoor advertising
-                campaign
+                Contact us today to start your impactful pr campaign
               </p>
             </div>
             {/* BUTTON */}

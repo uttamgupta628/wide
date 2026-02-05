@@ -1,7 +1,7 @@
 import React from "react";
 
 /* ================== IMAGE IMPORTS ================== */
-import heroImg from "../../assets/cele1.png";
+// import heroImg from "../../assets/cele1.png";
 
 // Celebrities
 import madhumita from "../../assets/cele2.png";
@@ -37,7 +37,7 @@ const Management: React.FC = () => {
       <div className="max-w-7xl mx-auto  py-12 px-4 sm:px-8 space-y-12">
         {/* ================= HEADER ================= */}
         <section>
-          <h1 className="text-3xl font-bold mb-2">Celebrity management</h1>
+          <h1 className="text-3xl font-bold mb-2">Celebrity Management</h1>
           <p className="text-gray-600 max-w-3xl">
             Expert management of celebrity partnerships and appearances to boost
             your brand’s impact and visibility
@@ -48,16 +48,16 @@ const Management: React.FC = () => {
         <section className="bg-[#D0D0D0] rounded-xl p-12 sm:p-20 grid md:grid-cols-2 gap-2 items-center justify-between">
           <div className="relative w-fit">
             <div className="absolute -left-4 -top-4  h-full w-50 bg-yellow-400 rounded-bl-[120px]" />
-            <img
+            {/* <img
               src={heroImg}
               alt="Celebrity"
               className="relative z-10 rounded-bl-[120px] rounded-tr-xl max-w-70"
-            />
+            /> */}
           </div>
 
           <div>
             <h2 className="text-3xl font-bold mb-4">
-              The ultimate platform for planning and promoting successful events
+              The ultimate platform to connect with your favourite celebrities.
             </h2>
             <p className="text-gray-700 max-w-xl">
               The ultimate platform for planning and promoting successful

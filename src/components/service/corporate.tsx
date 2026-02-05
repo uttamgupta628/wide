@@ -26,15 +26,15 @@ export const Corporate: React.FC = () => {
         </p>
 
         <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
-  <img
-    src={billboardImage}
-    alt="OOH Advertising"
-    className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
-  />
+          <img
+            src={billboardImage}
+            alt="OOH Advertising"
+            className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
+          />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
-</div>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -64,22 +64,22 @@ export const Corporate: React.FC = () => {
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Conference & Seminarts</span>
+                <span>Conference & Seminar</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Product Launches</span>
+                <span>Store Launches</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Annual Galas & Award Ceremonies</span>
+                <span>Exhibition</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Team Building Events</span>
+                <span>Team Building Activity</span>
               </li>
             </ul>
           </div>
@@ -87,9 +87,8 @@ export const Corporate: React.FC = () => {
       </section>
 
       {/* Why Choose Section */}
-      <section className="bg-gray-100 py-16 px-6">
+      {/* <section className="bg-gray-100 py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Why Choose Corporate Events?
           </h2>
@@ -98,9 +97,7 @@ export const Corporate: React.FC = () => {
             accomplishments
           </p>
 
-          {/* Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-            {/* High Visibility Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -110,7 +107,6 @@ export const Corporate: React.FC = () => {
                   Reach a vast number of consumers in strategic locations
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -119,7 +115,6 @@ export const Corporate: React.FC = () => {
               </div>
             </div>
 
-            {/* Targeted Reach Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -129,7 +124,6 @@ export const Corporate: React.FC = () => {
                   Effectively reach specific demographics and geographics areas
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -138,7 +132,6 @@ export const Corporate: React.FC = () => {
               </div>
             </div>
 
-            {/* Cost Effective Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -148,7 +141,6 @@ export const Corporate: React.FC = () => {
                   Collborate secristeing your competitior cost in advanced
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -158,9 +150,7 @@ export const Corporate: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Section */}
           <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
-            {/* TEXT */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
                 Ready to amplify your brand with OOH Advertising
@@ -170,7 +160,6 @@ export const Corporate: React.FC = () => {
                 campaign
               </p>
             </div>
-            {/* BUTTON */}
             <button
               onClick={() => (window.location.href = "/contact-us")}
               className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
@@ -179,7 +168,7 @@ export const Corporate: React.FC = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

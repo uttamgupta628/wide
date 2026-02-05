@@ -1,6 +1,13 @@
 import React, { useRef, useState } from "react";
 import { easeOut, motion, useInView } from "framer-motion";
-import { Briefcase, Users, TrendingUp, Award, Target, Lightbulb } from "lucide-react";
+import {
+  Briefcase,
+  Users,
+  TrendingUp,
+  Award,
+  Target,
+  Lightbulb,
+} from "lucide-react";
 import Breadcrumb from "../Global/Breadcrumb";
 import bgImg from "../../assets/Group 11.png";
 
@@ -25,7 +32,9 @@ const CareerPage: React.FC = () => {
   }>({ type: null, message: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -65,7 +74,10 @@ const CareerPage: React.FC = () => {
     try {
       // Create FormData for file upload
       const formDataToSend = new FormData();
-      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_API_KEY);
+      formDataToSend.append(
+        "access_key",
+        import.meta.env.VITE_WEB3FORMS_API_KEY,
+      );
       formDataToSend.append("name", formData.fullName);
       formDataToSend.append("email", formData.emailAddress);
       formDataToSend.append("phone", formData.phoneNumber);
@@ -74,7 +86,7 @@ const CareerPage: React.FC = () => {
         "message",
         `Position: ${formData.position}\nExperience: ${formData.experience} years\n\nCover Letter:\n${formData.coverLetter || "No cover letter provided"}`,
       );
-      
+
       if (formData.resume) {
         formDataToSend.append("attachment", formData.resume);
       }
@@ -163,7 +175,8 @@ const CareerPage: React.FC = () => {
     {
       icon: <Users size={40} />,
       title: "Collaborative Culture",
-      description: "Work with talented professionals in a supportive environment",
+      description:
+        "Work with talented professionals in a supportive environment",
     },
     {
       icon: <Award size={40} />,
@@ -211,13 +224,13 @@ const CareerPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-gray-800 leading-relaxed"
             >
-              Be part of a dynamic team that's shaping the future of branding
-              and advertising. We're looking for passionate, creative
-              individuals to grow with us.
+              Be part of a dynamic team that's shaping the future of
+              advertising. We're looking for passionate and creative individuals
+              to grow with us.
             </motion.p>
           </motion.div>
         </div>
-        
+
         {/* Animated Background Elements */}
         <motion.div
           animate={{
@@ -267,7 +280,7 @@ const CareerPage: React.FC = () => {
             Discover the opportunities and benefits that make Wide Horizons an
             exceptional place to build your career
           </motion.p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
@@ -304,7 +317,7 @@ const CareerPage: React.FC = () => {
             ))}
           </div>
         </div>
-        
+
         {/* Decorative animated circles */}
         <motion.div
           animate={{

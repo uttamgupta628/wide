@@ -156,7 +156,7 @@ const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
             <h2 className="text-3xl md:text-4xl font-bold uppercase text-white">
-              Happy <span className="text-black">CLIENTS' TALES</span>
+              Happy <span className="text-black">CLIENTELE</span>
             </h2>
 
             <p className="mt-4 text-sm md:text-base">
@@ -178,7 +178,7 @@ const TestimonialsPage: React.FC = () => {
       </section>
 
       {/* ================= FILTER ================= */}
-      <section className="py-10 text-center max-w-7xl mx-auto">
+      {/* <section className="py-10 text-center max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto">
           <div className="flex justify-center gap-1 mb-2">⭐⭐⭐⭐⭐</div>
 
@@ -192,7 +192,7 @@ const TestimonialsPage: React.FC = () => {
             and delivering results that truly matter.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= TESTIMONIALS MARQUEE ================= */}
       <section

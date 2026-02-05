@@ -41,7 +41,7 @@ export const OOHAdvertising: React.FC = () => {
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
         <h2 className="text-2xl sm:text-5xl font-bold mb-4">
-          Maximize your brand visibility with OOH Advertising
+          Transform Your Corporate Events into Memories{" "}
         </h2>
         {/* <p className="text-gray-700 mb-8 sm:text-2xl ">
           OOH Advertising is one of the most powerful ways to reach a broad and
@@ -49,15 +49,15 @@ export const OOHAdvertising: React.FC = () => {
         </p> */}
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-full">
+          <div className="lg:w-1/2">
             <img
               src={oohImage}
               alt="Billboard"
               className="rounded-lg w-full h-auto"
             />
           </div>
-          {/* <div className="lg:w-1/2 flex flex-col justify-start gap-8">
-            <h3 className="text-2xl font-semibold">Billboard</h3>
+          <div className="lg:w-1/2 flex flex-col justify-start gap-8">
+            <h3 className="text-2xl font-semibold">Street Furniture</h3>
 
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
@@ -69,18 +69,8 @@ export const OOHAdvertising: React.FC = () => {
                 <span className="text-black text-lg">✓</span>
                 <span>Transit Advertising</span>
               </li>
-
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Street Furniture</span>
-              </li>
-
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Bus & Taxi Wraps</span>
-              </li>
             </ul>
-          </div> */}
+          </div>
         </div>
         <OOHMain />
       </section>

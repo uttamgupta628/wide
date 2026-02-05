@@ -1,7 +1,7 @@
 // import ContactUs from '../components/contactUs/ContactUs';
 import ContactFormSection from "../components/contactUs/ContactFormSection";
 import ContactSection from "../components/contactUs/ContactSection";
-import EventSection from "../components/contactUs/EventSection";
+// import EventSection from "../components/contactUs/EventSection";
 import SuccessSection from "../components/contactUs/SuccessSection";
 import Breadcrumb from "../components/Global/Breadcrumb";
 
@@ -13,7 +13,7 @@ const ContactUsPage = () => {
         items={[{ label: "Home", href: "/" }, { label: "Contact Us" }]}
       />
       {/* // <ContactUs /> */}
-      <EventSection />
+      {/* <EventSection /> */}
       <ContactSection />
       <SuccessSection />
       <ContactFormSection />

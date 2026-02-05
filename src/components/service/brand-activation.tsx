@@ -2,7 +2,7 @@ import React from "react";
 import oohImage from "../../assets/brand.png";
 import billboardImage from "../../assets/brandin.png";
 import Breadcrumb from "../Global/Breadcrumb";
-import Branding from "./Branding";
+// import Branding from "./Branding";
 
 export const BrandActivation: React.FC = () => {
   return (
@@ -17,12 +17,9 @@ export const BrandActivation: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-          Brand Activations
-        </h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Branding</h1>
         <p className="text-gray-700 mb-6">
-          Engaging and experimental campaigns designed to bring your brand to
-          life and contact with your audience
+          Branding that connects, engages, and inspires.
         </p>
 
         <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
@@ -53,54 +50,48 @@ export const BrandActivation: React.FC = () => {
             <img
               src={oohImage}
               alt="Billboard"
-              className="rounded-lg w-full h-auto"
+              className="rounded-lg w-full h-full"
             />
           </div>
           <div className="lg:w-1/2 flex flex-col justify-start gap-8">
-            <h3 className="text-2xl font-semibold">
-              Our brand activation services
-            </h3>
+            <h3 className="text-2xl font-semibold">Branding</h3>
 
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Product Sampling </span>
+                <span>Branding During Festival</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Experimental Marketing</span>
+                <span>Store Branding</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Pop up events</span>
+                <span>Inshop Branding</span>
               </li>
-
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Event sponshership</span>
+                <span>Office Branding</span>
               </li>
             </ul>
           </div>
         </div>
-        <Branding />
+        {/* <Branding /> */}
       </section>
 
       {/* Why Choose Section */}
       <section className="bg-gray-100 py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
+          {/* <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Why Choose Brand Activations ?
           </h2>
           <p className="text-gray-600 text-lg mb-12">
             We deliver despites, how your event talend, meretivey accomplishment
-          </p>
+          </p> */}
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-            {/* High Visibility Card */}
+          {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -110,7 +101,6 @@ export const BrandActivation: React.FC = () => {
                   Capture attention with fun interactive brand experiences
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -119,7 +109,6 @@ export const BrandActivation: React.FC = () => {
               </div>
             </div>
 
-            {/* Targeted Reach Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -129,7 +118,6 @@ export const BrandActivation: React.FC = () => {
                   Increase your brand visibility and reach a wider audience
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -138,7 +126,6 @@ export const BrandActivation: React.FC = () => {
               </div>
             </div>
 
-            {/* Cost Effective Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden relative">
               <div className="p-8 pb-16">
                 <h4 className="font-bold text-xl mb-4 text-gray-900">
@@ -149,7 +136,6 @@ export const BrandActivation: React.FC = () => {
                   brand
                 </p>
               </div>
-              {/* Diagonal accent */}
               <div className="absolute bottom-0 right-0 w-32 h-32">
                 <div
                   className="absolute bottom-0 right-0 w-full h-full bg-[#AF9E9E] transform origin-bottom-right"
@@ -157,18 +143,18 @@ export const BrandActivation: React.FC = () => {
                 ></div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* CTA Section */}
           <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
             {/* TEXT */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
-                Ready to amplify your brand with OOH Advertising
+                Give your brand the spotlight it deserves through innovative,
+                high-impact branding. branding
               </h2>
               <p className="text-gray-600">
-                Contact us today to start your impactful outdoor advertising
-                campaign
+                Contact us today to start your impactful corporate event
               </p>
             </div>
             {/* BUTTON */}
