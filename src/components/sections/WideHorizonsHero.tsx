@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../../assets/herobanner.png";
+import logo from "../../assets/logo.png";
 import heroGirl from "../../assets/herogirl.png";
 
 const WideHorizonsHero: React.FC = () => {
@@ -26,7 +26,7 @@ const WideHorizonsHero: React.FC = () => {
       // Make all items visible at once - stagger is handled by animation delays
       setVisibleCount(services.length);
 
-      // Start rotation AFTER all animations complete (last item starts at 2.5s + 0.8s duration)
+      // Start rotation AFTER all animations complete
       setTimeout(() => {
         setIsInitial(false);
 
@@ -35,17 +35,17 @@ const WideHorizonsHero: React.FC = () => {
             const first = prev[0];
             return [...prev.slice(1), first];
           });
-        }, 3500);
+        }, 2500); // Decreased from 3500 to 2500 to match faster animations
 
         return () => clearInterval(rotationInterval);
-      }, 3500); // Wait for all animations to complete
-    }, 1200); // Delay matches image animation duration
+      }, 2500);
+    }, 1200);
   }, []);
 
   // Loop widest animation every 5 seconds
   React.useEffect(() => {
     const loopInterval = setInterval(() => {
-      setWidestAnimKey(prev => prev + 1);
+      setWidestAnimKey((prev) => prev + 1);
     }, 10000);
 
     return () => clearInterval(loopInterval);
@@ -57,7 +57,7 @@ const WideHorizonsHero: React.FC = () => {
   return (
     <section className="bg-[#FFDA00] relative overflow-hidden">
       <div className="bg-black w-full h-[1px]"></div>
-      
+
       {/* Desktop Version */}
       <div className="hidden lg:block relative w-full max-w-7xl mx-auto h-[700px] px-6">
         {/* LOGO – TOP RIGHT */}
@@ -65,12 +65,12 @@ const WideHorizonsHero: React.FC = () => {
           <img
             src={logo}
             alt="Wide Horizons Advertising Private Limited"
-            className="w-100"
+            className="w-80"
           />
         </div>
 
         {/* GIRL IMAGE – LEFT */}
-        <motion.div 
+        <motion.div
           className="absolute -left-50 bottom-0 w-[340px] h-[540px]"
           initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -92,10 +92,11 @@ const WideHorizonsHero: React.FC = () => {
             const originalIndex = services.indexOf(text);
 
             // Check if this item should be visible based on the sequential reveal
-            const isVisible = isInitial ? originalIndex < visibleCount : true; // All visible after initial animation
+            const isVisible = isInitial ? originalIndex < visibleCount : true;
 
-            // Calculate delay for staggered animation
-            const animationDelay = isInitial && isVisible ? originalIndex * 0.5 : 0;
+            // DECREASED DELAY: Changed from 0.5 to 0.3 for faster sequence
+            const animationDelay =
+              isInitial && isVisible ? originalIndex * 0.3 : 0;
 
             return (
               <motion.p
@@ -120,7 +121,7 @@ const WideHorizonsHero: React.FC = () => {
                   opacity: isVisible ? 1 : 0,
                 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.5, // Decreased from 0.8 to 0.5 for faster slide
                   ease: "easeInOut",
                   delay: animationDelay,
                 }}
@@ -130,7 +131,10 @@ const WideHorizonsHero: React.FC = () => {
                     key={i}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isVisible ? 1 : 0 }}
-                    transition={{ delay: animationDelay + i * 0.03 }}
+                    transition={{
+                      delay: animationDelay + i * 0.015, // Decreased from 0.03 to 0.015 for faster letters
+                      duration: 0.15, // Decreased duration for quicker fade-in
+                    }}
                   >
                     {letter}
                   </motion.span>
@@ -140,41 +144,46 @@ const WideHorizonsHero: React.FC = () => {
           })}
         </motion.div>
 
-        {/* RIGHT BOTTOM – WIDEST BLOCK */}
-        <div className="absolute bottom-24 -right-0 text-right space-y-2" key={widestAnimKey}>
+        {/* RIGHT BOTTOM – WIDEST BLOCK (NOW CENTERED) */}
+        <div
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 text-center space-y-2 font-bell-mt"
+          key={widestAnimKey}
+        >
           {[
-            "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
+            "NETWORK OF MEDIA.",
             "REPERTOIRE OF CUSTOMIZATION.",
           ].map((text, i) => {
             // Calculate delays so each line completes before next starts
             // Line duration: 0.9s slide + (text.length * 0.05s) for letters
             const textDuration = text.length * 0.05; // Time for all letters to appear
             const lineDuration = 0.9 + textDuration; // Total time for one complete line
-            
+
             const slideDelay = i * lineDuration; // Each line starts after previous completes
             const letterStartDelay = slideDelay + 0.9; // Letters start after slide completes
-            
+
             return (
               <motion.div
                 key={i}
-                className="flex justify-end items-end gap-2"
+                className="flex justify-center items-end gap-2"
               >
-                <motion.span 
-                  className="text-2xl italic font-semibold"
+                <motion.span
+                  className="text-3xl italic font-semibold uppercase"
                   initial={{ x: 150, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.9, delay: slideDelay }}
                 >
                   Widest
                 </motion.span>
-                <span className="text-sm tracking-wide uppercase font-3xl mb-1.5">
+                <span className="text-base tracking-wide uppercase font-medium mb-1.5">
                   {text.split("").map((letter, letterIndex) => (
                     <motion.span
                       key={letterIndex}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: letterStartDelay + letterIndex * 0.05 }}
+                      transition={{
+                        delay: letterStartDelay + letterIndex * 0.05,
+                      }}
                     >
                       {letter}
                     </motion.span>
@@ -201,7 +210,7 @@ const WideHorizonsHero: React.FC = () => {
         <div className="space-y-3 mb-12 text-center">
           {services.map((text, index) => {
             const reverseIndex = services.length - 1 - index;
-            
+
             return (
               <div
                 key={text}
@@ -231,10 +240,10 @@ const WideHorizonsHero: React.FC = () => {
         </div>
 
         {/* Widest Block - Styled Cards */}
-        <div className="space-y-4">
+        <div className="space-y-4 font-bell-mt">
           {[
-            "NETWORK OF MEDIA.",
             "GAMUT OF SERVICES.",
+            "NETWORK OF MEDIA.",
             "REPERTOIRE OF CUSTOMIZATION.",
           ].map((text, i) => (
             <div
@@ -242,7 +251,7 @@ const WideHorizonsHero: React.FC = () => {
               className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 shadow-md border-2 border-[#3d3533]/10 hover:border-[#3d3533]/30 transition-all duration-300"
             >
               <div className="flex flex-col items-center gap-2">
-                <span className="text-xl sm:text-2xl italic font-bold text-[#3d3533]">
+                <span className="text-xl sm:text-2xl italic font-bold text-[#3d3533] ">
                   Widest
                 </span>
                 <span className="text-xs sm:text-sm tracking-widest uppercase font-semibold text-[#3d3533]/80">

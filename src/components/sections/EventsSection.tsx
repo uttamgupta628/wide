@@ -9,48 +9,48 @@ import pr from "../../assets/public.png";
 import branding from "../../assets/branding.png";
 
 const services = [
-  { 
-    title: "Out-of-Home Advertising", 
+  {
+    title: "Out-of-Home Advertising",
     image: ooh,
-    sectionId: "ooh-section" // Links to OOH main section
+    sectionId: "ooh-section", // Links to OOH main section
   },
-  { 
-    title: "CORPORATE EVENTS", 
+  {
+    title: "CORPORATE EVENTS",
     image: corporate,
-    sectionId: "corporate-events-section" // Links to Corporate Events main section
+    sectionId: "corporate-events-section", // Links to Corporate Events main section
   },
-  { 
-    title: "BRAND ACTIVATIONS", 
+  {
+    title: "BRAND ACTIVATIONS",
     image: activation,
-    sectionId: "brand-activations-section" // Links to Brand Activations main section
+    sectionId: "brand-activations-section", // Links to Brand Activations main section
   },
-  { 
-    title: "CELEBRITY MANAGEMENT", 
+  {
+    title: "CELEBRITY MANAGEMENT",
     image: celebrity,
-    sectionId: "celebrity-management-section" // Links to Celebrity Management main section
+    sectionId: "celebrity-management-section", // Links to Celebrity Management main section
   },
-  { 
-    title: "PUBLIC RELATION (PR)", 
+  {
+    title: "PUBLIC RELATION (PR)",
     image: pr,
-    sectionId: "public-relations-section" // Links to Public Relations main section
+    sectionId: "public-relations-section", // Links to Public Relations main section
   },
-  { 
-    title: "BRANDING", 
+  {
+    title: "BRANDING",
     image: branding,
-    sectionId: "branding-section" // Links to Branding main section
+    sectionId: "branding-section", // Links to Branding main section
   },
 ];
 
 export default function EventsSection() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = cardsRef.current.indexOf(
-              entry.target as HTMLDivElement
+              entry.target as HTMLDivElement,
             );
             if (index !== -1) {
               setTimeout(() => {
@@ -60,7 +60,7 @@ export default function EventsSection() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
     cardsRef.current.forEach((card) => card && observer.observe(card));
     return () => observer.disconnect();
@@ -69,7 +69,6 @@ export default function EventsSection() {
   return (
     <section className="w-full bg-[#f5f5f5] py-20">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* HEADING */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">
@@ -117,7 +116,7 @@ export default function EventsSection() {
                   src={service.image}
                   alt={service.title}
                   className="
-                    w-full h-full object-cover opacity-50
+                    w-full h-full object-cover 
                     transition-transform duration-500 ease-out
                     group-hover:scale-105
                   "
