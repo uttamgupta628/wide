@@ -25,15 +25,15 @@ export const Branding: React.FC = () => {
         </p>
 
         <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
-  <img
-    src={billboardImage}
-    alt="OOH Advertising"
-    className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
-  />
+          <img
+            src={billboardImage}
+            alt="OOH Advertising"
+            className="w-full h-120 object-cover rounded-3xl transition-transform duration-700 ease-out group-hover:scale-110"
+          />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
-</div>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -83,6 +83,7 @@ export const Branding: React.FC = () => {
             </ul>
           </div>
         </div>
+        <Branding />
       </section>
 
       {/* Why Choose Section */}

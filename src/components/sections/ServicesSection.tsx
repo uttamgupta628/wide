@@ -28,7 +28,7 @@ export const ServicesSection = () => {
     },
     {
       icon: <Mic className="w-10 h-10" />,
-      title: "Public Relations (PR) + ",
+      title: "Public Relations (PR) & ",
       sub: "News Paper Release",
       path: "/services/pr",
     },

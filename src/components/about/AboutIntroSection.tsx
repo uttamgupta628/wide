@@ -181,11 +181,11 @@ function AboutIntroSection() {
                   style={{ overflow: "hidden" }}
                 >
                   <p className="mb-4">
-                    With over two and half years of industry experience, we have
-                    grown organically by delivering measurable value to brands
-                    while building strong partnerships with media owners and
-                    agencies across India. Our integrated approach ensures
-                    seamless execution and nationwide reach.
+                    With 25 years of industry experience, we have grown
+                    organically by delivering measurable value to brands while
+                    building strong partnerships with media owners and agencies
+                    across India. Our integrated approach ensures seamless
+                    execution and nationwide reach.
                   </p>
 
                   <p className="mb-4">
@@ -197,8 +197,8 @@ function AboutIntroSection() {
 
                   <p>
                     Driven by deep market understanding and strategic expertise,
-                    we create naturally integrated OOH solutions that amplify
-                    brand visibility, drive recall, and deliver lasting impact.
+                    we create naturally integrated solutions that amplify brand
+                    visibility, drive recall, and deliver lasting impact.
                   </p>
                 </motion.div>
               )}

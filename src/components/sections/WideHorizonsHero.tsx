@@ -144,54 +144,55 @@ const WideHorizonsHero: React.FC = () => {
           })}
         </motion.div>
 
-        {/* RIGHT BOTTOM – WIDEST BLOCK (NOW CENTERED) */}
         <div
-          className="absolute bottom-24 left-1/2 -translate-x-1/2 text-center space-y-2 font-bell-mt"
+          className="absolute bottom-24 right-0 font-bell-mt flex justify-end"
           key={widestAnimKey}
         >
-          {[
-            "GAMUT OF SERVICES.",
-            "NETWORK OF MEDIA.",
-            "REPERTOIRE OF CUSTOMIZATION.",
-          ].map((text, i) => {
-            // Calculate delays so each line completes before next starts
-            // Line duration: 0.9s slide + (text.length * 0.05s) for letters
-            const textDuration = text.length * 0.05; // Time for all letters to appear
-            const lineDuration = 0.9 + textDuration; // Total time for one complete line
+          <div className="max-w-md text-center space-y-2">
+            {[
+              "GAMUT OF SERVICES.",
+              "NETWORK OF MEDIA.",
+              "REPERTOIRE OF CUSTOMIZATION.",
+            ].map((text, i) => {
+              // Calculate delays so each line completes before next starts
+              // Line duration: 0.9s slide + (text.length * 0.05s) for letters
+              const textDuration = text.length * 0.05; // Time for all letters to appear
+              const lineDuration = 0.9 + textDuration; // Total time for one complete line
 
-            const slideDelay = i * lineDuration; // Each line starts after previous completes
-            const letterStartDelay = slideDelay + 0.9; // Letters start after slide completes
+              const slideDelay = i * lineDuration; // Each line starts after previous completes
+              const letterStartDelay = slideDelay + 0.9; // Letters start after slide completes
 
-            return (
-              <motion.div
-                key={i}
-                className="flex justify-center items-end gap-2"
-              >
-                <motion.span
-                  className="text-3xl italic font-semibold uppercase"
-                  initial={{ x: 150, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.9, delay: slideDelay }}
+              return (
+                <motion.div
+                  key={i}
+                  className="flex justify-center items-end gap-3"
                 >
-                  Widest
-                </motion.span>
-                <span className="text-base tracking-wide uppercase font-medium mb-1.5">
-                  {text.split("").map((letter, letterIndex) => (
-                    <motion.span
-                      key={letterIndex}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{
-                        delay: letterStartDelay + letterIndex * 0.05,
-                      }}
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
-                </span>
-              </motion.div>
-            );
-          })}
+                  <motion.span
+                    className="text-5xl italic font-semibold lowercase"
+                    initial={{ x: 150, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.9, delay: slideDelay }}
+                  >
+                    Widest
+                  </motion.span>
+                  <span className="text-xl lowercase font-medium mb-1.5">
+                    {text.split("").map((letter, letterIndex) => (
+                      <motion.span
+                        key={letterIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          delay: letterStartDelay + letterIndex * 0.05,
+                        }}
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -250,11 +251,11 @@ const WideHorizonsHero: React.FC = () => {
               key={i}
               className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 shadow-md border-2 border-[#3d3533]/10 hover:border-[#3d3533]/30 transition-all duration-300"
             >
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 lowercase">
                 <span className="text-xl sm:text-2xl italic font-bold text-[#3d3533] ">
                   Widest
                 </span>
-                <span className="text-xs sm:text-sm tracking-widest uppercase font-semibold text-[#3d3533]/80">
+                <span className="text-xs sm:text-sm tracking-widest lowercase font-semibold text-[#3d3533]/80">
                   {text}
                 </span>
               </div>

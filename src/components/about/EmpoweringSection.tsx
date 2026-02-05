@@ -115,7 +115,7 @@ const EmpoweringSection = () => {
             backgroundImage: "linear-gradient(90deg, #FFDA00 0%, #998300 100%)",
           }}
         >
-          Empowering Your brand for Unmatched Growth
+          Empowering Your Brand For Unmatched Growth
         </motion.h2>
 
         <motion.p

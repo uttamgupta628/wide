@@ -11,14 +11,14 @@ export const Pr: React.FC = () => {
         items={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },
-          { label: "Public relations (PR)" },
+          { label: "Public relations (PR) & News Paper Release" },
         ]}
       />
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
         <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-          Public relations (PR)
+          Public relations (PR) & News Paper Release
         </h1>
         <p className="text-gray-700 mb-6">
           Strategic public realtions services to enhance your brand ‘s
@@ -34,7 +34,6 @@ export const Pr: React.FC = () => {
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/30 transition-opacity duration-700 group-hover:bg-black/45"></div>
         </div>
-        
       </section>
 
       {/* Features Section */}

@@ -301,21 +301,21 @@ const Portfolio: React.FC = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#FFDA00] text-black px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#FFDA00] text-black px-6 py-2 rounded-full text-sm sm:text-xl md:text-2xl font-semibold mb-6 shadow-lg"
             >
-              <Sparkles size={18} />
-              Our Work
+              <Sparkles size={24} />
+              Experiences That Bring Brands to Life
             </motion.div>
 
             {/* Main Title */}
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="!text-2xl sm:text-5xl md:text-6xl  mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
             >
               Experiences That Bring Brands to Life
-            </motion.h1>
+            </motion.h1> */}
 
             {/* Subtitle */}
             <motion.p
