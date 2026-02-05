@@ -2,8 +2,9 @@ import React from "react";
 import oohImage from "../../assets/brand.png";
 import billboardImage from "../../assets/brandin.png";
 import Breadcrumb from "../Global/Breadcrumb";
+import Branding from "./Branding";
 
-export const Branding: React.FC = () => {
+export const BrandActivation: React.FC = () => {
   return (
     <div className="bg-[#F8F6F5]">
       {/* Breadcrumb */}

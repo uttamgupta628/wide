@@ -37,41 +37,6 @@ import w2 from "../../assets/wall2.png";
 import w3 from "../../assets/wall3.png";
 import w4 from "../../assets/wall4.png";
 import w5 from "../../assets/wall5.png";
-import p1 from "../../assets/pan1.png";
-import p2 from "../../assets/pan2.png";
-import p3 from "../../assets/pan3.png";
-import p4 from "../../assets/pan4.png";
-import p5 from "../../assets/pan5.png";
-import p6 from "../../assets/pan6.png";
-import p7 from "../../assets/pan7.png";
-import p8 from "../../assets/pan8.png";
-import p9 from "../../assets/pan9.png";
-import p10 from "../../assets/pan10.png";
-import p11 from "../../assets/pan11.png";
-import p12 from "../../assets/pan12.png";
-import p13 from "../../assets/pan13.png";
-import p14 from "../../assets/pan14.png";
-import p15 from "../../assets/pan15.png";
-import p16 from "../../assets/pan16.png";
-
-const pandal = [
-  p1,
-  p2,
-  p3,
-  p4,
-  p5,
-  p6,
-  p7,
-  p8,
-  p9,
-  p10,
-  p11,
-  p12,
-  p13,
-  p14,
-  p15,
-  p16,
-];
 
 const northImages = [n1, n2, n3, n4, n5, n6, n7];
 const eastImages = [e1, e2, e3, e4, e5, e6, e7, e8];
@@ -351,12 +316,6 @@ const OOHMain: React.FC = () => {
               images={wallWrapImages}
               index={5}
               id="branding"
-            />
-            <Section
-              title="Brand Integration with Renowned Pandals"
-              images={pandal}
-              index={7}
-              id="pandals"
             />
           </div>
         </div>

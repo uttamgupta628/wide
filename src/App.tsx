@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import ContactUsPage from './pages/contactUs';
-import TestimonialsPage from './pages/TestimonialsPage';
-import ServicePage from './pages/ServicePage';
-import { OOHAdvertising } from './components/service/OOH';
-import { Layout } from './components/layout/Layout';
-import { Corporate } from './components/service/corporate';
-import { Branding } from './components/service/brand-activation';
-import  Management  from './components/service/celebrity-management';
-import { Pr } from './components/service/pr';
-import OurProcess from './pages/processPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import { AboutPage } from "./pages/AboutPage";
+import ContactUsPage from "./pages/contactUs";
+import TestimonialsPage from "./pages/TestimonialsPage";
+import ServicePage from "./pages/ServicePage";
+import { OOHAdvertising } from "./components/service/OOH";
+import { Layout } from "./components/layout/Layout";
+import { Corporate } from "./components/service/corporate";
+import Management from "./components/service/celebrity-management";
+import { Pr } from "./components/service/pr";
+import OurProcess from "./pages/processPage";
 import PortfolioPage from "./pages/Portfoliopage";
-import CareerPage from './components/career/Careerpage';
+import CareerPage from "./components/career/Careerpage";
+import { BrandActivation } from "./components/service/brand-activation";
 
 function App() {
   return (
@@ -26,13 +26,12 @@ function App() {
           <Route path="/services" element={<ServicePage />} />
           <Route path="/services/ooh" element={<OOHAdvertising />} />
           <Route path="/services/corporate" element={<Corporate />} />
-          <Route path="/services/branding" element={<Branding />} />
-          <Route path="/services/management" element={<Management/>} />
-          <Route path="/services/pr" element={<Pr/>} />
-          <Route path="/process" element={<OurProcess/>} />
+          <Route path="/services/branding" element={<BrandActivation />} />
+          <Route path="/services/management" element={<Management />} />
+          <Route path="/services/pr" element={<Pr />} />
+          <Route path="/process" element={<OurProcess />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/careers" element={<CareerPage />} />
-          
         </Route>
       </Routes>
     </BrowserRouter>
