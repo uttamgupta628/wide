@@ -389,7 +389,13 @@ const Portfolio: React.FC = () => {
               id="brand-activations"
             />
             <Section
-              title="Transit Media"
+              title="Transit Advertising"
+              images={transitImages}
+              index={3}
+              id="celebrity-management"
+            />
+            <Section
+              title="Transit Advertising"
               images={transitImages}
               index={3}
               id="celebrity-management"

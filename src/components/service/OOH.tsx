@@ -43,20 +43,20 @@ export const OOHAdvertising: React.FC = () => {
         <h2 className="text-2xl sm:text-5xl font-bold mb-4">
           Maximize your brand visibility with OOH Advertising
         </h2>
-        <p className="text-gray-700 mb-8 sm:text-2xl ">
+        {/* <p className="text-gray-700 mb-8 sm:text-2xl ">
           OOH Advertising is one of the most powerful ways to reach a broad and
           captive audience
-        </p>
+        </p> */}
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/2">
+          <div className="lg:w-full">
             <img
               src={oohImage}
               alt="Billboard"
               className="rounded-lg w-full h-auto"
             />
           </div>
-          <div className="lg:w-1/2 flex flex-col justify-start gap-8">
+          {/* <div className="lg:w-1/2 flex flex-col justify-start gap-8">
             <h3 className="text-2xl font-semibold">Billboard</h3>
 
             <ul className="space-y-4 text-gray-800">
@@ -80,7 +80,7 @@ export const OOHAdvertising: React.FC = () => {
                 <span>Bus & Taxi Wraps</span>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <OOHMain />
       </section>

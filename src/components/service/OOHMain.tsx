@@ -44,6 +44,7 @@ const southImages = [s1, s2, s3, s4];
 const transitImages = [m1, m2, m3, m4, m5, m6];
 const rwaImages = [d1, d2, d3];
 const wallWrapImages = [w1, w2, w3, w4, w5];
+const billboard = [w2, w4, n3, s3];
 
 const Section = ({
   title,
@@ -300,21 +301,27 @@ const OOHMain: React.FC = () => {
               id="brand-activations"
             />
             <Section
-              title="Transit Media"
+              title="Transit Advertising"
               images={transitImages}
               index={3}
               id="celebrity-management"
             />
             <Section
+              title="Conventional Billboard"
+              images={billboard}
+              index={4}
+              id="celebrity-management"
+            />
+            <Section
               title="RWA Digital Screens"
               images={rwaImages}
-              index={4}
+              index={5}
               id="public-relations"
             />
             <Section
               title="Wall Wraps in India"
               images={wallWrapImages}
-              index={5}
+              index={6}
               id="branding"
             />
           </div>
