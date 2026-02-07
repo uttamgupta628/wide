@@ -62,20 +62,56 @@ export const OOHAdvertising: React.FC = () => {
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Digital Displays</span>
+                <span>Billboard</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Transit Advertising</span>
+                <span>Transit Media</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-black text-lg">✓</span>
+                <span>Digital Displays</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-black text-lg">✓</span>
+                <span>Monopole</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-black text-lg">✓</span>
+                <span>Gantry & FOB</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-black text-lg">✓</span>
+                <span>BQS</span>
               </li>
             </ul>
           </div>
         </div>
-        <OOHMain />
+        {/* <OOHMain /> */}
       </section>
 
       {/* Why Choose Section */}
+       <section className="bg-gray-100 py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+         
+
+          <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
+                Ready to amplify your brand with OOH Advertising
+              </h2>
+             
+            </div>
+            <button
+              onClick={() => (window.location.href = "/contact-us")}
+              className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
+            >
+              Contact us
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

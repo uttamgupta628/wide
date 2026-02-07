@@ -4,7 +4,7 @@ import billboardImage from "../../assets/brandin.png";
 import Breadcrumb from "../Global/Breadcrumb";
 // import Branding from "./Branding";
 
-export const BrandActivation: React.FC = () => {
+export const Brand: React.FC = () => {
   return (
     <div className="bg-[#F8F6F5]">
       {/* Breadcrumb */}
@@ -17,9 +17,9 @@ export const BrandActivation: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Branding Activations</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Branding </h1>
         <p className="text-gray-700 mb-6">
-          Engaging and Experiential campaigns designed to bring your brand to life.
+          Branding that connects, engages, and inspires.
         </p>
 
         <div className="group relative w-full h-120 overflow-hidden rounded-3xl shadow-lg">
@@ -49,43 +49,28 @@ export const BrandActivation: React.FC = () => {
             />
           </div>
           <div className="lg:w-1/2 flex flex-col justify-start gap-8">
-            <h3 className="text-2xl font-semibold">Branding Activation Services</h3>
+            <h3 className="text-2xl font-semibold">Branding </h3>
 
             <ul className="space-y-4 text-gray-800">
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Product Sampling</span>
+                <span>Branding During Festival</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Experimental Marketing</span>
+                <span>Store Branding</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>Pup Up Events</span>
+                <span>Inshop Branding </span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-black text-lg">✓</span>
-                <span>School & College Activities</span>
+                <span>Office Branding</span>
               </li>
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>RWA Activities</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Canter Activities</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Mall Activities</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-black text-lg">✓</span>
-                <span>Stall Activities</span>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -161,7 +146,7 @@ export const BrandActivation: React.FC = () => {
             {/* TEXT */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
-                Ignite your brand with powerful activation strategies that drive real engagement
+                Give your brand the spotlight it deserves through innovative, high-impact branding
               </h2>
              
             </div>

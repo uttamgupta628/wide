@@ -104,7 +104,7 @@ export const AboutCTA = () => {
               animate={isInView ? "visible" : "hidden"}
               className="text-3xl font-semibold leading-tight mb-4 whitespace-nowrap"
             >
-              Let's Get Your Brand Notice
+              Visibility that drives real growth
             </motion.h3>
             <Link to="/contact-us">
               <motion.button

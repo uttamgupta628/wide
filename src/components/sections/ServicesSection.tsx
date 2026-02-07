@@ -29,13 +29,13 @@ export const ServicesSection = () => {
     {
       icon: <Mic className="w-10 h-10" />,
       title: "Public Relations (PR) & ",
-      sub: "News Paper Release",
+      sub: "NewsPaper Release",
       path: "/services/pr",
     },
     {
       icon: <Edit3 className="w-10 h-10" />,
       title: "Branding",
-      path: "/services/branding",
+      path: "/services/brand",
     },
   ];
 

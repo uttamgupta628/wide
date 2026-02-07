@@ -13,6 +13,7 @@ import OurProcess from "./pages/processPage";
 import PortfolioPage from "./pages/Portfoliopage";
 import CareerPage from "./components/career/Careerpage";
 import { BrandActivation } from "./components/service/brand-activation";
+import { Brand } from "./components/service/brand";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/process" element={<OurProcess />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/careers" element={<CareerPage />} />
+          <Route path="/services/brand" element={<Brand />} />
         </Route>
       </Routes>
     </BrowserRouter>

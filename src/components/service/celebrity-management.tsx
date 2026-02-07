@@ -3,23 +3,23 @@ import React from "react";
 /* ================== IMAGE IMPORTS ================== */
 // import heroImg from "../../assets/cele1.png";
 
-// Celebrities
-import madhumita from "../../assets/cele2.png";
-import shiboprosad from "../../assets/cele3.png";
-import trina from "../../assets/cele4.png";
-import oindrila from "../../assets/cele5.png";
+// // Celebrities
+// import madhumita from "../../assets/cele2.png";
+// import shiboprosad from "../../assets/cele3.png";
+// import trina from "../../assets/cele4.png";
+// import oindrila from "../../assets/cele5.png";
 
-// Press Meets
-import pressMain from "../../assets/cele6.png";
-import press1 from "../../assets/cele7.png";
-import press2 from "../../assets/cele8.png";
+// // Press Meets
+// import pressMain from "../../assets/cele6.png";
+// import press1 from "../../assets/cele7.png";
+// import press2 from "../../assets/cele8.png";
 
-// Meet & Greet
-import meet1 from "../../assets/cele9.png";
-import meet2 from "../../assets/cele10.png";
-import meet3 from "../../assets/cele11.png";
-import meet4 from "../../assets/cele12.png";
-import meet5 from "../../assets/cele13.png";
+// // Meet & Greet
+// import meet1 from "../../assets/cele9.png";
+// import meet2 from "../../assets/cele10.png";
+// import meet3 from "../../assets/cele11.png";
+// import meet4 from "../../assets/cele12.png";
+// import meet5 from "../../assets/cele13.png";
 import Breadcrumb from "../Global/Breadcrumb";
 
 /* ================================================== */
@@ -57,7 +57,7 @@ const Management: React.FC = () => {
 
           <div>
             <h2 className="text-3xl font-bold mb-4">
-              The ultimate platform to connect with your favourite celebrities.
+              the ultimate platform to connect with your favourite celebrities
             </h2>
             <p className="text-gray-700 max-w-xl">
               The ultimate platform for planning and promoting successful
@@ -69,17 +69,25 @@ const Management: React.FC = () => {
         </section>
 
         {/* ================= CELEBRITY GRID ================= */}
-        <section className="grid sm:grid-cols-2 gap-14">
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-14">
           {[
-            { img: madhumita, name: "Madhumita Sarkar" },
-            { img: shiboprosad, name: "Shiboprosad Mukherjee" },
-            { img: trina, name: "Trina Saha" },
-            { img: oindrila, name: "Oindrila Sen" },
+            {
+              img: "https://res.cloudinary.com/demo/image/upload/w_400,h_500,c_fill/sample.jpg",
+              name: "Madhumita Sarkar",
+            },
+            {
+              img: "https://res.cloudinary.com/demo/image/upload/w_400,h_500,c_fill/woman.jpg",
+              name: "Shiboprosad Mukherjee",
+            },
+            {
+              img: "https://res.cloudinary.com/demo/image/upload/w_400,h_500,c_fill/face_top.jpg",
+              name: "Trina Saha",
+            },
           ].map((celeb, i) => (
-            <div key={i} className="flex items-center gap-6">
+            <div key={i} className="flex flex-col gap-4">
               <img
                 src={celeb.img}
-                className="w-44 h-60 object-cover rounded-xl"
+                className="w-full h-80 object-cover rounded-xl"
                 alt={celeb.name}
               />
               <div className="flex items-center gap-3">
@@ -92,49 +100,22 @@ const Management: React.FC = () => {
           ))}
         </section>
 
-        {/* ================= PRESS MEETS ================= */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">Press Meets</h2>
-          <p className="text-gray-600 max-w-3xl mb-8">
-            Press meets are organized media briefings where officials share
-            news, answer questions, and shape public communication with
-            journalists.
-          </p>
-
-          <div className="mb-8">
-            <img
-              src={pressMain}
-              alt="Press Meet"
-              className="rounded-xl w-full object-cover"
-            />
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            <img src={press1} className="rounded-xl" alt="Press" />
-            <img src={press2} className="rounded-xl" alt="Press" />
-          </div>
-        </section>
-
-        {/* ================= MEET & GREET ================= */}
-        <section>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-1 h-10 bg-yellow-400" />
-            <div className="bg-white px-6 py-3 rounded-lg shadow-sm text-sm font-semibold uppercase">
-              Meet & Greet with Celebrity
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 sm:p-8 rounded-lg shadow gap-4">
+            {/* TEXT */}
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <h2 className="text-gray-700 font-medium text-xl sm:text-2xl">
+                Where star power meets strategy — elevate your celebrity brand to new heights
+              </h2>
+             
             </div>
+            {/* BUTTON */}
+            <button
+              onClick={() => (window.location.href = "/contact-us")}
+              className="bg-[#3C3533] text-white px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
+            >
+              Contact us
+            </button>
           </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[meet1, meet2, meet3, meet4, meet5].map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt="Meet & Greet"
-                className="rounded-xl h-44 w-full object-cover hover:scale-105 transition"
-              />
-            ))}
-          </div>
-        </section>
       </div>
     </div>
   );

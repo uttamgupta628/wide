@@ -10,7 +10,7 @@ import branding from "../../assets/branding.png";
 
 const services = [
   {
-    title: "Out-of-Home Advertising",
+    title: "Out-of-Home Advertising (OOH)",
     image: ooh,
     sectionId: "ooh-section", // Links to OOH main section
   },
@@ -30,7 +30,7 @@ const services = [
     sectionId: "celebrity-management-section", // Links to Celebrity Management main section
   },
   {
-    title: "PUBLIC RELATION (PR)",
+    title: "PUBLIC RELATION (PR) & NEWSPAPER RELEASE",
     image: pr,
     sectionId: "public-relations-section", // Links to Public Relations main section
   },

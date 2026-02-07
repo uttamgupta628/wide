@@ -224,9 +224,7 @@ const CareerPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-gray-800 leading-relaxed"
             >
-              Be part of a dynamic team that's shaping the future of
-              advertising. We're looking for passionate and creative individuals
-              to grow with us.
+              Be part of a dynamic team that's shaping the future of advertising. We're looking for passionate and  creative individuals to grow with us.
             </motion.p>
           </motion.div>
         </div>

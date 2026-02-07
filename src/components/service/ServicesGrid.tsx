@@ -35,7 +35,7 @@ export const ServiceGrid = () => {
     {
       icon: <Edit3 className="w-10 h-10" />,
       title: "Branding",
-      path: "/services/branding",
+      path: "/services/brand",
     },
   ];
 

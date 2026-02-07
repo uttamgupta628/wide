@@ -25,6 +25,7 @@ import cream from "../assets/cream.png";
 import ds from "../assets/ds.png";
 // import car from "../assets/car.png";
 import ori from "../assets/ori.png";
+import sha from "../assets/sha.png";
 
 export const clients: Client[] = [
   {
@@ -47,6 +48,7 @@ export const clients: Client[] = [
   { name: "Royal", img: Royal },
   { name: "Adani", img: adani },
   { name: "byjus", img: byjus },
+  { name: "SHA", img: sha },
   // { name: "car", img: car },
   // { name: "ABP", img: abp },
   { name: "Cipla", img: cipla },
