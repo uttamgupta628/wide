@@ -2,7 +2,6 @@ import React from "react";
 import oohImage from "../../assets/ooh3.png";
 import billboardImage from "../../assets/ooh2.png";
 import Breadcrumb from "../Global/Breadcrumb";
-import OOHMain from "./OOHMain";
 
 export const OOHAdvertising: React.FC = () => {
   return (

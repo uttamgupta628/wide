@@ -12,7 +12,7 @@ export const BrandActivation: React.FC = () => {
         items={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },
-          { label: "Branding" },
+          { label: "Brand Activation" },
         ]}
       />
       {/* Hero Section */}

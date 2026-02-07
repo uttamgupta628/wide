@@ -35,6 +35,7 @@ export const ServicesSection = () => {
     {
       icon: <Edit3 className="w-10 h-10" />,
       title: "Branding",
+      sub: "Activation",  
       path: "/services/brand",
     },
   ];
