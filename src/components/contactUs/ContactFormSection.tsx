@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { easeOut, motion, useInView } from "framer-motion";
-import bgImg from "../../assets/Group 11.png";
+import bgImg from "../../assets/bg.png";
 
 const ContactFormSection: React.FC = () => {
   const ref = useRef(null);

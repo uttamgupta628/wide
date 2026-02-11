@@ -9,7 +9,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import Breadcrumb from "../Global/Breadcrumb";
-import bgImg from "../../assets/Group 11.png";
+import bgImg from "../../assets/bg.png";
 
 const CareerPage: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);

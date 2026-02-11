@@ -77,9 +77,9 @@ const pandal = [
   p16,
 ];
 
-const northImages = [n1, n2, n3, n4, n5, n6, n7];
-const eastImages = [e1, e2, e3, e4, e5, e6, e7, e8];
-const southImages = [s1, s2, s3, s4];
+const northImages = [n1, n2, n3, n4, n5, n6, n7,e1, e2, e3, e4, e5, e6, e7, e8,s1, s2, s3, s4];
+// const eastImages = [e1, e2, e3, e4, e5, e6, e7, e8];
+// const southImages = [s1, s2, s3, s4];
 const transitImages = [m1, m2, m3, m4, m5, m6];
 const rwaImages = [d1, d2, d3];
 const wallWrapImages = [w1, w2, w3, w4, w5];
@@ -371,31 +371,31 @@ const Portfolio: React.FC = () => {
 
             {/* OOH Subsections */}
             <Section
-              title="Conventional Outdoor - North"
+              title="Conventional Outdoor"
               images={northImages}
               index={0}
               id="ooh-advertising"
             />
-            <Section
+            {/* <Section
               title="Conventional Outdoor Campaign - East"
               images={eastImages}
               index={1}
               id="corporate-events"
-            />
-            <Section
+            /> */}
+            {/* <Section
               title="Conventional Outdoor Campaign - South"
               images={southImages}
               index={2}
               id="brand-activations"
-            />
-            <Section
+            /> */}
+            {/* <Section
               title="Transit Advertising"
               images={transitImages}
               index={3}
               id="celebrity-management"
-            />
+            /> */}
             <Section
-              title="Transit Advertising"
+              title="Transit Media"
               images={transitImages}
               index={3}
               id="celebrity-management"
@@ -412,12 +412,7 @@ const Portfolio: React.FC = () => {
               index={5}
               id="branding"
             />
-            <Section
-              title="Brand Integration with Renowned Pandals"
-              images={pandal}
-              index={7}
-              id="pandals"
-            />
+           
           </div>
 
           {/* Corporate Events Main Section */}
@@ -787,6 +782,12 @@ const Portfolio: React.FC = () => {
               images={festivalImages}
               index={6}
               id="festivals"
+            />
+             <Section
+              title="Brand Integration with Renowned Pandals"
+              images={pandal}
+              index={7}
+              id="branding"
             />
           </div>
         </div>
